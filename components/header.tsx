@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { Linkedin, Mail } from "lucide-react";
 
@@ -19,7 +18,7 @@ function GridIcon({ className }: { className?: string }) {
   );
 }
 
-export function Header() {
+export function Header({ activePage }: { activePage?: string }) {
   return (
     <header className="sticky top-0 z-50 bg-background">
       <div className="flex items-center justify-between px-8 py-6 md:px-16 lg:px-24 xl:px-32">
@@ -27,29 +26,23 @@ export function Header() {
           <span className="text-xl font-medium">郑</span>
           <span className="text-xl font-medium">Sam Cheng</span>
         </Link>
-
         <nav className="flex items-center gap-6 md:gap-8">
           <div className="hidden items-center gap-6 sm:flex">
             <Link
-              href="#work"
-              className="text-primary text-base font-medium"
+              href="/#work"
+              className={`text-primary text-base font-medium ${activePage === "work" ? "underline underline-offset-4" : ""}`}
             >
               work
             </Link>
             <Link
-              href="#about"
-              className="text-primary text-base font-medium"
+              href="/about"
+              className={`text-primary text-base font-medium ${activePage === "about" ? "underline underline-offset-4" : ""}`}
             >
               about
             </Link>
           </div>
-
           <div className="flex items-center gap-4">
-            <Link
-              href="#work"
-              className="text-primary"
-              aria-label="View portfolio"
-            >
+            <Link href="/#work" className="text-primary" aria-label="View portfolio">
               <GridIcon className="h-5 w-5" />
             </Link>
             <Link

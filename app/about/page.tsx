@@ -1,0 +1,84 @@
+import Image from "next/image";
+import Link from "next/link";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+
+export const metadata = {
+  title: "About | Sam Cheng",
+  description:
+    "Sam Cheng is a product designer building for social good at the intersection of technology, community, and regenerative systems change.",
+};
+
+export default function About() {
+  return (
+    <main className="min-h-screen">
+      <Header activePage="about" />
+      <section className="px-8 md:px-16 lg:px-24 xl:px-32 py-16 md:py-24">
+        {/* Label */}
+        <div className="mb-10">
+          <span className="inline-block rounded-full border border-primary px-5 py-2 text-base font-medium text-primary">
+            About me
+          </span>
+        </div>
+        {/* Heading + Photo row */}
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
+          <div className="md:max-w-2xl">
+            <h1 className="mb-8 text-4xl leading-tight tracking-tight md:text-5xl">
+              <span className="font-serif italic">Hello, I&apos;m</span>{" "}
+              <span className="font-sans font-semibold">Sam!</span>
+            </h1>
+            <div className="space-y-6 text-lg leading-relaxed text-foreground">
+              <p>
+                My path to design runs through urban farms, café counters, and startup teams — each
+                stop along the way deepening my appreciation for thoughtfully crafted experiences
+                that bring people together. I&apos;m motivated by the belief that design is one of
+                the most powerful tools we have for imagining and enacting more livable futures for
+                people and planet, and I bring that conviction into my practice through
+                human-centered design, systems thinking, and equity work.
+              </p>
+              <p>
+                I hold a self-designed degree in urban agroecology from NYU Gallatin — my
+                interdisciplinary training (combined with years of experience in marketing and
+                hospitality) directly informs how I approach my design work. I&apos;m currently
+                enrolled in the Stanford d.school&apos;s Design for Social Impact workshop to
+                further grow my practice.
+              </p>
+              <p>
+                Outside of work, you can find me making (and eating) ice cream, exploring someplace
+                outdoors, and playing with my cat Boots.
+              </p>
+              <p>
+                <Link href="/resume" className="underline underline-offset-4 hover:text-primary transition-colors">
+                  Take a look at my resume
+                </Link>
+              </p>
+              <p>
+                Get in touch at{" "}
+                
+                  href="mailto:1samanthacheng@gmail.com"
+                  className="underline underline-offset-4 hover:text-primary transition-colors"
+                >
+                  1samanthacheng@gmail.com
+                </a>
+              </p>
+            </div>
+          </div>
+          {/* Photo */}
+          <div className="shrink-0 md:mt-20">
+            <div className="h-72 w-72 overflow-hidden rounded-full border-2 border-primary md:h-80 md:w-80">
+              <Image
+                src="/images/sam-headshot.jpg"
+                alt="Sam Cheng at a street market holding green grapes on a skewer"
+                width={320}
+                height={320}
+                className="h-full w-full object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </main>
+  );
+}

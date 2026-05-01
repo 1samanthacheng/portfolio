@@ -54,7 +54,7 @@ export default function About() {
               </p>
               <p>
                 Get in touch at{" "}
-                
+                <a
                   href="mailto:1samanthacheng@gmail.com"
                   className="underline underline-offset-4 hover:text-primary transition-colors"
                 >

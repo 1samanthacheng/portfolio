@@ -77,6 +77,116 @@ export default function About() {
             </div>
           </div>
         </div>
+        {/* Experience Section */}
+<div className="mt-16">
+  <div className="h-[3px] bg-primary mb-16" />
+  <div className="mb-10">
+    <span className="inline-block rounded-full border border-primary px-5 py-2 text-base font-medium text-primary">
+      Experience
+    </span>
+  </div>
+  <div className="space-y-0">
+    {[
+      {
+        title: "Marketing Associate",
+        company: "Material",
+        years: "2023–2025",
+        description: "Designing digital (web, email + social) experiences for a kitchenware startup",
+      },
+      {
+        title: "Marketing Coordinator",
+        company: "Material",
+        years: "2022–2023",
+        description: "Building brand voice and content systems across digital channels",
+      },
+      {
+        title: "Community Coordinator",
+        company: "Row 7 Seed Company",
+        years: "2021–2022",
+        description: "Growing a new kind of food system alongside chefs and farmers",
+      },
+      {
+        title: "Barista",
+        company: "ACRE",
+        years: "2021–2022; 2025",
+        description: "Crafting connection through specialty coffee and Japanese hospitality",
+      },
+      {
+        title: "Apprentice",
+        company: "Eagle Street Rooftop Farm",
+        years: "2021",
+        description: "Farming the city, tending to the earth",
+      },
+    ].map((job) => (
+      <div key={job.title + job.company}>
+        <div className="flex items-start justify-between py-6">
+          <div>
+            <p className="text-base font-semibold text-foreground">
+              {job.title} • {job.company}
+            </p>
+            <p className="mt-1 text-base text-muted-foreground">{job.description}</p>
+          </div>
+          <span className="ml-8 shrink-0 text-base text-foreground">{job.years}</span>
+        </div>
+        <div className="h-px bg-border" />
+      </div>
+    ))}
+  </div>
+</div>
+
+{/* Skills + Tools Section */}
+<div className="mt-16">
+  <div className="h-[3px] bg-primary mb-16" />
+  <div className="mb-10">
+    <span className="inline-block rounded-full border border-primary px-5 py-2 text-base font-medium text-primary">
+      Skills + tools
+    </span>
+  </div>
+  {/* Skills pills */}
+  <div className="flex flex-wrap gap-3 mb-10">
+    {[
+      "Design thinking",
+      "User research",
+      "Journey mapping",
+      "User flows",
+      "Information architecture",
+      "Wireframing",
+      "Prototyping",
+      "UI + visual design",
+      "Usability testing",
+      "Content strategy",
+      "Performance tracking",
+    ].map((skill) => (
+      <span
+        key={skill}
+        className="inline-block rounded-full border border-foreground px-5 py-2 text-base font-medium text-foreground"
+      >
+        {skill}
+      </span>
+    ))}
+  </div>
+  {/* Tools */}
+  <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
+    {[
+      "Figma",
+      "Claude",
+      "Bolt",
+      "Maze",
+      "Pen + Paper",
+    ].map((tool) => (
+      <div
+        key={tool}
+        className="flex flex-col items-center justify-center gap-3 rounded-xl border border-border py-6 px-4"
+      >
+        {/* Placeholder icon — swap with real logo later */}
+        <div className="h-10 w-10 rounded-lg bg-muted flex items-center justify-center text-xs text-muted-foreground font-medium">
+          {tool.slice(0, 2)}
+        </div>
+        <span className="text-base font-medium text-foreground">{tool}</span>
+      </div>
+    ))}
+  </div>
+</div>
       </section>
       <Footer />
     </main>

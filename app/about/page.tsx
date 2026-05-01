@@ -239,7 +239,7 @@ export default function About() {
               {item.link ? (
                 <>
                   {item.value}
-                  
+                  <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"

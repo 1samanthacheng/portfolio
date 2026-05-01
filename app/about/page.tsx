@@ -187,6 +187,79 @@ export default function About() {
     ))}
   </div>
 </div>
+        {/* Currently Section */}
+<div className="mt-16">
+  <div className="h-[3px] bg-primary mb-16" />
+  <div className="flex flex-col md:flex-row md:items-start gap-10">
+    {/* Left: label + photo */}
+    <div className="flex flex-col gap-6 md:w-64 shrink-0">
+      <span className="inline-block rounded-full border border-primary px-5 py-2 text-base font-medium text-primary w-fit">
+        Currently
+      </span>
+      {/* Placeholder image — swap with real photo of Boots later */}
+      <div className="rounded-2xl border-2 border-primary overflow-hidden w-64 h-72 bg-muted flex items-center justify-center text-sm text-muted-foreground">
+        photo of Boots
+      </div>
+    </div>
+    {/* Right: table */}
+    <div className="flex-1">
+      {[
+        {
+          label: "Reading:",
+          value: "The City and Its Uncertain Walls by Haruki Murakami",
+          link: null,
+        },
+        {
+          label: "Listening to:",
+          value: "Madwoman by Laufey",
+          link: null,
+        },
+        {
+          label: "Training for:",
+          value: "Grand Teton Half Marathon",
+          link: null,
+        },
+        {
+          label: "Inspired by:",
+          value: "Are.na boards (like ",
+          suffix: "this one",
+          link: "https://www.are.na/j-split/wild-wild-web",
+          after: ")",
+        },
+        {
+          label: "Dreaming of:",
+          value: "San Tung chicken wings",
+          link: null,
+        },
+      ].map((item) => (
+        <div key={item.label}>
+          <div className="flex items-baseline gap-12 py-6">
+            <span className="w-36 shrink-0 text-base text-foreground">{item.label}</span>
+            <span className="text-base text-foreground">
+              {item.link ? (
+                <>
+                  {item.value}
+                  
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-4 hover:text-primary transition-colors"
+                  >
+                    {item.suffix}
+                  </a>
+                  {item.after}
+                </>
+              ) : (
+                item.value
+              )}
+            </span>
+          </div>
+          <div className="h-px bg-border" />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
       </section>
       <Footer />
     </main>

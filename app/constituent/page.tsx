@@ -106,7 +106,7 @@ export default function ConstituentPage() {
       {/* Hero Section */}
       <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
         {/* Left */}
-        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-20 flex flex-col justify-center" style={{ backgroundColor: '#F8F6F2' }}>
+        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-12 flex flex-col justify-center" style={{ backgroundColor: '#F8F6F2' }}>
           <div className="space-y-12">
             <div>
               <h1 className="text-5xl md:text-6xl font-semibold leading-tight mb-4" style={{ color: '#0B1D51' }}>
@@ -148,7 +148,7 @@ export default function ConstituentPage() {
           </div>
         </div>
         {/* Right */}
-        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-20 flex items-center justify-center" style={{ backgroundColor: '#E0DBDE' }}>
+        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-12 flex items-center justify-center" style={{ backgroundColor: '#E0DBDE' }}>
           <div className="w-full max-w-sm">
             <Image src="/constituent_loading_screen_iphone.png" alt="Constituent App on iPhone" width={400} height={800} className="w-full h-auto" />
           </div>
@@ -159,7 +159,7 @@ export default function ConstituentPage() {
       <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
 
       {/* Overview Section */}
-      <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-20" style={{ backgroundColor: '#F8F6F2' }}>
+      <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
           <div>
             <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -191,7 +191,7 @@ export default function ConstituentPage() {
 
       {/* App Screens Placeholder */}
       <section style={{ backgroundColor: '#E0DBDE' }}>
-        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-20 flex items-center justify-center">
+        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-12 flex items-center justify-center">
           <div className="w-full h-96 rounded-2xl flex items-center justify-center text-base" style={{ backgroundColor: '#D4CFCD', color: '#A1869E' }}>
             App screens image — replace with actual asset
           </div>
@@ -202,7 +202,7 @@ export default function ConstituentPage() {
       <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
 
       {/* Problem Section */}
-      <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-20" style={{ backgroundColor: '#F8F6F2' }}>
+      <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
           <div>
             <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -267,7 +267,7 @@ export default function ConstituentPage() {
 </section>
 
       {/* Research Section */}
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-20" style={{ backgroundColor: '#F8F6F2' }}>
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -353,7 +353,7 @@ export default function ConstituentPage() {
   </div>
 </section>
 {/* Persona Section */}
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-20" style={{ backgroundColor: '#F8F6F2' }}>
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div
     className="overflow-hidden"
     style={{ border: '1px solid #2B2B2B', borderRadius: '32px' }}
@@ -361,7 +361,7 @@ export default function ConstituentPage() {
     {/* Top: photo + details + bio */}
     <div
       className="grid grid-cols-1 md:grid-cols-[auto_1fr_1fr] gap-8 p-8"
-      style={{ borderBottom: '1px solid #2B2B2B' }}
+      style={{ borderBottom: '1px solid #2B2B2B', backgroundColor: '#FFFDFC' }}
     >
       {/* Photo placeholder */}
       <div
@@ -447,7 +447,7 @@ export default function ConstituentPage() {
 </section>
 
 {/* Define Section */}
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-20" style={{ backgroundColor: '#F8F6F2' }}>
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -483,7 +483,7 @@ export default function ConstituentPage() {
   </div>
 </section>
       {/* Ideation Section */}
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-20" style={{ backgroundColor: '#F8F6F2' }}>
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -575,11 +575,7 @@ export default function ConstituentPage() {
       {/* Scoping note */}
       <div
         className="p-6 text-base leading-relaxed"
-        style={{
-          border: '1.5px dashed #0B1D51',
-          borderRadius: '8px',
-          color: '#2B2B2B',
-        }}
+        style={{ color: '#2B2B2B' }}
       >
         I kept the MVP focused on these three features deliberately. Features like bill tracking, notifications, issue-based filtering, and impact stats are all on the roadmap, but scoping them out of v1 meant the core experience could be built, tested, and validated first.
       </div>

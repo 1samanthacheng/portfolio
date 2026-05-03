@@ -68,6 +68,154 @@ function QuoteCarousel() {
   );
 }
 
+const visualDesignSections = [
+  {
+    id: 'visual-approach',
+    heading: <>Visual design <span className="font-serif italic font-normal">approach</span></>,
+    body: "I wanted to balance civic professionalism with approachability, creating an interface that feels trustworthy without being intimidating. The visual language needed to communicate nonpartisan reliability while remaining modern and accessible to digital-native users.",
+    visual: (
+      <div
+        className="w-full h-[520px] flex items-center justify-center text-sm"
+        style={{ border: '1px solid #2B2B2B', borderRadius: '40px', backgroundColor: '#E0DBDE', color: '#A1869E' }}
+      >
+        Home screen mockup
+      </div>
+    ),
+  },
+  {
+    id: 'color-palette',
+    heading: <>Color <span className="font-serif italic font-normal">palette</span></>,
+    body: "Deep navy anchors the design with classic civic trustworthiness, while light purple and soft neutral hues add warmth, in addition to distinguishing the app from typical government blue. Purple was also intentionally chosen for its association with nonpartisanship.",
+    visual: (
+      <div className="space-y-3">
+        <p className="text-sm" style={{ color: '#727272', fontWeight: 500 }}>Brand Colors</p>
+        <div className="grid grid-cols-3 gap-3">
+          {/* Deep Navy — tall */}
+          <div
+            className="row-span-2 rounded-2xl flex flex-col justify-end p-4 min-h-[220px]"
+            style={{ backgroundColor: '#0B1D51' }}
+          >
+            <p className="text-sm font-medium" style={{ color: '#E0DBDE' }}>Deep Navy</p>
+            <p className="text-xs" style={{ color: '#A1869E' }}>#0B1D51</p>
+          </div>
+          {/* Lavender Grey */}
+          <div
+            className="rounded-2xl flex flex-col justify-end p-4 min-h-[100px]"
+            style={{ backgroundColor: '#797596' }}
+          >
+            <p className="text-sm font-medium" style={{ color: '#F8F6F2' }}>Lavender Grey</p>
+            <p className="text-xs" style={{ color: '#E0DBDE' }}>#797596</p>
+          </div>
+          {/* Mauve */}
+          <div
+            className="rounded-2xl flex flex-col justify-end p-4 min-h-[100px]"
+            style={{ backgroundColor: '#A1869E' }}
+          >
+            <p className="text-sm font-medium" style={{ color: '#F8F6F2' }}>Mauve</p>
+            <p className="text-xs" style={{ color: '#E0DBDE' }}>#A1869E</p>
+          </div>
+          {/* Warm Taupe */}
+          <div
+            className="rounded-2xl flex flex-col justify-end p-4 min-h-[100px]"
+            style={{ backgroundColor: '#BBADA0' }}
+          >
+            <p className="text-sm font-medium" style={{ color: '#F8F6F2' }}>Warm Taupe</p>
+            <p className="text-xs" style={{ color: '#E0DBDE' }}>#BBADA0</p>
+          </div>
+          {/* Cream */}
+          <div
+            className="rounded-2xl flex flex-col justify-end p-4 min-h-[100px]"
+            style={{ backgroundColor: '#D1C6AD' }}
+          >
+            <p className="text-sm font-medium" style={{ color: '#2B2B2B' }}>Cream</p>
+            <p className="text-xs" style={{ color: '#2B2B2B' }}>#D1C6AD</p>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 'typography',
+    heading: <>Typography <span className="font-serif italic font-normal">styles</span></>,
+    body: "The type system pairs DM Sans for UI clarity with Playfair Display for editorial warmth — mirroring the balance between civic utility and human approachability that runs through the whole design.",
+    visual: (
+      <div
+        className="w-full p-8 space-y-6"
+        style={{ border: '1px solid #2B2B2B', borderRadius: '24px', backgroundColor: '#FFFDFC' }}
+      >
+        <div className="space-y-1">
+          <p className="text-xs font-medium" style={{ color: '#727272' }}>Heading — DM Sans Semibold</p>
+          <p className="text-4xl font-semibold" style={{ color: '#0B1D51' }}>Your representatives</p>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs font-medium" style={{ color: '#727272' }}>Subheading — DM Sans Medium</p>
+          <p className="text-2xl font-medium" style={{ color: '#0B1D51' }}>Kirsten Gillibrand</p>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs font-medium" style={{ color: '#727272' }}>Body — DM Sans Regular</p>
+          <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>U.S. Senator representing New York. Member of the Senate Armed Services Committee.</p>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs font-medium" style={{ color: '#727272' }}>Label — DM Sans Medium</p>
+          <p className="text-sm font-medium" style={{ color: '#797596' }}>Democratic</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 'design-system',
+    heading: <>Design system <span className="font-serif italic font-normal">and components</span></>,
+    body: "I built a lean component library covering the core UI patterns: rep list items, party affiliation badges, filter chips, contact forms, and message templates. Keeping the system minimal ensured consistency without over-engineering for an MVP.",
+    visual: (
+      <div
+        className="w-full h-80 flex items-center justify-center text-sm"
+        style={{ border: '1px solid #2B2B2B', borderRadius: '24px', backgroundColor: '#E0DBDE', color: '#A1869E' }}
+      >
+        Component library — replace with Figma asset
+      </div>
+    ),
+  },
+];
+
+function VisualDesignScroll() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sectionRefs = visualDesignSections.map(() => React.createRef<HTMLDivElement>());
+
+  React.useEffect(() => {
+    const observers = sectionRefs.map((ref, i) => {
+      const observer = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveIndex(i); },
+        { threshold: 0.5 }
+      );
+      if (ref.current) observer.observe(ref.current);
+      return observer;
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative">
+      {/* Left: sticky text */}
+      <div className="md:sticky md:top-24 md:self-start space-y-4 transition-all duration-500">
+        <h2 className="text-2xl md:text-3xl font-semibold leading-tight" style={{ color: '#2B2B2B' }}>
+          {visualDesignSections[activeIndex].heading}
+        </h2>
+        <p className="text-base leading-relaxed transition-opacity duration-300" style={{ color: '#2B2B2B' }}>
+          {visualDesignSections[activeIndex].body}
+        </p>
+      </div>
+      {/* Right: scrolling visuals */}
+      <div className="space-y-32">
+        {visualDesignSections.map((section, i) => (
+          <div key={section.id} ref={sectionRefs[i]}>
+            {section.visual}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function ConstituentPage() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#F8F6F2' }}>
@@ -786,6 +934,11 @@ export default function ConstituentPage() {
       The primary flow is where Constituent's core value plays out. Users can contact multiple representatives at once and choose from message templates if they need help framing their outreach. The multi-rep capability was a deliberate design choice: one of the biggest friction points in the current landscape is having to repeat this process from scratch for each official.
     </p>
   </div>
+</section>
+
+      {/* Visual Design Sticky Scroll */}
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+  <VisualDesignScroll />
 </section>
       
       {/* Footer */}

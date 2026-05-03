@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Grid3x3 as Grid3X3, Linkedin, Mail } from 'lucide-react';
+import React, { useState } from 'react';
 
 const quotes = [
   {
@@ -10,21 +11,21 @@ const quotes = [
     attribution: '— Survey response',
   },
   {
-    quote: "I never know if contacting my rep actually does anything. It feels like shouting into a void.",
-    attribution: '— Interview participant',
-  },
-  {
-    quote: "I want to stay informed but government websites are so hard to navigate.",
+    quote: "I want transparent, non-biased information but it's hard to find a neutral overview that's not Wikipedia.",
     attribution: '— Survey response',
   },
   {
-    quote: "I didn't even know who my state representatives were until recently.",
-    attribution: '— Interview participant',
+    quote: "The websites I used felt really outdated. When something looks confusing or old, I'm already less confident that I'm doing the right thing.",
+    attribution: '— User interview participant',
+  },
+  {
+    quote: "I want to feel like my engagement is actually doing something, not just shouting into the void.",
+    attribution: '— Use interview participant',
   },
 ];
 
 function QuoteCarousel() {
-  const [current, setCurrent] = React.useState(0);
+  const [current, setCurrent] = useState(0);
 
   const prev = () => setCurrent((c) => (c === 0 ? quotes.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === quotes.length - 1 ? 0 : c + 1));

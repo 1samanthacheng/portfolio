@@ -10,7 +10,7 @@ export default function ConstituentPage() {
 
       {/* Custom Header */}
       <header className="border-b-[3px]" style={{ borderColor: '#0B1D51' }}>
-        <nav className="px-8 md:px-16 lg:px-24 xl:px-32 py-6 flex items-center justify-between">
+        <nav className="px-10 md:px-20 lg:px-32 xl:px-40 py-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2" style={{ color: '#0B1D51' }}>
             <span className="text-xl font-medium">郑</span>
             <span className="text-xl font-medium">Sam Cheng</span>
@@ -40,9 +40,9 @@ export default function ConstituentPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="grid grid-cols-1 lg:grid-cols-2">
+      <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
         {/* Left */}
-        <div className="px-8 md:px-16 lg:px-24 xl:px-32 py-20 flex flex-col justify-center" style={{ backgroundColor: '#F8F6F2' }}>
+        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-20 flex flex-col justify-center" style={{ backgroundColor: '#F8F6F2' }}>
           <div className="space-y-12">
             <div>
               <h1 className="text-5xl md:text-6xl font-semibold leading-tight mb-4" style={{ color: '#0B1D51' }}>
@@ -84,7 +84,7 @@ export default function ConstituentPage() {
           </div>
         </div>
         {/* Right */}
-        <div className="px-8 md:px-16 lg:px-24 xl:px-32 py-20 flex items-center justify-center" style={{ backgroundColor: '#E0DBDE' }}>
+        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-20 flex items-center justify-center" style={{ backgroundColor: '#E0DBDE' }}>
           <div className="w-full max-w-sm">
             <Image src="/constituent_loading_screen_iphone.png" alt="Constituent App on iPhone" width={400} height={800} className="w-full h-auto" />
           </div>
@@ -95,7 +95,7 @@ export default function ConstituentPage() {
       <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
 
       {/* Overview Section */}
-      <section className="px-8 md:px-16 lg:px-24 xl:px-32 py-20" style={{ backgroundColor: '#F8F6F2' }}>
+      <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-20" style={{ backgroundColor: '#F8F6F2' }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -127,7 +127,7 @@ export default function ConstituentPage() {
 
       {/* App Screens Placeholder */}
       <section style={{ backgroundColor: '#E0DBDE' }}>
-        <div className="px-8 md:px-16 lg:px-24 xl:px-32 py-20 flex items-center justify-center">
+        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-20 flex items-center justify-center">
           <div className="w-full h-96 rounded-2xl flex items-center justify-center text-base" style={{ backgroundColor: '#D4CFCD', color: '#A1869E' }}>
             App screens image — replace with actual asset
           </div>
@@ -138,7 +138,7 @@ export default function ConstituentPage() {
       <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
 
       {/* Problem Section */}
-      <section className="px-8 md:px-16 lg:px-24 xl:px-32 py-20" style={{ backgroundColor: '#F8F6F2' }}>
+      <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-20" style={{ backgroundColor: '#F8F6F2' }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -166,7 +166,7 @@ export default function ConstituentPage() {
 
       {/* Footer */}
       <footer style={{ borderTop: '3px solid #0B1D51', backgroundColor: '#F8F6F2' }}>
-        <div className="px-8 md:px-16 lg:px-24 xl:px-32 py-8 flex items-center justify-between">
+        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-8 flex items-center justify-between">
           <nav className="flex items-center gap-1 text-base font-medium" style={{ color: '#0B1D51' }}>
             <a href="mailto:1samanthacheng@gmail.com" className="hover:underline">email</a>
             <span>•</span>

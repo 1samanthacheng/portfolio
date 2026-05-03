@@ -352,6 +352,241 @@ export default function ConstituentPage() {
     </div>
   </div>
 </section>
+{/* Persona Section */}
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-20" style={{ backgroundColor: '#F8F6F2' }}>
+  <div
+    className="overflow-hidden"
+    style={{ border: '1px solid #2B2B2B', borderRadius: '32px' }}
+  >
+    {/* Top: photo + details + bio */}
+    <div
+      className="grid grid-cols-1 md:grid-cols-[auto_1fr_1fr] gap-8 p-8"
+      style={{ borderBottom: '1px solid #2B2B2B' }}
+    >
+      {/* Photo placeholder */}
+      <div
+        className="w-48 h-48 shrink-0 rounded-xl overflow-hidden flex items-center justify-center text-sm"
+        style={{ backgroundColor: '#E0DBDE', color: '#A1869E' }}
+      >
+        Amal photo
+      </div>
+      {/* Name + quote + details */}
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold" style={{ color: '#2B2B2B' }}>Amal Greene</h3>
+        <p className="text-base font-serif italic leading-relaxed" style={{ color: '#2B2B2B' }}>
+          "I care about what's happening — I just wish it were easier to turn that care into action. I don't always know where to start."
+        </p>
+        <ul className="space-y-1 text-base" style={{ color: '#2B2B2B' }}>
+          {[
+            { label: 'Age', value: '29' },
+            { label: 'Location', value: 'Queens, NY' },
+            { label: 'Occupation', value: 'Operations associate at a retail company' },
+            { label: 'Education', value: "Bachelor's degree" },
+            { label: 'Tech proficiency', value: 'High (smartphone native)' },
+          ].map((item) => (
+            <li key={item.label}>
+              <span className="font-semibold">• {item.label}:</span>{' '}
+              <span>{item.value}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/* Bio */}
+      <div className="space-y-3">
+        <p className="text-base font-semibold" style={{ color: '#2B2B2B' }}>Bio</p>
+        <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+          Amal juggles a full life in Queens — balancing time with friends, taking care of herself, and keeping up with a demanding job. Living with a chronic illness has made her especially aware of how policy decisions shape everyday life. Amal cares deeply about healthcare and environmental issues and wants to be more civically engaged, but often struggles to find clear, accessible ways to take action.
+        </p>
+      </div>
+    </div>
+    {/* Bottom: goals + pain points + motivations */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8" style={{ backgroundColor: '#EDE9ED' }}>
+      {[
+        {
+          title: 'Goals',
+          items: [
+            'Understand who represents her at all levels of government.',
+            'Stay informed about policy decisions related to healthcare and environment.',
+            'Take meaningful action when issues she cares about are at stake.',
+            'Feel like an engaged citizen without it consuming all her time.',
+          ],
+        },
+        {
+          title: 'Pain Points',
+          items: [
+            'Feels overwhelmed by the amount of information scattered across the internet.',
+            'Finds it hard to know if the information she finds is reliable.',
+            'Has limited time and energy to research issues in depth due to work and health management.',
+            'Unsure which representative to contact about specific issues.',
+          ],
+        },
+        {
+          title: 'Motivations',
+          items: [
+            'Wants to be an informed resident and engage beyond just voting.',
+            'Feels urgency around issues that directly impact her life.',
+            'Values efficiency and will engage more if the process is simplified and streamlined.',
+            "Wants to feel that her voice and action will make a difference.",
+          ],
+        },
+      ].map((col) => (
+        <div key={col.title} className="space-y-3">
+          <p className="text-base font-semibold" style={{ color: '#2B2B2B' }}>{col.title}</p>
+          <ul className="space-y-2">
+            {col.items.map((item) => (
+              <li key={item} className="text-base leading-relaxed flex items-start gap-2" style={{ color: '#2B2B2B' }}>
+                <span className="mt-1 shrink-0">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Define Section */}
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-20" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+    <div>
+      <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
+        Define
+      </span>
+    </div>
+    <div className="space-y-6">
+      <h2 className="text-2xl md:text-3xl leading-tight">
+        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Narrowing the </span>
+        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>focus</span>
+      </h2>
+      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        Next, I needed to distill everything I learned into a single, honest articulation of the problem — one I could keep returning to as a gut-check throughout the design work. Grounding this in Amal's story kept the process honest:
+      </p>
+      {/* Block quote 1 */}
+      <blockquote
+        className="pl-5 py-1 text-base font-semibold leading-relaxed"
+        style={{ borderLeft: '4px solid #726E8C', color: '#2B2B2B' }}
+      >
+        Amal is an eager community member who needs to find relevant information on government policies and representatives, because she wants to stay informed and act on issues that affect her daily life.
+      </blockquote>
+      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        With the problem defined, I could articulate what a successful solution would actually need to deliver. The goal statement:
+      </p>
+      {/* Block quote 2 */}
+      <blockquote
+        className="pl-5 py-1 text-base font-semibold leading-relaxed"
+        style={{ borderLeft: '4px solid #726E8C', color: '#2B2B2B' }}
+      >
+        The platform will allow users to stay engaged with issues they care about by consolidating the process of looking up and contacting elected officials into one organized, approachable experience. I will measure effectiveness through task completion rates and user satisfaction in usability testing.
+      </blockquote>
+    </div>
+  </div>
+</section>
+      {/* Ideation Section */}
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-20" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+    <div>
+      <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
+        Ideation
+      </span>
+    </div>
+    <div className="space-y-6">
+      {/* Heading */}
+      <h2 className="text-2xl md:text-3xl leading-tight">
+        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Project </span>
+        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>scoping</span>
+      </h2>
+
+      {/* Intro */}
+      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        To inform my early ideation process, I started with a HMW statement:
+      </p>
+
+      {/* Block quote */}
+      <blockquote
+        className="pl-5 py-1 text-base font-semibold leading-relaxed"
+        style={{ borderLeft: '4px solid #726E8C', color: '#2B2B2B' }}
+      >
+        How might we simplify how people discover information about their elected officials?
+      </blockquote>
+
+      {/* Body */}
+      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        Keeping Amal in mind, I then began zeroing in on the product's core features and target audience. I chose to design for the users who showed up most in my research: people who are somewhat to moderately civically engaged and also eager to do more.
+      </p>
+
+      {/* Donut chart placeholder */}
+      <div
+        className="p-8 space-y-4"
+        style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '16px' }}
+      >
+        <p className="text-base" style={{ color: '#2B2B2B' }}>How would you describe your level of civic engagement?</p>
+        <div
+          className="w-full h-64 rounded-xl flex items-center justify-center text-sm"
+          style={{ backgroundColor: '#E0DBDE', color: '#A1869E' }}
+        >
+          Donut chart — replace with actual asset
+        </div>
+      </div>
+
+      {/* Caption */}
+      <p className="text-base text-center leading-relaxed" style={{ color: '#727272' }}>
+        Over 63% of people surveyed consider themselves somewhat to moderately engaged in civic activities, revealing a clear majority to design for.
+      </p>
+
+      {/* MVP intro */}
+      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        Three MVP features emerged from their needs:
+      </p>
+
+      {/* MVP features card */}
+      <div
+        className="p-8 space-y-6"
+        style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '32px' }}
+      >
+        {[
+          {
+            title: 'Representative lookup:',
+            body: 'Enter your address once and see all your elected officials across federal, state, and local levels in one place.',
+          },
+          {
+            title: 'Rep profile overviews:',
+            body: 'Browse basic information about each representative (biography, committee assignments, recent activity, etc.)',
+          },
+          {
+            title: 'Multi-rep contact flow',
+            body: ': Reach out to one or multiple representatives at once, with the option to write your own message or start from a template.',
+          },
+        ].map((item) => (
+          <div key={item.title} className="flex items-start gap-4">
+            <div className="shrink-0 mt-1 w-6 h-6 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="#A1869E">
+                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+              </svg>
+            </div>
+            <p className="text-base leading-relaxed">
+              <span className="font-semibold" style={{ color: '#0B1D51' }}>{item.title}</span>
+              <span style={{ color: '#2B2B2B' }}>{item.body}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* Scoping note */}
+      <div
+        className="p-6 text-base leading-relaxed"
+        style={{
+          border: '1.5px dashed #0B1D51',
+          borderRadius: '8px',
+          color: '#2B2B2B',
+        }}
+      >
+        I kept the MVP focused on these three features deliberately. Features like bill tracking, notifications, issue-based filtering, and impact stats are all on the roadmap, but scoping them out of v1 meant the core experience could be built, tested, and validated first.
+      </div>
+
+    </div>
+  </div>
+</section>
       
       {/* Footer */}
       <footer style={{ borderTop: '3px solid #0B1D51', backgroundColor: '#F8F6F2' }}>

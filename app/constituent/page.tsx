@@ -712,6 +712,81 @@ export default function ConstituentPage() {
     </div>
   </div>
 </section>
+
+      {/* Rep Directory + Profiles */}
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    {/* Left: text */}
+    <div className="space-y-6">
+      <h3 className="text-2xl leading-tight">
+        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Rep directory + </span>
+        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>profiles</span>
+      </h3>
+      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        Users can view all of their elected officials in one place. Each rep profile surfaces the information people actually look for, like biography and recent legislative activity. From the profile, users can contact their representative directly through the in-app form, or find alternative contact methods like phone numbers and mailing addresses.
+      </p>
+      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        The goal was to prioritize the most sought-after information without overwhelming users who are just getting started.
+      </p>
+      <a href="#" className="inline-flex items-center gap-2 text-base underline underline-offset-4 hover:opacity-70 transition-opacity" style={{ color: '#0B1D51' }}>
+        View prototype →
+      </a>
+    </div>
+    {/* Right: phone mockup placeholder */}
+    <div className="flex justify-center">
+      <div
+        className="w-64 h-[520px] flex items-center justify-center text-sm"
+        style={{ border: '1px solid #2B2B2B', borderRadius: '40px', backgroundColor: '#E0DBDE', color: '#A1869E' }}
+      >
+        Rep directory screen
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Multi-rep contact flow */}
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="space-y-10">
+    <h3 className="text-2xl leading-tight text-center">
+      <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Multi-rep </span>
+      <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>contact flow</span>
+    </h3>
+    {/* Screens with arrows */}
+    <div className="flex items-center justify-between gap-2 overflow-x-auto pb-4" style={{ scrollbarWidth: 'none' }}>
+      {[
+        'Select which representative(s) to contact',
+        'Choose a template',
+        'Customize your message',
+        'Send message',
+      ].map((caption, i, arr) => (
+        <div key={caption} className="flex items-center gap-2 shrink-0">
+          <div className="flex flex-col items-center gap-3">
+            <div
+              className="w-48 h-96 flex items-center justify-center text-sm text-center px-3"
+              style={{ border: '1px solid #2B2B2B', borderRadius: '32px', backgroundColor: '#E0DBDE', color: '#A1869E' }}
+            >
+              Screen {i + 1}
+            </div>
+            <p className="text-sm text-center max-w-[160px]" style={{ color: '#727272', fontWeight: 500 }}>
+              {caption}
+            </p>
+          </div>
+          {i < arr.length - 1 && (
+            <div className="shrink-0 pb-12" style={{ color: '#0B1D51' }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="#0B1D51" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+    {/* Caption */}
+    <p className="text-base text-center leading-relaxed max-w-3xl mx-auto" style={{ color: '#2B2B2B' }}>
+      The primary flow is where Constituent's core value plays out. Users can contact multiple representatives at once and choose from message templates if they need help framing their outreach. The multi-rep capability was a deliberate design choice: one of the biggest friction points in the current landscape is having to repeat this process from scratch for each official.
+    </p>
+  </div>
+</section>
       
       {/* Footer */}
       <footer style={{ borderTop: '3px solid #0B1D51', backgroundColor: '#F8F6F2' }}>

@@ -160,9 +160,47 @@ export default function ConstituentPage() {
           </div>
         </div>
       </section>
-
-      {/* 3px Divider */}
-      <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
+{/* Competitive Landscape Carousel */}
+<section className="py-16" style={{ backgroundColor: '#F8F6F2' }}>
+  {/* Scrollable row */}
+  <div className="relative">
+    {/* Right fade signifier */}
+    <div
+      className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
+      style={{
+        background: 'linear-gradient(to right, transparent, #F8F6F2)',
+      }}
+    />
+    <div
+      className="flex gap-6 overflow-x-auto pb-6 px-10 md:px-20 lg:px-32 xl:px-40"
+      style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+    >
+      {[1, 2, 3, 4, 5].map((i) => (
+        <div
+          key={i}
+          className="shrink-0 w-80 h-56 flex items-center justify-center text-sm"
+          style={{
+            border: '1px solid #2B2B2B',
+            borderRadius: '32px',
+            backgroundColor: '#E0DBDE',
+            color: '#A1869E',
+          }}
+        >
+          Competitor screenshot {i}
+        </div>
+      ))}
+    </div>
+  </div>
+  {/* Caption */}
+  <div className="px-10 md:px-20 lg:px-32 xl:px-40 mt-6">
+    <p
+      className="text-center text-base leading-relaxed"
+      style={{ color: '#727272', fontFamily: 'DM Sans, sans-serif', fontWeight: 500 }}
+    >
+      The current landscape for finding info on elected officials is fragmented by design-level, device, and use case, leaving everyday people to stitch together their own process across multiple sites and platforms.
+    </p>
+  </div>
+</section>
 
       {/* Footer */}
       <footer style={{ borderTop: '3px solid #0B1D51', backgroundColor: '#F8F6F2' }}>

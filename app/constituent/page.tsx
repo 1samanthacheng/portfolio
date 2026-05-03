@@ -547,15 +547,15 @@ export default function ConstituentPage() {
         {[
           {
             title: 'Representative lookup:',
-            body: 'Enter your address once and see all your elected officials across federal, state, and local levels in one place.',
+            body: ' Enter your address once and see all your elected officials across federal, state, and local levels in one place.',
           },
           {
             title: 'Rep profile overviews:',
-            body: 'Browse basic information about each representative (biography, committee assignments, recent activity, etc.)',
+            body: ' Browse basic information about each representative (biography, committee assignments, recent activity, etc.)',
           },
           {
-            title: 'Multi-rep contact flow',
-            body: ': Reach out to one or multiple representatives at once, with the option to write your own message or start from a template.',
+            title: 'Multi-rep contact flow:',
+            body: ' Reach out to one or multiple representatives at once, with the option to write your own message or start from a template.',
           },
         ].map((item) => (
           <div key={item.title} className="flex items-start gap-4">
@@ -579,7 +579,136 @@ export default function ConstituentPage() {
       >
         I kept the MVP focused on these three features deliberately. Features like bill tracking, notifications, issue-based filtering, and impact stats are all on the roadmap, but scoping them out of v1 meant the core experience could be built, tested, and validated first.
       </div>
+      
+{/* IA subsection */}
+<div className="space-y-4 pt-4">
+  <h3 className="text-2xl leading-tight">
+    <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Information </span>
+    <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>architecture</span>
+  </h3>
+  <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+    Before diving into any design work, I created a{' '}
+    <a href="#" className="underline underline-offset-4 hover:opacity-70" style={{ color: '#0B1D51' }}>
+      sitemap
+    </a>{' '}
+    to establish the app's underlying structure. Navigation is focused around the two actions that matter most in v1: finding your representatives and contacting them. From there, I mapped out the key user journey, accounting for the choices a user might face and defining a clear happy path.
+  </p>
+  {/* User flow image */}
+  <div
+    className="p-6 overflow-hidden"
+    style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '16px' }}
+  >
+    <div
+      className="w-full h-96 rounded-xl flex items-center justify-center text-sm"
+      style={{ backgroundColor: '#E0DBDE', color: '#A1869E' }}
+    >
+      User flow diagram — replace with exported Figma asset
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
 
+      {/* Design Section */}
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+    <div>
+      <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
+        Design
+      </span>
+    </div>
+    <div className="space-y-6">
+      <h2 className="text-2xl md:text-3xl leading-tight">
+        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Drafting </span>
+        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>wireframes</span>
+      </h2>
+      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        I started with paper sketches to explore potential layouts before combining the best elements from each into digital lo-fi wireframes. These wireframes helped identify potential usability issues early and establish a strong foundation for the visual design.
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* Sketches Carousel */}
+<section className="py-6" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="relative">
+    <div
+      className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
+      style={{ background: 'linear-gradient(to right, transparent, #F8F6F2)' }}
+    />
+    <div
+      className="flex gap-6 overflow-x-auto pb-6 px-10 md:px-20 lg:px-32 xl:px-40"
+      style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+    >
+      {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+        <div
+          key={i}
+          className="shrink-0 w-56 h-72 flex items-center justify-center text-sm"
+          style={{
+            border: '1px solid #2B2B2B',
+            borderRadius: '32px',
+            backgroundColor: '#E0DBDE',
+            color: '#A1869E',
+          }}
+        >
+          Sketch {i}
+        </div>
+      ))}
+    </div>
+  </div>
+  <p className="text-center text-base mt-4 px-10 md:px-20 lg:px-32 xl:px-40" style={{ color: '#727272', fontWeight: 500 }}>
+    Early sketches exploring layout options for the core screens.
+  </p>
+</section>
+
+{/* Wireframes Carousel */}
+<section className="py-6" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="relative">
+    <div
+      className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
+      style={{ background: 'linear-gradient(to right, transparent, #F8F6F2)' }}
+    />
+    <div
+      className="flex gap-6 overflow-x-auto pb-6 px-10 md:px-20 lg:px-32 xl:px-40"
+      style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+    >
+      {[1, 2, 3, 4, 5, 6].map((i) => (
+        <div
+          key={i}
+          className="shrink-0 w-48 h-96 flex items-center justify-center text-sm"
+          style={{
+            border: '1px solid #2B2B2B',
+            borderRadius: '32px',
+            backgroundColor: '#E0DBDE',
+            color: '#A1869E',
+          }}
+        >
+          Wireframe {i}
+        </div>
+      ))}
+    </div>
+  </div>
+  <p className="text-center text-base mt-4 px-10 md:px-20 lg:px-32 xl:px-40" style={{ color: '#727272', fontWeight: 500 }}>
+    Lo-fi wireframes translating the best sketch ideas into a testable structure.
+  </p>
+</section>
+
+{/* Final Designs */}
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+    <div />
+    <div className="space-y-6">
+      <h2 className="text-2xl md:text-3xl leading-tight">
+        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Final </span>
+        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>designs</span>
+      </h2>
+      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        After validating the structure through wireframes, I moved into high-fidelity design, studying successful UI patterns in directory and contact flows (Dribbble and Mobbin were especially useful resources) and developing a basic design system to apply to the screens.
+      </p>
+      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        Here's a breakdown of Constituent's key features and visual design system:
+      </p>
     </div>
   </div>
 </section>

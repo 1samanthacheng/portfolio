@@ -103,7 +103,7 @@ export default function ConstituentPage() {
             </span>
           </div>
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl leading-tight">
+            <h2 className="text-2xl md:text-3xl leading-tight">
               <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Building a </span>
               <span className="font-sans font-semibold" style={{ color: '#0B1D51' }}>civic tool </span>
               <span className="font-serif italic" style={{ color: '#2B2B2B' }}>that </span>
@@ -146,7 +146,7 @@ export default function ConstituentPage() {
             </span>
           </div>
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl leading-tight">
+            <h2 className="text-2xl md:text-3xl leading-tight">
               <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>Civic engagement </span>
               <span className="font-serif italic" style={{ color: '#2B2B2B' }}>is </span>
               <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>harder </span>

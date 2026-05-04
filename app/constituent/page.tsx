@@ -929,7 +929,91 @@ export default function ConstituentPage() {
 <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <VisualDesignScroll />
 </section>
-      
+      {/* Accessibility */}
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+    <div />
+    <div className="space-y-6">
+      <h2 className="text-2xl md:text-3xl leading-tight">
+        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>Accessibility </span>
+        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>considerations</span>
+      </h2>
+      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        Equity and inclusion is central to my design philosophy, so I made sure that accessibility featured into my design decisions early on, not just after the fact:
+      </p>
+      <div
+        className="p-8 space-y-6"
+        style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '32px' }}
+      >
+        {[
+          {
+            title: 'High Contrast:',
+            body: 'Text color combinations meet or exceed WCAG AA accessibility standards, ensuring legibility for users with visual impairments.',
+          },
+          {
+            title: 'Accessible Touch Targets:',
+            body: 'Interactive elements are 44x44px minimum with adequate spacing, supporting users with motor impairments or limited dexterity.',
+          },
+          {
+            title: 'Clear Structure:',
+            body: 'Consistent layouts and descriptive labels create predictable patterns that reduce cognitive load and support screen reader users.',
+          },
+        ].map((item) => (
+          <div key={item.title} className="flex items-start gap-4">
+            <div className="shrink-0 mt-1">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="#A1869E">
+                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+              </svg>
+            </div>
+            <p className="text-base leading-relaxed">
+              <span className="font-semibold" style={{ color: '#0B1D51' }}>{item.title}</span>{' '}
+              <span style={{ color: '#2B2B2B' }}>{item.body}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Reflections */}
+<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+    <div>
+      <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
+        Reflections
+      </span>
+    </div>
+    <div className="space-y-10">
+      {/* Next steps */}
+      <div className="space-y-4">
+        <h2 className="text-2xl md:text-3xl leading-tight">
+          <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Next </span>
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>steps</span>
+        </h2>
+        <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+          Constituent is currently in development with an engineering partner. At the same time, I'm running a usability study on the primary contact flow, with plans to iterate on the designs as findings come in.
+        </p>
+        <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+          Immediate next steps include incorporating study results, designing additional flows and screens (bill summaries, outreach impact stats, etc.), and continuing to seek feedback from other designers along the way.
+        </p>
+      </div>
+      {/* Key takeaways */}
+      <div className="space-y-4">
+        <h2 className="text-2xl md:text-3xl leading-tight">
+          <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Key </span>
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>takeaways</span>
+        </h2>
+        <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+          Working on this project truly helped me grow my skills as a designer and researcher. I learned the importance of defining a clear MVP, seeking feedback often, and investing early in a design system — all of which helped in keeping the work focused, efficient, and user-centered.
+        </p>
+        <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+          More than anything, Constituent deepened my interest in the world of civic tech. My biggest takeaway from this project is the reminder that (good) design is one of the most powerful tools we can leverage to make democracy more inclusive and strengthen civic (people) power.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
       {/* Footer */}
       <footer style={{ borderTop: '3px solid #0B1D51', backgroundColor: '#F8F6F2' }}>
         <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-8 flex items-center justify-between">

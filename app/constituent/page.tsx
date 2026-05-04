@@ -296,7 +296,7 @@ export default function ConstituentPage() {
   {/* rest of page */}
       {/* Custom Header */}
       <header className="border-b-[3px]" style={{ borderColor: '#0B1D51' }}>
-        <nav className="px-10 md:px-20 lg:px-32 xl:px-40 py-6 flex items-center justify-between">
+        <nav className="px-12 md:px-24 lg:px-40 xl:px-52 py-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2" style={{ color: '#0B1D51' }}>
             <span className="text-xl font-medium">郑</span>
             <span className="text-xl font-medium">Sam Cheng</span>
@@ -328,7 +328,7 @@ export default function ConstituentPage() {
       {/* Hero Section */}
       <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
         {/* Left */}
-        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-12 flex flex-col justify-center" style={{ backgroundColor: '#F8F6F2' }}>
+        <div className="px-12 md:px-24 lg:px-40 xl:px-52 py-12 flex flex-col justify-center" style={{ backgroundColor: '#F8F6F2' }}>
           <div className="space-y-12">
             <div>
               <h1 className="text-5xl md:text-6xl font-semibold leading-tight mb-4" style={{ color: '#0B1D51' }}>
@@ -370,7 +370,7 @@ export default function ConstituentPage() {
           </div>
         </div>
         {/* Right */}
-        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-12 flex items-center justify-center" style={{ backgroundColor: '#E0DBDE' }}>
+        <div className="px-12 md:px-24 lg:px-40 xl:px-52 py-12 flex items-center justify-center" style={{ backgroundColor: '#E0DBDE' }}>
           <div className="w-full max-w-sm">
             <Image src="/constituent_loading_screen_iphone.png" alt="Constituent App on iPhone" width={400} height={800} className="w-full h-auto" />
           </div>
@@ -381,7 +381,7 @@ export default function ConstituentPage() {
       <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
 
       {/* Overview Section */}
-      <section id="overview" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+      <section id="overview" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
           <div>
@@ -414,7 +414,7 @@ export default function ConstituentPage() {
 
       {/* App Screens Placeholder */}
       <section style={{ backgroundColor: '#E0DBDE' }}>
-        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-12 flex items-center justify-center">
+        <div className="px-12 md:px-24 lg:px-40 xl:px-52 py-12 flex items-center justify-center">
           <div className="w-full h-96 rounded-2xl flex items-center justify-center text-base" style={{ backgroundColor: '#D4CFCD', color: '#A1869E' }}>
             App screens image — replace with actual asset
           </div>
@@ -425,7 +425,7 @@ export default function ConstituentPage() {
       <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
 
       {/* Problem Section */}
-      <section id="problem" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+      <section id="problem" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
           <div>
             <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -459,7 +459,7 @@ export default function ConstituentPage() {
       }}
     />
     <div
-      className="flex gap-6 overflow-x-auto pb-6 px-10 md:px-20 lg:px-32 xl:px-40"
+      className="flex gap-6 overflow-x-auto pb-6 px-12 md:px-24 lg:px-40 xl:px-52"
       style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
     >
       {[1, 2, 3, 4, 5].map((i) => (
@@ -479,7 +479,7 @@ export default function ConstituentPage() {
     </div>
   </div>
   {/* Caption */}
-  <div className="px-10 md:px-20 lg:px-32 xl:px-40 mt-6">
+  <div className="px-12 md:px-24 lg:px-40 xl:px-52 mt-6">
     <p
       className="text-center text-base leading-relaxed"
       style={{ color: '#727272', fontFamily: 'DM Sans, sans-serif', fontWeight: 500 }}
@@ -490,7 +490,7 @@ export default function ConstituentPage() {
 </section>
 
       {/* Research Section */}
-<section id="research" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="research" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -576,7 +576,7 @@ export default function ConstituentPage() {
   </div>
 </section>
 {/* Persona Section */}
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div
     className="overflow-hidden"
     style={{ border: '1px solid #2B2B2B', borderRadius: '32px' }}
@@ -670,7 +670,7 @@ export default function ConstituentPage() {
 </section>
 
 {/* Define Section */}
-<section id="define" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="define" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -706,7 +706,7 @@ export default function ConstituentPage() {
   </div>
 </section>
       {/* Ideation Section */}
-<section id="ideation" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="ideation" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -834,7 +834,7 @@ export default function ConstituentPage() {
 </section>
 
       {/* Design Section */}
-<section id="design" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="design" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -861,7 +861,7 @@ export default function ConstituentPage() {
       style={{ background: 'linear-gradient(to right, transparent, #F8F6F2)' }}
     />
     <div
-      className="flex gap-6 overflow-x-auto pb-6 px-10 md:px-20 lg:px-32 xl:px-40"
+      className="flex gap-6 overflow-x-auto pb-6 px-12 md:px-24 lg:px-40 xl:px-52"
       style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
     >
       {[1, 2, 3, 4, 5, 6, 7].map((i) => (
@@ -880,7 +880,7 @@ export default function ConstituentPage() {
       ))}
     </div>
   </div>
-  <p className="text-center text-base mt-4 px-10 md:px-20 lg:px-32 xl:px-40" style={{ color: '#727272', fontWeight: 500 }}>
+  <p className="text-center text-base mt-4 px-12 md:px-24 lg:px-40 xl:px-52" style={{ color: '#727272', fontWeight: 500 }}>
     Early sketches exploring layout options for the core screens.
   </p>
 </section>
@@ -893,7 +893,7 @@ export default function ConstituentPage() {
       style={{ background: 'linear-gradient(to right, transparent, #F8F6F2)' }}
     />
     <div
-      className="flex gap-6 overflow-x-auto pb-6 px-10 md:px-20 lg:px-32 xl:px-40"
+      className="flex gap-6 overflow-x-auto pb-6 px-12 md:px-24 lg:px-40 xl:px-52"
       style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
     >
       {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -912,13 +912,13 @@ export default function ConstituentPage() {
       ))}
     </div>
   </div>
-  <p className="text-center text-base mt-4 px-10 md:px-20 lg:px-32 xl:px-40" style={{ color: '#727272', fontWeight: 500 }}>
+  <p className="text-center text-base mt-4 px-12 md:px-24 lg:px-40 xl:px-52" style={{ color: '#727272', fontWeight: 500 }}>
     Lo-fi wireframes translating the best sketch ideas into a testable structure.
   </p>
 </section>
 
 {/* Final Designs */}
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div />
     <div className="space-y-6">
@@ -937,7 +937,7 @@ export default function ConstituentPage() {
 </section>
 
       {/* Rep Directory + Profiles */}
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
     {/* Left: text */}
     <div className="space-y-6">
@@ -968,7 +968,7 @@ export default function ConstituentPage() {
 </section>
 
 {/* Multi-rep contact flow */}
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="space-y-10">
     <h3 className="text-2xl leading-tight text-center">
       <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Multi-rep </span>
@@ -1012,11 +1012,11 @@ export default function ConstituentPage() {
 </section>
 
       {/* Visual Design Sticky Scroll */}
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <VisualDesignScroll />
 </section>
       {/* Accessibility */}
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div />
     <div className="space-y-6">
@@ -1063,7 +1063,7 @@ export default function ConstituentPage() {
 </section>
 
 {/* Reflections */}
-<section id="overview" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="overview" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -1102,7 +1102,7 @@ export default function ConstituentPage() {
 </section>
       {/* Footer */}
       <footer style={{ borderTop: '3px solid #0B1D51', backgroundColor: '#F8F6F2' }}>
-        <div className="px-10 md:px-20 lg:px-32 xl:px-40 py-8 flex items-center justify-between">
+        <div className="px-12 md:px-24 lg:px-40 xl:px-52 py-8 flex items-center justify-between">
           <nav className="flex items-center gap-1 text-base font-medium" style={{ color: '#0B1D51' }}>
             <a href="mailto:1samanthacheng@gmail.com" className="hover:underline">email</a>
             <span>•</span>

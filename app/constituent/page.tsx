@@ -5,6 +5,90 @@ import Image from 'next/image';
 import { Grid3x3 as Grid3X3, Linkedin, Mail } from 'lucide-react';
 import React, { useState } from 'react';
 
+const navItems = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'problem', label: 'Problem' },
+  { id: 'research', label: 'Research' },
+  { id: 'define', label: 'Define' },
+  { id: 'ideation', label: 'Ideation' },
+  { id: 'design', label: 'Design' },
+  { id: 'reflections', label: 'Reflections' },
+];
+
+function CaseStudyNav() {
+  const [activeId, setActiveId] = useState<string>('');
+  const [visible, setVisible] = useState(false);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    navItems.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveId(id); },
+        { threshold: 0.3 }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    // Show nav once overview is reached
+    const overviewEl = document.getElementById('overview');
+    if (overviewEl) {
+      const visibilityObserver = new IntersectionObserver(
+        ([entry]) => setVisible(entry.isIntersecting || entry.boundingClientRect.top < 0),
+        { threshold: 0 }
+      );
+      visibilityObserver.observe(overviewEl);
+      observers.push(visibilityObserver);
+    }
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  return (
+    <div
+      className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-end gap-3 transition-opacity duration-500 hidden lg:flex"
+      style={{ opacity: visible ? 1 : 0, pointerEvents: visible ? 'auto' : 'none' }}
+    >
+      {navItems.map(({ id, label }) => (
+        <button
+          key={id}
+          onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
+          onMouseEnter={() => setHoveredId(id)}
+          onMouseLeave={() => setHoveredId(null)}
+          className="flex items-center gap-3 group"
+          aria-label={`Jump to ${label}`}
+        >
+          {/* Label — appears on hover */}
+          <span
+            className="text-xs font-medium tracking-widest uppercase transition-all duration-200"
+            style={{
+              color: '#0B1D51',
+              opacity: hoveredId === id ? 1 : 0,
+              transform: hoveredId === id ? 'translateX(0)' : 'translateX(4px)',
+            }}
+          >
+            {label}
+          </span>
+          {/* Line */}
+          <div
+            className="rounded-full transition-all duration-200"
+            style={{
+              height: '2px',
+              width: activeId === id ? '28px' : hoveredId === id ? '20px' : '16px',
+              backgroundColor: activeId === id ? '#0B1D51' : '#A1869E',
+              opacity: activeId === id ? 1 : 0.5,
+            }}
+          />
+        </button>
+      ))}
+    </div>
+  );
+}
+
 const quotes = [
   {
     quote: "It's demotivating that the information is not easily findable and that it's not all in one place.",
@@ -208,7 +292,8 @@ function VisualDesignScroll() {
 export default function ConstituentPage() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#F8F6F2' }}>
-
+    <CaseStudyNav />
+  {/* rest of page */}
       {/* Custom Header */}
       <header className="border-b-[3px]" style={{ borderColor: '#0B1D51' }}>
         <nav className="px-10 md:px-20 lg:px-32 xl:px-40 py-6 flex items-center justify-between">
@@ -296,6 +381,7 @@ export default function ConstituentPage() {
       <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
 
       {/* Overview Section */}
+      <section id="overview" className="px-10
       <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
           <div>
@@ -339,6 +425,7 @@ export default function ConstituentPage() {
       <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
 
       {/* Problem Section */}
+      <section id="problem" className="px-10
       <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
           <div>
@@ -404,6 +491,7 @@ export default function ConstituentPage() {
 </section>
 
       {/* Research Section */}
+<section id="research" className="px-10
 <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
@@ -584,6 +672,7 @@ export default function ConstituentPage() {
 </section>
 
 {/* Define Section */}
+<section id="define" className="px-10
 <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
@@ -620,6 +709,7 @@ export default function ConstituentPage() {
   </div>
 </section>
       {/* Ideation Section */}
+<section id="ideation" className="px-10
 <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
@@ -748,6 +838,7 @@ export default function ConstituentPage() {
 </section>
 
       {/* Design Section */}
+<section id="design" className="px-10
 <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
@@ -977,6 +1068,7 @@ export default function ConstituentPage() {
 </section>
 
 {/* Reflections */}
+<section id="reflections" className="px-10
 <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>

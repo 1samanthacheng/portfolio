@@ -64,8 +64,7 @@ export function Hero() {
 
         {/* Description */}
         <p className="mb-2 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-          Designing research-driven, human-centered experiences at the intersection of technology +
-          public life, community, and regenerative systems change.
+          Designing research-driven, human-centered experiences for a more equitable and resilient world — with a soft spot for food, cities, and community-building.
         </p>
 
         {/* CTA Link */}

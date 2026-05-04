@@ -93,42 +93,42 @@ const visualDesignSections = [
           {/* Deep Navy — tall */}
           <div
             className="row-span-2 rounded-2xl flex flex-col justify-end p-4 min-h-[220px]"
-            style={{ backgroundColor: '#0B1D51' }}
+            style={{ backgroundColor: '#0B1D51', border: '1px solid #2B2B2B' }}
           >
-            <p className="text-sm font-medium" style={{ color: '#E0DBDE' }}>Deep Navy</p>
-            <p className="text-xs" style={{ color: '#A1869E' }}>#0B1D51</p>
+            <p className="text-sm font-medium" style={{ color: '#FFFFFF' }}>Deep Navy</p>
+            <p className="text-xs" style={{ color: '#FFFFFF' }}>#0B1D51</p>
           </div>
           {/* Lavender Grey */}
           <div
             className="rounded-2xl flex flex-col justify-end p-4 min-h-[100px]"
-            style={{ backgroundColor: '#797596' }}
+            style={{ backgroundColor: '#797596', border: '1px solid #2B2B2B' }}
           >
-            <p className="text-sm font-medium" style={{ color: '#F8F6F2' }}>Lavender Grey</p>
-            <p className="text-xs" style={{ color: '#E0DBDE' }}>#797596</p>
+            <p className="text-sm font-medium" style={{ color: '#FFFFFF' }}>Lavender Grey</p>
+            <p className="text-xs" style={{ color: '#FFFFFF' }}>#797596</p>
           </div>
           {/* Mauve */}
           <div
             className="rounded-2xl flex flex-col justify-end p-4 min-h-[100px]"
-            style={{ backgroundColor: '#A1869E' }}
+            style={{ backgroundColor: '#A1869E', border: '1px solid #2B2B2B' }}
           >
-            <p className="text-sm font-medium" style={{ color: '#F8F6F2' }}>Mauve</p>
-            <p className="text-xs" style={{ color: '#E0DBDE' }}>#A1869E</p>
+            <p className="text-sm font-medium" style={{ color: '#FFFFFF' }}>Mauve</p>
+            <p className="text-xs" style={{ color: '#FFFFFF' }}>#A1869E</p>
           </div>
           {/* Warm Taupe */}
           <div
             className="rounded-2xl flex flex-col justify-end p-4 min-h-[100px]"
-            style={{ backgroundColor: '#BBADA0' }}
+            style={{ backgroundColor: '#BBADA0', border: '1px solid #2B2B2B' }}
           >
-            <p className="text-sm font-medium" style={{ color: '#F8F6F2' }}>Warm Taupe</p>
-            <p className="text-xs" style={{ color: '#E0DBDE' }}>#BBADA0</p>
+            <p className="text-sm font-medium" style={{ color: '#FFFFFF' }}>Warm Taupe</p>
+            <p className="text-xs" style={{ color: '#FFFFFF' }}>#BBADA0</p>
           </div>
           {/* Cream */}
           <div
             className="rounded-2xl flex flex-col justify-end p-4 min-h-[100px]"
-            style={{ backgroundColor: '#D1C6AD' }}
+            style={{ backgroundColor: '#D1C6AD', border: '1px solid #2B2B2B' }}
           >
-            <p className="text-sm font-medium" style={{ color: '#2B2B2B' }}>Cream</p>
-            <p className="text-xs" style={{ color: '#2B2B2B' }}>#D1C6AD</p>
+            <p className="text-sm font-medium" style={{ color: '#FFFFFF' }}>Cream</p>
+            <p className="text-xs" style={{ color: '#FFFFFF' }}>#D1C6AD</p>
           </div>
         </div>
       </div>
@@ -185,7 +185,7 @@ function VisualDesignScroll() {
     const observers = sectionRefs.map((ref, i) => {
       const observer = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActiveIndex(i); },
-        { threshold: 0.5 }
+        { threshold: 0.7, rootMargin: '0px 0px -20% 0px' }
       );
       if (ref.current) observer.observe(ref.current);
       return observer;
@@ -196,7 +196,7 @@ function VisualDesignScroll() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative">
       {/* Left: sticky text */}
-      <div className="md:sticky md:top-24 md:self-start space-y-4 transition-all duration-500">
+      <div className="md:sticky md:top-0 md:self-start md:h-screen md:flex md:flex-col md:justify-center space-y-4 transition-all duration-500">
         <h2 className="text-2xl md:text-3xl font-semibold leading-tight" style={{ color: '#2B2B2B' }}>
           {visualDesignSections[activeIndex].heading}
         </h2>

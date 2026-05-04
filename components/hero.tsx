@@ -42,7 +42,7 @@ function ArrowRightIcon({ className }: { className?: string }) {
 
 export function Hero() {
   return (
-    <section className="relative flex h-[calc(100vh-91px)] flex-col justify-center px-8 md:px-16 lg:px-24 xl:px-32">
+    <section className="relative flex h-[calc(100vh-91px)] flex-col justify-center px-12 md:px-24 lg:px-40 xl:px-52">
       <div className="w-full max-w-5xl">
         {/* Welcome Badge */}
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border-[3px] border-primary px-5 py-2">

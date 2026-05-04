@@ -21,7 +21,7 @@ function GridIcon({ className }: { className?: string }) {
 export function Header({ activePage }: { activePage?: string }) {
   return (
     <header className="sticky top-0 z-50 bg-background">
-      <div className="flex items-center justify-between px-12 md:px-24 lg:px-40 xl:px-52">
+      <div className="flex items-center justify-between px-12 md:px-24 lg:px-40 xl:px-52 py-6">
         <Link href="/" className="flex items-center gap-2 text-primary">
           <span className="text-xl font-medium">郑</span>
           <span className="text-xl font-medium">Sam Cheng</span>

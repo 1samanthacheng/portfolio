@@ -137,43 +137,32 @@ const visualDesignSections = [
   {
     id: 'typography',
     heading: <>Typography <span className="font-serif italic font-normal">styles</span></>,
-    body: "The type system pairs DM Sans for UI clarity with Playfair Display for editorial warmth — mirroring the balance between civic utility and human approachability that runs through the whole design.",
+    body: "I chose Epilogue for headings because it carries quiet authority — geometric and minimal, but with just enough personality to feel distinct from the sterile sans-serifs common in government design. I paired it with DM Sans for body text, which prioritizes clarity and legibility while maintaining a polished, modern look.",
     visual: (
-      <div
-        className="w-full p-8 space-y-6"
-        style={{ border: '1px solid #2B2B2B', borderRadius: '24px', backgroundColor: '#FFFDFC' }}
-      >
-        <div className="space-y-1">
-          <p className="text-xs font-medium" style={{ color: '#727272' }}>Heading — DM Sans Semibold</p>
-          <p className="text-4xl font-semibold" style={{ color: '#0B1D51' }}>Your representatives</p>
-        </div>
-        <div className="space-y-1">
-          <p className="text-xs font-medium" style={{ color: '#727272' }}>Subheading — DM Sans Medium</p>
-          <p className="text-2xl font-medium" style={{ color: '#0B1D51' }}>Kirsten Gillibrand</p>
-        </div>
-        <div className="space-y-1">
-          <p className="text-xs font-medium" style={{ color: '#727272' }}>Body — DM Sans Regular</p>
-          <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>U.S. Senator representing New York. Member of the Senate Armed Services Committee.</p>
-        </div>
-        <div className="space-y-1">
-          <p className="text-xs font-medium" style={{ color: '#727272' }}>Label — DM Sans Medium</p>
-          <p className="text-sm font-medium" style={{ color: '#797596' }}>Democratic</p>
-        </div>
-      </div>
+      <div className="flex justify-center">
+    <Image
+      src="/images/typography-annotation.png"
+      alt="Typography styles showing DM Sans and Epilogue used in the Constituent app"
+      width={600}
+      height={700}
+      className="w-full h-auto"
+    />
+  </div>
     ),
   },
   {
     id: 'design-system',
     heading: <>Design system <span className="font-serif italic font-normal">and components</span></>,
-    body: "I built a lean component library covering the core UI patterns: rep list items, party affiliation badges, filter chips, contact forms, and message templates. Keeping the system minimal ensured consistency without over-engineering for an MVP.",
+    body: "I established rules for color application, typography, hierarchy, spacing (based on a soft 8px grid), and component behavior. This systematic approach creates a unified experience while ensuring the design remains scalable and maintainable.",
     visual: (
-      <div
-        className="w-full h-80 flex items-center justify-center text-sm"
-        style={{ border: '1px solid #2B2B2B', borderRadius: '24px', backgroundColor: '#E0DBDE', color: '#A1869E' }}
-      >
-        Component library — replace with Figma asset
-      </div>
-    ),
+      <Image
+    src="/images/components.png"
+    alt="Constituent design system components including list items, badges, chips, and navigation bar states"
+    width={600}
+    height={800}
+    className="w-full h-auto"
+  />
+),
   },
 ];
 

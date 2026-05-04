@@ -92,7 +92,7 @@ export function ApproachSection() {
   return (
     <section className="px-12 py-16 md:px-24 md:py-20 lg:px-40 lg:py-24 xl:px-52">
       {/* Approach Badge */}
-      <div className="mb-12 inline-flex items-center rounded-full border-[3px] border-primary px-5 py-2">
+      <div className="mb-12 inline-flex items-center rounded-full border-[2px] border-primary px-5 py-2">
         <span className="text-lg text-primary md:text-xl font-medium">Approach</span>
       </div>
 

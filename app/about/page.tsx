@@ -16,7 +16,7 @@ export default function About() {
       <section className="px-12 md:px-24 lg:px-40 xl:px-52 py-16 md:py-24">
         {/* Label */}
         <div className="mb-10">
-          <span className="inline-block rounded-full border border-primary px-5 py-2 text-base font-medium text-primary">
+          <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
             About me
           </span>
         </div>
@@ -74,7 +74,7 @@ export default function About() {
 <div className="mt-16">
   <div className="h-[3px] bg-primary mb-16" />
   <div className="mb-10">
-    <span className="inline-block rounded-full border border-primary px-5 py-2 text-base font-medium text-primary">
+    <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
       Experience
     </span>
   </div>
@@ -131,7 +131,7 @@ export default function About() {
 <div className="mt-16">
   <div className="h-[3px] bg-primary mb-16" />
   <div className="mb-10">
-    <span className="inline-block rounded-full border border-primary px-5 py-2 text-base font-medium text-primary">
+    <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
       Skills + tools
     </span>
   </div>
@@ -152,7 +152,7 @@ export default function About() {
     ].map((skill) => (
       <span
         key={skill}
-        className="inline-block rounded-full border border-foreground px-5 py-2 text-base font-medium text-foreground"
+        className="inline-block rounded-full border-[2px] border-foreground px-5 py-2 text-base font-medium text-foreground"
       >
         {skill}
       </span>
@@ -186,7 +186,7 @@ export default function About() {
   <div className="flex flex-col md:flex-row md:items-start gap-10">
     {/* Left: label + photo */}
     <div className="flex flex-col gap-6 md:w-64 shrink-0">
-      <span className="inline-block rounded-full border border-primary px-5 py-2 text-base font-medium text-primary w-fit">
+      <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary w-fit">
         Currently
       </span>
       {/* Placeholder image — swap with real photo of Boots later */}

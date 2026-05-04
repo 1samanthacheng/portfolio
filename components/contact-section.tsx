@@ -1,6 +1,6 @@
 export function ContactSection() {
   return (
-    <section className="px-8 md:px-16 lg:px-24 xl:px-32">
+    <section className="px-12 md:px-24 lg:px-40 xl:px-52">
       {/* Top Divider */}
       <div className="h-[3px] bg-primary" />
 

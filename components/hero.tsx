@@ -45,7 +45,7 @@ export function Hero() {
     <section className="relative flex h-[calc(100vh-91px)] flex-col justify-center px-12 md:px-24 lg:px-40 xl:px-52">
       <div className="w-full max-w-5xl">
         {/* Welcome Badge */}
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border-[3px] border-primary px-5 py-2">
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full border-[2px] border-primary px-5 py-2">
           <span className="text-lg text-primary md:text-xl font-medium">Welcome</span>
           <SmileyIcon className="h-5 w-5 text-primary md:h-6 md:w-6" />
         </div>

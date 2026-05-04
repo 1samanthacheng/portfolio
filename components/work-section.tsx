@@ -64,7 +64,7 @@ export function WorkSection() {
             </p>
 
             <Link
-              href="/work/constituent"
+              href="/constituent"
               className="inline-flex items-center gap-2 text-primary underline underline-offset-4"
             >
               <span className="text-base font-medium">View case study</span>

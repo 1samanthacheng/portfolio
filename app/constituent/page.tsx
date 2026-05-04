@@ -381,8 +381,8 @@ export default function ConstituentPage() {
       <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
 
       {/* Overview Section */}
-      <section id="overview" className="px-10
-      <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+      <section id="overview" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+
         <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
           <div>
             <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -425,8 +425,7 @@ export default function ConstituentPage() {
       <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
 
       {/* Problem Section */}
-      <section id="problem" className="px-10
-      <section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+      <section id="problem" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
           <div>
             <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -491,8 +490,7 @@ export default function ConstituentPage() {
 </section>
 
       {/* Research Section */}
-<section id="research" className="px-10
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="research" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -672,8 +670,7 @@ export default function ConstituentPage() {
 </section>
 
 {/* Define Section */}
-<section id="define" className="px-10
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="define" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -709,8 +706,7 @@ export default function ConstituentPage() {
   </div>
 </section>
       {/* Ideation Section */}
-<section id="ideation" className="px-10
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="ideation" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -838,8 +834,7 @@ export default function ConstituentPage() {
 </section>
 
       {/* Design Section */}
-<section id="design" className="px-10
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="design" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -1068,8 +1063,7 @@ export default function ConstituentPage() {
 </section>
 
 {/* Reflections */}
-<section id="reflections" className="px-10
-<section className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="overview" className="px-10 md:px-20 lg:px-32 xl:px-40 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>

@@ -30,13 +30,13 @@ export function Header({ activePage }: { activePage?: string }) {
           <div className="hidden items-center gap-6 sm:flex">
             <Link
               href="/#work"
-              className={`text-primary text-base font-medium ${activePage === "work" ? "underline underline-offset-4" : ""}`}
+              className={`text-primary text-base font-medium underline-offset-4 hover:underline transition-all ${activePage === "work" ? "underline underline-offset-4" : ""}`}
             >
               work
             </Link>
             <Link
               href="/about"
-              className={`text-primary text-base font-medium ${activePage === "about" ? "underline underline-offset-4" : ""}`}
+              className={`text-primary text-base font-medium underline-offset-4 hover:underline transition-all ${activePage === "about" ? "underline underline-offset-4" : ""}`}
             >
               about
             </Link>
@@ -46,7 +46,7 @@ export function Header({ activePage }: { activePage?: string }) {
               <GridIcon className="h-5 w-5" />
             </Link>
             <Link
-              href="https://linkedin.com/in/samanthacheng"
+              href="https://linkedin.com/in/s-cheng"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary"

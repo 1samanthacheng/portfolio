@@ -35,18 +35,18 @@ export function WorkSection() {
         {/* Project Card */}
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-16">
           {/* Image Container */}
-          <div className="flex-shrink-0 lg:w-1/2">
-            <div className="group overflow-hidden rounded-3xl border border-foreground bg-[#e8e6e1]">
-              <Image
-                src="/images/constituent-thumbnail.png"
-                alt="Constituent app mockups showing civic engagement features"
-                width={800}
-                height={600}
-                className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                priority
-              />
-            </div>
-          </div>
+          <Link href="/constituent" className="flex-shrink-0 lg:w-1/2">
+  <div className="group overflow-hidden rounded-3xl border border-foreground bg-[#e8e6e1]">
+    <Image
+      src="/images/constituent-thumbnail.png"
+      alt="Constituent app mockups showing civic engagement features"
+      width={800}
+      height={600}
+      className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      priority
+    />
+  </div>
+</Link>
 
           {/* Content */}
           <div className="flex flex-col lg:w-1/2">
@@ -54,7 +54,7 @@ export function WorkSection() {
               Constituent
             </h2>
 
-            <p className="mb-4 font-sans text-xl font-medium leading-relaxed text-foreground md:text-2xl">
+            <p className="mb-4 font-sans text-base leading-relaxed text-foreground">
               Creating a civic engagement app that makes finding and contacting your elected
               officials simple and approachable.
             </p>

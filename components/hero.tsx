@@ -77,6 +77,8 @@ export function Hero() {
             <ArrowRightIcon className="h-4 w-4" />
           </Link>
 
+        </div>
+      </div>
     </section>
   );
 }

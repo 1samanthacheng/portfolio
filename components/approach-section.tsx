@@ -85,7 +85,7 @@ const approachData = [
 export function ApproachSection() {
   return (
     <section className="px-12 py-16 md:px-24 md:py-20 lg:px-40 lg:py-24 xl:px-52">
-      <div className="flex flex-col gap-12 lg:flex-row lg:gap-24">
+      <div className="flex flex-col gap-12 lg:flex-row lg:gap-32">
 
         {/* Left col: pill, pinned to top */}
         <div className="flex-shrink-0 lg:pt-2">

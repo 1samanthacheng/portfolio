@@ -54,7 +54,7 @@ export function WorkSection() {
               Constituent
             </h2>
 
-            <p className="mb-4 font-sans text-base leading-relaxed text-foreground">
+            <p className="mb-4 font-sans text-lg leading-relaxed text-foreground">
               Creating a civic engagement app that makes finding and contacting your elected
               officials simple and approachable.
             </p>

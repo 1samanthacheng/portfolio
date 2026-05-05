@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 function SmileyIcon({ className }: { className?: string }) {
   return (
@@ -42,33 +43,35 @@ function ArrowRightIcon({ className }: { className?: string }) {
 
 export function Hero() {
   return (
-    <section className="relative flex h-[calc(100vh-91px)] flex-col justify-center px-12 md:px-24 lg:px-40 xl:px-52">
-      <div className="w-full max-w-5xl">
-        {/* Welcome Badge */}
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border-[2px] border-primary px-5 py-2">
-          <span className="text-lg text-primary md:text-xl font-medium">Welcome</span>
-          <SmileyIcon className="h-5 w-5 text-primary md:h-6 md:w-6" />
-        </div>
+    <section className="relative flex h-[calc(100vh-91px)] flex-col justify-center px-12 md:px-24 lg:px-40 xl:px-52 overflow-hidden">
+      <div className="w-full max-w-5xl flex items-center justify-between gap-8">
 
-        {/* Main Headline */}
-        <h1 className="mb-6 max-w-4xl text-4xl leading-tight tracking-tight md:text-5xl lg:text-6xl">
-          <span className="whitespace-nowrap">
-            <span className="font-serif italic">Sam is a</span>{" "}
-            <span className="font-sans font-semibold">product designer</span>{" "}
-            <span className="font-serif italic">building</span>
-          </span>
-          <br />
-          <span className="font-serif italic">for</span>{" "}
-          <span className="font-sans font-semibold">social good.</span>
-        </h1>
+        {/* Left: copy */}
+        <div className="flex-1 min-w-0">
+          {/* Welcome Badge */}
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border-[2px] border-primary px-5 py-2">
+            <span className="text-lg text-primary md:text-xl font-medium">Welcome</span>
+            <SmileyIcon className="h-5 w-5 text-primary md:h-6 md:w-6" />
+          </div>
 
-        {/* Description */}
-        <p className="mb-2 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-          Designing research-driven, human-centered experiences for a more equitable and resilient world (with a soft spot for food, climate, and community-building).
-        </p>
+          {/* Main Headline */}
+          <h1 className="mb-6 max-w-4xl text-4xl leading-tight tracking-tight md:text-5xl lg:text-6xl">
+            <span className="whitespace-nowrap">
+              <span className="font-serif italic">Sam is a</span>{" "}
+              <span className="font-sans font-semibold">product designer</span>{" "}
+              <span className="font-serif italic">building</span>
+            </span>
+            <br />
+            <span className="font-serif italic">for</span>{" "}
+            <span className="font-sans font-semibold">social good.</span>
+          </h1>
 
-        {/* CTA Link */}
-        <div className="flex items-end justify-between">
+          {/* Description */}
+          <p className="mb-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            Designing research-driven, human-centered experiences for a more equitable and resilient world (with a soft spot for food, climate, and community-building).
+          </p>
+
+          {/* CTA Link */}
           <Link
             href="#work"
             className="inline-flex items-center gap-2 text-primary underline underline-offset-4"
@@ -76,6 +79,44 @@ export function Hero() {
             <span className="text-base font-medium">View my work</span>
             <ArrowRightIcon className="h-4 w-4" />
           </Link>
+        </div>
+
+        {/* Right: photos */}
+        <div className="relative hidden lg:block flex-shrink-0 w-[340px] h-[480px]">
+
+          {/* Mountains — top right, larger */}
+          <div className="group absolute top-0 right-0 w-[240px] h-[200px] rounded-2xl overflow-hidden shadow-md">
+            <Image
+              src="/images/mountains.jpg"
+              alt="Mountain landscape"
+              fill
+              className="object-cover"
+              sizes="240px"
+            />
+            {/* Caption pill */}
+            <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
+              <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">
+                another world is possible
+              </span>
+            </div>
+          </div>
+
+          {/* Oranges — lower left, slightly smaller */}
+          <div className="group absolute bottom-16 left-0 w-[200px] h-[190px] rounded-2xl overflow-hidden shadow-md">
+            <Image
+              src="/images/oranges.jpg"
+              alt="Oranges on a tree"
+              fill
+              className="object-cover"
+              sizes="200px"
+            />
+            {/* Caption pill */}
+            <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
+              <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">
+                good systems bear fruit
+              </span>
+            </div>
+          </div>
 
         </div>
       </div>

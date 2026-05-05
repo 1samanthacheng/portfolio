@@ -23,10 +23,10 @@ export function ContactSection() {
           {/* Email Button */}
           <a
             href="mailto:1samanthacheng@gmail.com"
-            className="inline-flex items-center rounded-full border border-foreground bg-[#FFFDFC] px-6 py-3 text-lg font-medium text-primary md:text-xl"
-          >
-            1samanthacheng@gmail.com
-          </a>
+  className="inline-flex items-center rounded-full border border-foreground bg-[#FFFDFC] px-6 py-3 text-lg font-medium text-primary md:text-xl transition-colors duration-200 hover:bg-[#306032] hover:text-[#FFFDFC] hover:border-transparent"
+>
+  1samanthacheng@gmail.com
+</a>
         </div>
       </div>
     </section>

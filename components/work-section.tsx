@@ -38,7 +38,7 @@ export function WorkSection() {
           <div className="flex-shrink-0 lg:w-1/2">
             <div className="overflow-hidden rounded-3xl border border-foreground bg-[#e8e6e1]">
               <Image
-                src="/images/constituent-mockup.png"
+                src="/images/constituent-thumbnail.png"
                 alt="Constituent app mockups showing civic engagement features"
                 width={800}
                 height={600}

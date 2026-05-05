@@ -56,13 +56,9 @@ export function Hero() {
 
           {/* Main Headline */}
           <h1 className="mb-6 max-w-4xl text-4xl leading-tight tracking-tight md:text-5xl lg:text-6xl">
-            <span className="whitespace-nowrap">
-              <span className="font-serif italic">Sam is a</span>{" "}
-              <span className="font-sans font-semibold">product designer</span>{" "}
-              <span className="font-serif italic">building</span>
-            </span>
-            <br />
-            <span className="font-serif italic">for</span>{" "}
+            <span className="font-serif italic">Sam is a </span>
+            <span className="font-sans font-semibold">product designer </span>
+            <span className="font-serif italic">building for </span>
             <span className="font-sans font-semibold">social good.</span>
           </h1>
 
@@ -82,37 +78,35 @@ export function Hero() {
         </div>
 
         {/* Right: photos */}
-        <div className="relative hidden lg:block flex-shrink-0 w-[340px] h-[480px]">
+        <div className="relative hidden lg:block flex-shrink-0 w-[360px] h-[500px] -mr-16 xl:-mr-28">
 
-          {/* Mountains — top right, larger */}
-          <div className="group absolute top-0 right-0 w-[240px] h-[200px] rounded-2xl overflow-hidden shadow-md">
+          {/* Landscape — top right, 4:5 aspect ratio (220 × 275) */}
+          <div className="group absolute top-0 right-0 w-[220px] h-[275px] rounded-[24px] overflow-hidden border border-[#2b2b2b]">
             <Image
-              src="/images/mountains.jpg"
+              src="/images/landscape.jpg"
               alt="Mountain landscape"
               fill
               className="object-cover"
-              sizes="240px"
+              sizes="220px"
             />
-            {/* Caption pill */}
             <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
-              <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">
+              <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
                 another world is possible
               </span>
             </div>
           </div>
 
           {/* Oranges — lower left, slightly smaller */}
-          <div className="group absolute bottom-16 left-0 w-[200px] h-[190px] rounded-2xl overflow-hidden shadow-md">
+          <div className="group absolute bottom-8 left-0 w-[190px] h-[190px] rounded-[24px] overflow-hidden border border-[#2b2b2b]">
             <Image
-              src="/images/oranges.jpg"
+              src="/images/oranges.jpeg"
               alt="Oranges on a tree"
               fill
               className="object-cover"
-              sizes="200px"
+              sizes="190px"
             />
-            {/* Caption pill */}
             <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
-              <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">
+              <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
                 good systems bear fruit
               </span>
             </div>

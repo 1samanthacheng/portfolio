@@ -77,17 +77,17 @@ export function Hero() {
           </Link>
         </div>
 
-        {/* Right: photos */}
-        <div className="relative hidden lg:block flex-shrink-0 w-[360px] h-[500px] -mr-16 xl:-mr-28">
+        {/* Right: photos — visible md+ */}
+        <div className="relative hidden md:block flex-shrink-0 w-[320px] lg:w-[380px] h-[520px] -mr-12 lg:-mr-20 xl:-mr-32">
 
-          {/* Landscape — top right, 4:5 aspect ratio (220 × 275) */}
-          <div className="group absolute top-0 right-0 w-[220px] h-[275px] rounded-[24px] overflow-hidden border border-[#2b2b2b]">
+          {/* Landscape — top right, 4:5 (220×275), flush to right edge */}
+          <div className="group absolute top-0 right-0 w-[200px] h-[250px] lg:w-[220px] lg:h-[275px] rounded-[24px] overflow-hidden border border-[#2b2b2b]">
             <Image
               src="/images/landscape.jpg"
               alt="Mountain landscape"
               fill
               className="object-cover"
-              sizes="220px"
+              sizes="(max-width: 1024px) 200px, 220px"
             />
             <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
               <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
@@ -96,16 +96,17 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Oranges — lower left, slightly smaller */}
-          <div className="group absolute bottom-8 left-0 w-[190px] h-[190px] rounded-[24px] overflow-hidden border border-[#2b2b2b]">
+          {/* Oranges — lower, offset left, plenty of gap from landscape */}
+          <div className="group absolute bottom-0 left-4 w-[170px] h-[170px] lg:w-[185px] lg:h-[185px] rounded-[24px] overflow-hidden border border-[#2b2b2b]">
             <Image
               src="/images/oranges.jpeg"
               alt="Oranges on a tree"
               fill
               className="object-cover"
-              sizes="190px"
+              sizes="(max-width: 1024px) 170px, 185px"
             />
-            <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
+            {/* Caption centered at bottom */}
+            <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
               <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
                 good systems bear fruit
               </span>

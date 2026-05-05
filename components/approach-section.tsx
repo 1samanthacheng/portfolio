@@ -17,13 +17,10 @@ function ApproachCard({
   description,
   italicWord,
 }: ApproachCardProps) {
-  // Function to render description with optional italic word
   const renderDescription = () => {
     if (!italicWord) return description;
-
     const parts = description.split(italicWord);
     if (parts.length === 1) return description;
-
     return (
       <>
         {parts[0]}
@@ -45,7 +42,6 @@ function ApproachCard({
           className="h-28 w-28 object-contain sm:h-36 sm:w-36"
         />
       </div>
-
       {/* Content */}
       <div className="flex flex-col text-center sm:text-left">
         <h3 className="mb-3 text-xl font-medium md:text-2xl">
@@ -92,13 +88,13 @@ export function ApproachSection() {
   return (
     <section className="px-12 py-16 md:px-24 md:py-20 lg:px-40 lg:py-24 xl:px-52">
       {/* Approach Badge */}
-      <div className="mb-12 inline-flex items-center rounded-full border-[2px] border-primary px-5 py-2">
+      <div className="mb-24 inline-flex items-center rounded-full border-[2px] border-primary px-5 py-2">
         <span className="text-lg text-primary md:text-xl font-medium">Approach</span>
       </div>
 
-      {/* Cards */}
-      <div className="flex flex-col gap-6">
-        {approachData.map((item, index) => (
+      {/* Two-column grid — third card spans full width */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        {approachData.slice(0, 2).map((item, index) => (
           <ApproachCard
             key={index}
             imageSrc={item.imageSrc}
@@ -109,6 +105,16 @@ export function ApproachSection() {
             italicWord={item.italicWord}
           />
         ))}
+        <div className="lg:col-span-2">
+          <ApproachCard
+            imageSrc={approachData[2].imageSrc}
+            imageAlt={approachData[2].imageAlt}
+            titleItalic={approachData[2].titleItalic}
+            titleBold={approachData[2].titleBold}
+            description={approachData[2].description}
+            italicWord={approachData[2].italicWord}
+          />
+        </div>
       </div>
     </section>
   );

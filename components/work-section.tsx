@@ -36,13 +36,13 @@ export function WorkSection() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-16">
           {/* Image Container */}
           <div className="flex-shrink-0 lg:w-1/2">
-            <div className="overflow-hidden rounded-3xl border border-foreground bg-[#e8e6e1]">
+            <div className="group overflow-hidden rounded-3xl border border-foreground bg-[#e8e6e1]">
               <Image
                 src="/images/constituent-thumbnail.png"
                 alt="Constituent app mockups showing civic engagement features"
                 width={800}
                 height={600}
-                className="h-auto w-full object-cover"
+                className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 priority
               />
             </div>

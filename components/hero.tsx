@@ -64,7 +64,7 @@ export function Hero() {
 
         {/* Description */}
         <p className="mb-2 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-          Designing research-driven, human-centered experiences for a more equitable and resilient world (with a soft spot for food, nature, and community-building).
+          Designing research-driven, human-centered experiences for a more equitable and resilient world (with a soft spot for food, climate, and community-building).
         </p>
 
         {/* CTA Link */}
@@ -76,23 +76,6 @@ export function Hero() {
             <span className="text-base font-medium">View my work</span>
             <ArrowRightIcon className="h-4 w-4" />
           </Link>
-
-          {/* Decorative Image */}
-          <div className="hidden lg:block">
-            <div className="relative h-40 w-40 overflow-hidden rounded-2xl bg-[#1a1a1a]">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative h-28 w-28">
-                  <div className="absolute inset-0 rounded-full bg-[#3d3d3d]"></div>
-                  <div className="absolute inset-4 rounded-full bg-[#2a2a2a]"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="h-10 w-10 rounded-full bg-[#e67a54]"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
     </section>
   );

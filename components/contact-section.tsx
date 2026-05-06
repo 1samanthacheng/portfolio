@@ -1,8 +1,6 @@
 export function ContactSection() {
   return (
     <section className="px-12 md:px-24 lg:px-40 xl:px-52">
-      {/* Top Divider */}
-      <div className="h-[3px] bg-primary" />
 
       {/* Content */}
       <div className="py-16 md:py-24">

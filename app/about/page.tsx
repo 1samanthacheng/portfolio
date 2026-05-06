@@ -214,13 +214,18 @@ export default function About() {
           <div className="flex flex-col md:flex-row md:items-start gap-10">
             {/* Left: label + photo */}
             <div className="flex flex-col gap-6 md:w-64 shrink-0">
-              <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary w-fit">
+              <span className="inline-block rounded-full border-[1px] border-[#2b2b2b] px-5 py-2 text-base font-medium text-primary w-fit">
                 Currently
               </span>
-              {/* Placeholder image — swap with real photo of Boots later */}
-              <div className="rounded-2xl border-2 border-primary overflow-hidden w-64 h-72 bg-muted flex items-center justify-center text-sm text-muted-foreground">
-                photo of Boots
-              </div>
+              {/* Boots */}
+              <div className="group relative w-80 aspect-[4/5] overflow-hidden rounded-[24px] border border-[#2b2b2b]">
+              <Image
+                src="boots.jpeg"
+                alt="Boots, tuxedo cat on buffet table"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
             {/* Right: table */}
             <div className="flex-1">

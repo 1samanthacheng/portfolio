@@ -51,42 +51,42 @@ function CaseStudyNav() {
 
   return (
     <div
-      className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-end gap-3 transition-opacity duration-500 hidden lg:flex"
-      style={{ opacity: visible ? 1 : 0, pointerEvents: visible ? 'auto' : 'none' }}
+  className="fixed left-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-start gap-1 transition-opacity duration-500 hidden lg:flex"
+  style={{ opacity: visible ? 1 : 0, pointerEvents: visible ? 'auto' : 'none' }}
+>
+  {navItems.map(({ id, label }) => (
+    <button
+      key={id}
+      onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
+      onMouseEnter={() => setHoveredId(id)}
+      onMouseLeave={() => setHoveredId(null)}
+      className="flex items-center gap-3 group"
+      aria-label={`Jump to ${label}`}
     >
-      {navItems.map(({ id, label }) => (
-        <button
-          key={id}
-          onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
-          onMouseEnter={() => setHoveredId(id)}
-          onMouseLeave={() => setHoveredId(null)}
-          className="flex items-center gap-3 group"
-          aria-label={`Jump to ${label}`}
-        >
-          {/* Label — appears on hover */}
-          <span
-            className="text-xs font-medium tracking-widest uppercase transition-all duration-200"
-            style={{
-              color: '#0B1D51',
-              opacity: hoveredId === id ? 1 : 0,
-              transform: hoveredId === id ? 'translateX(0)' : 'translateX(4px)',
-            }}
-          >
-            {label}
-          </span>
-          {/* Line */}
-          <div
-            className="rounded-full transition-all duration-200"
-            style={{
-              height: '2px',
-              width: activeId === id ? '28px' : hoveredId === id ? '20px' : '16px',
-              backgroundColor: activeId === id ? '#0B1D51' : '#A1869E',
-              opacity: activeId === id ? 1 : 0.5,
-            }}
-          />
-        </button>
-      ))}
-    </div>
+      {/* Line */}
+      <div
+        className="rounded-full transition-all duration-200"
+        style={{
+          height: '2px',
+          width: activeId === id ? '40px' : hoveredId === id ? '32px' : '24px',
+          backgroundColor: activeId === id ? '#0B1D51' : '#A1869E',
+          opacity: activeId === id ? 1 : 0.5,
+        }}
+      />
+      {/* Label — appears on hover, now on the right */}
+      <span
+        className="text-xs font-medium tracking-widest uppercase transition-all duration-200"
+        style={{
+          color: '#0B1D51',
+          opacity: hoveredId === id ? 1 : 0,
+          transform: hoveredId === id ? 'translateX(0)' : 'translateX(-4px)',
+        }}
+      >
+        {label}
+      </span>
+    </button>
+  ))}
+</div>
   );
 }
 

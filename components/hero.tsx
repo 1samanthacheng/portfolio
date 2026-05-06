@@ -51,7 +51,7 @@ export function Hero() {
           {/* Welcome Badge */}
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border-[2px] border-primary px-5 py-2">
             <span className="text-lg text-primary md:text-xl font-medium">Welcome</span>
-            <SmileyIcon className="h-5 w-5 text-primary md:h-6 md:w-6" />
+            <SmileyIcon className="h-5 w-5 text-[#FF5D1F] md:h-6 md:w-6" />
           </div>
 
           {/* Main Headline */}
@@ -70,7 +70,7 @@ export function Hero() {
           {/* CTA Link */}
           <Link
             href="#work"
-            className="group inline-flex items-center gap-2 text-primary underline underline-offset-4 transition-colors duration-200 hover:text-[#647665]"
+            className="group inline-flex items-center gap-2 text-primary underline underline-offset-4 transition-colors duration-200 hover:text-[#FF5D1F]"
           >
             <span className="text-base font-medium">View my work</span>
             <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-[3px]" />

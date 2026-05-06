@@ -57,19 +57,24 @@ export default function About() {
             </div>
           </div>
           {/* Photo */}
-          <div className="shrink-0 md:mt-20">
-            <div className="h-72 w-72 overflow-hidden rounded-full border-2 border-primary md:h-80 md:w-80">
-              <Image
-                src="/images/sam-headshot.jpg"
-                alt="Sam Cheng at a street market holding green grapes on a skewer"
-                width={320}
-                height={320}
-                className="h-full w-full object-cover"
-                priority
-              />
-            </div>
-          </div>
-        </div>
+<div className="shrink-0 md:mt-20">
+  <div className="group relative h-72 w-72 overflow-hidden rounded-[24px] border border-[#2b2b2b] md:h-80 md:w-80">
+    <Image
+      src="/images/sam-headshot.JPG"
+      alt="Sam Cheng at a street market holding green grapes on a skewer"
+      width={320}
+      height={320}
+      className="h-full w-full object-cover"
+      priority
+    />
+    {/* Hover caption */}
+    <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+      <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
+        photo by Joel Lee
+      </span>
+    </div>
+  </div>
+</div>
         {/* Experience Section */}
 <div className="mt-16">
   <div className="h-[3px] bg-primary mb-16" />

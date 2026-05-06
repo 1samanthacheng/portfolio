@@ -41,15 +41,19 @@ export default function About() {
                 outdoors, and playing with my cat Boots.
               </p>
               <p>
-                <Link href="/resume" className="underline underline-offset-4 hover:text-primary transition-colors">
-                  Take a look at my resume
-                </Link>
+                Take a look at{" "}
+                <a
+                  href="https://drive.google.com/file/d/1LHSMNdxSdx8YOiZg-sMNXgTVcZH7OG57/view"
+                  className="underline underline-offset-4 text-primary hover:text-[#FF5D1F] transition-colors"
+                >
+                  my resume
+                </a>
               </p>
               <p>
                 Get in touch at{" "}
                 <a
                   href="mailto:1samanthacheng@gmail.com"
-                  className="underline underline-offset-4 hover:text-primary transition-colors"
+                  className="underline underline-offset-4 text-primary hover:text-[#FF5D1F] transition-colors"
                 >
                   1samanthacheng@gmail.com
                 </a>
@@ -58,21 +62,35 @@ export default function About() {
           </div>
           {/* Photo */}
 <div className="shrink-0 md:mt-20">
-  <div className="group relative h-72 w-72 overflow-hidden rounded-[24px] border border-[#2b2b2b] md:h-80 md:w-80">
+  <div className="group relative h-72 w-80 overflow-hidden rounded-[24px] border border-[#2b2b2b] md:h-80 md:w-80">
     <Image
       src="/images/sam-headshot.JPG"
-      alt="Sam Cheng at a street market holding green grapes on a skewer"
+      alt="Sam Cheng in Chinatown holding green grapes on a skewer"
       width={320}
       height={320}
       className="h-full w-full object-cover"
       priority
     />
     {/* Hover caption */}
-    <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+    <div className="absolute top-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
       <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
         photo by Joel Lee
       </span>
     </div>
+    {/* Small seasonal photo */}
+<div className="group relative w-40 h-40 overflow-hidden rounded-[16px] border border-[#2b2b2b] mt-3">
+  <Image
+    src="/images/spring-snapshot.jpg"
+    alt="Cherry blossom tree against blue sky with the moon"
+    fill
+    className="object-cover"
+  />
+  <div className="absolute top-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+    <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
+      spring snapshot
+    </span>
+  </div>
+</div>
   </div>
 </div>
 </div>

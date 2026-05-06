@@ -50,13 +50,13 @@ export function BackToTop() {
     <button
   onClick={scrollToTop}
   aria-label="Scroll to top"
-  className="group fixed bottom-8 right-8 z-50 flex h-10 w-10 items-center justify-center rounded border border-primary bg-[#FFFDFC] transition-all duration-200 md:right-16 lg:right-24 xl:right-32 hover:border-[#FF5D1F]"
+  className="group fixed bottom-8 right-8 z-50 flex h-10 w-10 items-center justify-center rounded border border-primary bg-[#FFFDFC] transition-all duration-200 hover:-translate-y-[3px] hover:border-[#FF5D1F] md:right-16 lg:right-24 xl:right-32"
   style={{
     opacity: isVisible ? 1 : 0,
     pointerEvents: isVisible ? "auto" : "none",
   }}
 >
-  <ArrowUpIcon className="text-primary transition-transform duration-200 group-hover:-translate-y-[3px] group-hover:text-[#FF5D1F]" />
+  <ArrowUpIcon className="text-primary transition-all duration-200 group-hover:text-[#FF5D1F]" />
 </button>
   );
 }

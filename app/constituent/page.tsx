@@ -67,8 +67,8 @@ function CaseStudyNav() {
       <div
         className="rounded-full transition-all duration-200"
         style={{
-          height: '2px',
-          width: activeId === id ? '40px' : hoveredId === id ? '32px' : '24px',
+          height: '1px',
+          width: activeId === id ? '48px' : hoveredId === id ? '40px' : '32px',
           backgroundColor: activeId === id ? '#0B1D51' : '#A1869E',
           opacity: activeId === id ? 1 : 0.5,
         }}
@@ -1064,7 +1064,7 @@ export default function ConstituentPage() {
 </section>
 
 {/* Reflections */}
-<section id="overview" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="reflections" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>

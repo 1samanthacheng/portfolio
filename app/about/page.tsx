@@ -61,7 +61,9 @@ export default function About() {
             </div>
           </div>
           {/* Photo */}
-<div className="shrink-0 md:mt-20">
+<div className="shrink-0 md:mt-20 flex flex-col gap-3">
+  
+  {/* Headshot */}
   <div className="group relative h-72 w-80 overflow-hidden rounded-[24px] border border-[#2b2b2b] md:h-80 md:w-80">
     <Image
       src="/images/sam-headshot.JPG"
@@ -71,25 +73,18 @@ export default function About() {
       className="h-full w-full object-cover"
       priority
     />
-    {/* Hover caption */}
-    <div className="absolute top-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-      <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
-        photo by Joel Lee
-      </span>
-    </div>
-    {/* Small seasonal photo */}
-<div className="group relative w-40 h-40 overflow-hidden rounded-[16px] border border-[#2b2b2b] mt-3">
-  <Image
-    src="/images/cherry-blossoms.jpeg"
-    alt="Cherry blossom tree against blue sky with the moon"
-    fill
-    className="object-cover"
-  />
-  <div className="absolute top-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-    <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
-      spring snapshot
-    </span>
   </div>
+
+  {/* Spring snapshot */}
+  <div className="group relative w-40 h-40 overflow-hidden rounded-[16px] border border-[#2b2b2b]">
+    <Image
+      src="/images/cherry-blossoms.jpeg"
+      alt="Cherry blossom tree against blue sky with the moon"
+      fill
+      className="object-cover"
+    />
+  </div>
+
 </div>
   </div>
 </div>

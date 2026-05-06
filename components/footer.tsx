@@ -37,7 +37,7 @@ export function Footer() {
             email
           </a>
           <span className="text-primary">•</span>
-          <Link href="/resume" className="hover:underline">
+          <Link href="https://drive.google.com/file/d/1LHSMNdxSdx8YOiZg-sMNXgTVcZH7OG57/view?usp=drive_link" className="hover:underline">
             resume
           </Link>
           <span className="text-primary">•</span>
@@ -53,7 +53,7 @@ export function Footer() {
 
         {/* Right */}
         <div className="flex items-center gap-6">
-          <span className="text-base font-medium text-foreground">© Sam Cheng, 2026</span>
+          <span className="text-base font-medium text-primary">© Sam Cheng, 2026</span>
 
           {/* Back to Top */}
           <button

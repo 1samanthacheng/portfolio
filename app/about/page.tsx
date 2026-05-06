@@ -300,6 +300,7 @@ export default function About() {
         </div> {/* Closes Currently Section */}
       </section>
       <Footer />
+      <BackToTop />
     </main>
   );
 }

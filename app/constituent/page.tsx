@@ -1106,7 +1106,7 @@ export default function ConstituentPage() {
           <nav className="flex items-center gap-1 text-base font-medium" style={{ color: '#0B1D51' }}>
             <a href="mailto:1samanthacheng@gmail.com" className="hover:underline">email</a>
             <span>•</span>
-            <Link href="/resume" className="hover:underline">resume</Link>
+            <Link href="https://drive.google.com/file/d/1LHSMNdxSdx8YOiZg-sMNXgTVcZH7OG57/view?usp=drive_link" className="hover:underline">resume</Link>
             <span>•</span>
             <a href="https://www.linkedin.com/in/s-cheng/" target="_blank" rel="noopener noreferrer" className="hover:underline">linkedin</a>
           </nav>

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Grid3x3 as Grid3X3, Linkedin, Mail } from 'lucide-react';
 import React, { useState } from 'react';
+import { BackToTop } from "@/components/back-to-top";
 
 const navItems = [
   { id: 'overview', label: 'Overview' },
@@ -1112,18 +1113,16 @@ export default function ConstituentPage() {
           </nav>
           <div className="flex items-center gap-6">
             <span className="text-base font-medium" style={{ color: '#2B2B2B' }}>© Sam Cheng, 2026</span>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex h-8 w-8 items-center justify-center"
-              style={{ color: '#2B2B2B' }}
-              aria-label="Scroll to top"
-            >
-              ↑
-            </button>
           </div>
         </div>
       </footer>
-
+      <BackToTop
+        borderColor="border-[#0B1D51]"
+        hoverBorderColor="hover:border-[#726E8C]"
+        arrowColor="text-[#0B1D51]"
+        hoverArrowColor="group-hover:text-[#726E8C]"
+        bg="bg-[#FFFDFC]"
+      />
     </div>
   );
 }

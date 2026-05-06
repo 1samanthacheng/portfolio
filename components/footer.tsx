@@ -54,14 +54,7 @@ export function Footer() {
         {/* Right */}
         <div className="flex items-center gap-6">
           <span className="text-base font-medium text-primary">© Sam Cheng, 2026</span>
-          {/* Back to Top */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="group flex h-8 w-8 items-center justify-center rounded-full border border-primary bg-[#FFFDFC] transition-colors duration-200 hover:border-[#FF5D1F]"
-            aria-label="Scroll to top"
-          >
-            <ArrowUpIcon className="text-primary transition-colors duration-200 group-hover:text-[#FF5D1F]" />
-          </button>
+          
         </div>
       </div>
     </footer>

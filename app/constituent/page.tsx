@@ -163,7 +163,7 @@ const visualDesignSections = [
         className="w-full h-[520px] flex items-center justify-center text-sm"
         style={{ border: '1px solid #2B2B2B', borderRadius: '40px', backgroundColor: '#E0DBDE', color: '#A1869E' }}
       >
-        Home screen mockup
+        use home screen.png
       </div>
     ),
   },
@@ -373,7 +373,7 @@ export default function ConstituentPage() {
         {/* Right */}
         <div className="px-12 md:px-24 lg:px-40 xl:px-52 py-12 flex items-center justify-center" style={{ backgroundColor: '#E0DBDE' }}>
           <div className="w-full max-w-sm">
-            <Image src="/constituent_loading_screen_iphone.png" alt="Constituent App on iPhone" width={400} height={800} className="w-full h-auto" />
+            <Image src="/app icon.png" alt="Constituent App on iPhone" width={400} height={800} className="w-full h-auto" />
           </div>
         </div>
       </section>
@@ -417,7 +417,7 @@ export default function ConstituentPage() {
       <section style={{ backgroundColor: '#E0DBDE' }}>
         <div className="px-12 md:px-24 lg:px-40 xl:px-52 py-12 flex items-center justify-center">
           <div className="w-full h-96 rounded-2xl flex items-center justify-center text-base" style={{ backgroundColor: '#D4CFCD', color: '#A1869E' }}>
-            App screens image — replace with actual asset
+            App screens image — replace with constituent-thumbnail.png
           </div>
         </div>
       </section>
@@ -826,7 +826,7 @@ export default function ConstituentPage() {
       className="w-full h-96 rounded-xl flex items-center justify-center text-sm"
       style={{ backgroundColor: '#E0DBDE', color: '#A1869E' }}
     >
-      User flow diagram — replace with exported Figma asset
+      User flow diagram — use user-flow.png
     </div>
   </div>
 </div>
@@ -962,7 +962,7 @@ export default function ConstituentPage() {
         className="w-64 h-[520px] flex items-center justify-center text-sm"
         style={{ border: '1px solid #2B2B2B', borderRadius: '40px', backgroundColor: '#E0DBDE', color: '#A1869E' }}
       >
-        Rep directory screen
+        Rep directory gif
       </div>
     </div>
   </div>

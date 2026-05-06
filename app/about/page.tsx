@@ -20,6 +20,7 @@ export default function About() {
             About me
           </span>
         </div>
+        
         {/* Heading + Photo row */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
           <div className="md:max-w-2xl">
@@ -212,22 +213,32 @@ export default function About() {
         {/* Currently Section */}
         <div className="mt-16">
           <div className="flex flex-col md:flex-row md:items-start gap-10">
-            {/* Left: label + photo */}
+            {/* Left Column: label + photo */}
             <div className="flex flex-col gap-6 md:w-64 shrink-0">
               <span className="inline-block rounded-full border-[1px] border-[#2b2b2b] px-5 py-2 text-base font-medium text-primary w-fit">
                 Currently
               </span>
-              {/* Boots */}
-              <div className="group relative w-80 aspect-[4/5] overflow-hidden rounded-[24px] border border-[#2b2b2b]">
-              <Image
-                src="boots.jpeg"
-                alt="Boots, tuxedo cat on buffet table"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            {/* Right: table */}
+              
+              {/* Boots Container */}
+              <div className="group relative w-64 h-72 overflow-hidden rounded-[24px] border border-[#2b2b2b]">
+                <Image
+                  src="/images/boots.jpeg" // Checked & matching your public folder convention
+                  alt="Boots, tuxedo cat on buffet table"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+
+                {/* Hover caption */}
+                <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
+                    baby Boots
+                  </span>
+                </div>
+              </div> {/* Closes Boots Container */}
+            </div> {/* Closes Left Column */}
+
+            {/* Right Column: table */}
             <div className="flex-1">
               {[
                 {
@@ -283,9 +294,9 @@ export default function About() {
                   <div className="h-px bg-border" />
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
+            </div> {/* Closes Right Column */}
+          </div> {/* Closes flex container */}
+        </div> {/* Closes Currently Section */}
       </section>
       <Footer />
     </main>

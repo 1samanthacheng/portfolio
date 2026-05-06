@@ -226,7 +226,7 @@ const visualDesignSections = [
     visual: (
       <div className="flex justify-center">
     <Image
-      src="/images/typography-annotation.png"
+      src="/images/typography-screen.png"
       alt="Typography styles showing DM Sans and Epilogue used in the Constituent app"
       width={600}
       height={700}

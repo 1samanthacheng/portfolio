@@ -80,7 +80,7 @@ export default function About() {
     {/* Small seasonal photo */}
 <div className="group relative w-40 h-40 overflow-hidden rounded-[16px] border border-[#2b2b2b] mt-3">
   <Image
-    src="/images/spring-snapshot.jpg"
+    src="/images/cherry-blossoms.jpeg"
     alt="Cherry blossom tree against blue sky with the moon"
     fill
     className="object-cover"
@@ -96,7 +96,6 @@ export default function About() {
 </div>
         {/* Experience Section */}
 <div className="mt-16">
-  <div className="h-[3px] bg-primary mb-16" />
   <div className="mb-10">
     <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
       Experience
@@ -153,7 +152,6 @@ export default function About() {
 
 {/* Skills + Tools Section */}
 <div className="mt-16">
-  <div className="h-[3px] bg-primary mb-16" />
   <div className="mb-10">
     <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
       Skills + tools
@@ -206,7 +204,6 @@ export default function About() {
 </div>
         {/* Currently Section */}
 <div className="mt-16">
-  <div className="h-[3px] bg-primary mb-16" />
   <div className="flex flex-col md:flex-row md:items-start gap-10">
     {/* Left: label + photo */}
     <div className="flex flex-col gap-6 md:w-64 shrink-0">

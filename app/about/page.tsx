@@ -230,7 +230,7 @@ export default function About() {
                 />
 
                 {/* Hover caption */}
-                <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <div className="absolute top-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
                     baby Boots
                   </span>
@@ -280,7 +280,7 @@ export default function About() {
                             href={item.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="underline underline-offset-4 hover:text-primary transition-colors"
+                            className="underline underline-offset-4 text-primary hover:text-[#FF5D1F] transition-colors"
                           >
                             {item.suffix}
                           </a>

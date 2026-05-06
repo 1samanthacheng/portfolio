@@ -105,7 +105,7 @@ const quotes = [
   },
   {
     quote: "I want to feel like my engagement is actually doing something, not just shouting into the void.",
-    attribution: '— Use interview participant',
+    attribution: '— User interview participant',
   },
 ];
 
@@ -502,9 +502,9 @@ export default function ConstituentPage() {
       {/* Heading */}
       <h2 className="text-2xl md:text-3xl leading-tight">
         <span className="font-serif italic" style={{ color: '#2B2B2B' }}>What are some of the </span>
-        <span className="font-sans font-semibold" style={{ color: '#0B1D51' }}>main barriers </span>
+        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>main barriers </span>
         <span className="font-serif italic" style={{ color: '#2B2B2B' }}>to </span>
-        <span className="font-sans font-semibold" style={{ color: '#0B1D51' }}>civic participation?</span>
+        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>civic participation?</span>
       </h2>
 
       {/* Body */}
@@ -528,7 +528,7 @@ export default function ConstituentPage() {
         {[
           {
             title: 'Scattered Information:',
-            body: 'Users have to visit multiple websites to find basic information about their representatives, making a simple task unnecessarily time-consuming.',
+            body: ' Users have to visit multiple websites to find basic information about their representatives, making a simple task unnecessarily time-consuming.',
           },
           {
             title: 'Unreliable Sources',
@@ -562,7 +562,7 @@ export default function ConstituentPage() {
       <div className="space-y-4 pt-4">
         <h3 className="text-2xl leading-tight">
           <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Centering </span>
-          <span className="font-sans font-semibold" style={{ color: '#0B1D51' }}>user needs</span>
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>user needs</span>
         </h3>
         <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
           With a clearer picture of the problem space, I created personas and{' '}
@@ -585,7 +585,7 @@ export default function ConstituentPage() {
     {/* Top: photo + details + bio */}
     <div
       className="grid grid-cols-1 md:grid-cols-[auto_1fr_1fr] gap-8 p-8"
-      style={{ borderBottom: '1px solid #2B2B2B', backgroundColor: '#FFFDFC' }}
+      style={{ borderBottom: '1px solid #2B2B2B', backgroundColor: '#EDE9ED' }}
     >
       {/* Photo placeholder */}
       <div

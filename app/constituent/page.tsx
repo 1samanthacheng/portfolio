@@ -51,7 +51,7 @@ function CaseStudyNav() {
 
   return (
     <div
-  className="fixed left-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-start gap-1 transition-opacity duration-500 hidden lg:flex"
+  className="fixed left-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-start gap-0.5 transition-opacity duration-500 hidden lg:flex"
   style={{ opacity: visible ? 1 : 0, pointerEvents: visible ? 'auto' : 'none' }}
 >
   {navItems.map(({ id, label }) => (
@@ -67,7 +67,7 @@ function CaseStudyNav() {
       <div
         className="rounded-full transition-all duration-200"
         style={{
-          height: '1px',
+          height: '2px',
           width: activeId === id ? '48px' : hoveredId === id ? '40px' : '32px',
           backgroundColor: activeId === id ? '#0B1D51' : '#A1869E',
           opacity: activeId === id ? 1 : 0.5,

@@ -72,8 +72,6 @@ export function WorkSection() {
         </div>
       </div>
 
-      {/* Bottom divider line */}
-      <div className="h-[3px] w-full bg-primary" />
     </section>
   );
 }

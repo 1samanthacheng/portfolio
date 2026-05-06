@@ -311,7 +311,7 @@ export default function ConstituentPage() {
               </Link>
             </div>
             <div className="flex items-center gap-4">
-              <Link href="/#work" aria-label="View portfolio" style={{ color: '#0B1D51' }}>
+              <Link href="https://drive.google.com/file/d/1LHSMNdxSdx8YOiZg-sMNXgTVcZH7OG57/view?usp=drive_link" aria-label="View resume" style={{ color: '#0B1D51' }}>
                 <Grid3X3 size={20} />
               </Link>
               <a href="https://www.linkedin.com/in/s-cheng/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ color: '#0B1D51' }}>

@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useRef, useState } from "react";
 
 function ArrowUpIcon({ className }: { className?: string }) {
@@ -23,7 +22,21 @@ function ArrowUpIcon({ className }: { className?: string }) {
   );
 }
 
-export function BackToTop() {
+interface BackToTopProps {
+  borderColor?: string;
+  hoverBorderColor?: string;
+  arrowColor?: string;
+  hoverArrowColor?: string;
+  bg?: string;
+}
+
+export function BackToTop({
+  borderColor = "border-primary",
+  hoverBorderColor = "hover:border-[#FF5D1F]",
+  arrowColor = "text-primary",
+  hoverArrowColor = "group-hover:text-[#FF5D1F]",
+  bg = "bg-[#FFFDFC]",
+}: BackToTopProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ticking = useRef(false);
 
@@ -37,7 +50,6 @@ export function BackToTop() {
         });
       }
     };
-
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -48,15 +60,15 @@ export function BackToTop() {
 
   return (
     <button
-  onClick={scrollToTop}
-  aria-label="Scroll to top"
-  className="group fixed bottom-8 right-8 z-50 flex h-10 w-10 items-center justify-center rounded border border-primary bg-[#FFFDFC] transition-all duration-200 hover:-translate-y-[3px] hover:border-[#FF5D1F] md:right-16 lg:right-24 xl:right-32"
-  style={{
-    opacity: isVisible ? 1 : 0,
-    pointerEvents: isVisible ? "auto" : "none",
-  }}
->
-  <ArrowUpIcon className="text-primary transition-all duration-200 group-hover:text-[#FF5D1F]" />
-</button>
+      onClick={scrollToTop}
+      aria-label="Scroll to top"
+      className={`group fixed bottom-8 right-8 z-50 flex h-10 w-10 items-center justify-center rounded border transition-all duration-200 hover:-translate-y-[3px] md:right-16 lg:right-24 xl:right-32 ${borderColor} ${hoverBorderColor} ${bg}`}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        pointerEvents: isVisible ? "auto" : "none",
+      }}
+    >
+      <ArrowUpIcon className={`transition-all duration-200 ${arrowColor} ${hoverArrowColor}`} />
+    </button>
   );
 }

@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 
 function ArrowUpIcon({ className }: { className?: string }) {
@@ -28,7 +27,6 @@ export function Footer() {
     <footer className="px-12 md:px-24 lg:px-40 xl:px-52">
       {/* Top Divider */}
       <div className="h-[3px] bg-primary" />
-
       {/* Content */}
       <div className="flex items-center justify-between py-8">
         {/* Left Links */}
@@ -37,7 +35,10 @@ export function Footer() {
             email
           </a>
           <span className="text-primary">•</span>
-          <Link href="https://drive.google.com/file/d/1LHSMNdxSdx8YOiZg-sMNXgTVcZH7OG57/view?usp=drive_link" className="hover:underline">
+          <Link
+            href="https://drive.google.com/file/d/1LHSMNdxSdx8YOiZg-sMNXgTVcZH7OG57/view?usp=drive_link"
+            className="hover:underline"
+          >
             resume
           </Link>
           <span className="text-primary">•</span>
@@ -50,18 +51,16 @@ export function Footer() {
             linkedin
           </a>
         </nav>
-
         {/* Right */}
         <div className="flex items-center gap-6">
           <span className="text-base font-medium text-primary">© Sam Cheng, 2026</span>
-
           {/* Back to Top */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex h-8 w-8 items-center justify-center text-foreground"
+            className="group flex h-8 w-8 items-center justify-center rounded-full border border-primary bg-[#FFFDFC] transition-colors duration-200 hover:border-[#FF5D1F]"
             aria-label="Scroll to top"
           >
-            <ArrowUpIcon />
+            <ArrowUpIcon className="text-primary transition-colors duration-200 group-hover:text-[#FF5D1F]" />
           </button>
         </div>
       </div>

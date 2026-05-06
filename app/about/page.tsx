@@ -75,6 +75,7 @@ export default function About() {
     </div>
   </div>
 </div>
+</div>
         {/* Experience Section */}
 <div className="mt-16">
   <div className="h-[3px] bg-primary mb-16" />
@@ -257,7 +258,7 @@ export default function About() {
       ))}
     </div>
   </div>
-
+</div>
       </section>
       <Footer />
     </main>

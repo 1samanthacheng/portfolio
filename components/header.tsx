@@ -42,7 +42,7 @@ export function Header({ activePage }: { activePage?: string }) {
             </Link>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/#work" className="text-primary" aria-label="View portfolio">
+            <Link href="https://drive.google.com/file/d/1LHSMNdxSdx8YOiZg-sMNXgTVcZH7OG57/view?usp=drive_link" className="text-primary" aria-label="View resume">
               <GridIcon className="h-5 w-5" />
             </Link>
             <Link

@@ -70,10 +70,10 @@ export function Hero() {
           {/* CTA Link */}
           <Link
             href="#work"
-            className="inline-flex items-center gap-2 text-primary underline underline-offset-4"
+            className="group inline-flex items-center gap-2 text-primary underline underline-offset-4 transition-colors duration-200 hover:text-[#647665]"
           >
             <span className="text-base font-medium">View my work</span>
-            <ArrowRightIcon className="h-4 w-4" />
+            <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-[3px]" />
           </Link>
         </div>
 

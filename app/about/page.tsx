@@ -62,7 +62,6 @@ export default function About() {
           </div>
           {/* Photo */}
 <div className="shrink-0 md:mt-20 flex flex-col gap-3">
-  
   {/* Headshot */}
   <div className="group relative h-72 w-80 overflow-hidden rounded-[24px] border border-[#2b2b2b] md:h-80 md:w-80">
     <Image
@@ -84,11 +83,10 @@ export default function About() {
       className="object-cover"
     />
   </div>
+</div>
 
-</div>
-  </div>
-</div>
-</div>
+</div> {/* Heading + Photo row */}
+        
         {/* Experience Section */}
 <div className="mt-16">
   <div className="mb-10">

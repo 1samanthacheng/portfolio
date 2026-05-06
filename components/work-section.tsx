@@ -23,8 +23,6 @@ function ArrowRightIcon({ className }: { className?: string }) {
 export function WorkSection() {
   return (
     <section id="work" className="scroll-mt-24">
-      {/* Top divider line */}
-      <div className="h-[3px] w-full bg-primary" />
 
       <div className="px-12 py-16 md:px-24 md:py-20 lg:px-40 lg:py-24 xl:px-52">
         {/* Work Badge */}

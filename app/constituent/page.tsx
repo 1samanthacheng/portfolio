@@ -393,9 +393,9 @@ export default function ConstituentPage() {
           <div className="space-y-6">
             <h2 className="text-2xl md:text-3xl leading-tight">
               <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Building a </span>
-              <span className="font-sans font-semibold" style={{ color: '#0B1D51' }}>civic tool </span>
+              <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>civic tool </span>
               <span className="font-serif italic" style={{ color: '#2B2B2B' }}>that </span>
-              <span className="font-sans font-semibold" style={{ color: '#0B1D51' }}>empowers everyone </span>
+              <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>empowers everyone </span>
               <span className="font-serif italic" style={{ color: '#2B2B2B' }}>to participate in democracy.</span>
             </h2>
             <div className="space-y-4 text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>

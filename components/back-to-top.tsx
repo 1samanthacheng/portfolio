@@ -48,15 +48,15 @@ export function BackToTop() {
 
   return (
     <button
-      onClick={scrollToTop}
-      aria-label="Scroll to top"
-      className="fixed bottom-8 right-8 z-50 flex h-10 w-10 items-center justify-center rounded border border-foreground bg-background text-foreground transition-opacity duration-300 md:right-16 lg:right-24 xl:right-32"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        pointerEvents: isVisible ? "auto" : "none",
-      }}
-    >
-      <ArrowUpIcon />
-    </button>
+  onClick={scrollToTop}
+  aria-label="Scroll to top"
+  className="group fixed bottom-8 right-8 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-primary bg-[#FFFDFC] transition-all duration-200 md:right-16 lg:right-24 xl:right-32 hover:border-[#FF5D1F]"
+  style={{
+    opacity: isVisible ? 1 : 0,
+    pointerEvents: isVisible ? "auto" : "none",
+  }}
+>
+  <ArrowUpIcon className="text-primary transition-colors duration-200 group-hover:text-[#FF5D1F]" />
+</button>
   );
 }

@@ -24,11 +24,11 @@ function ArrowUpIcon({ className }: { className?: string }) {
 
 export function Footer() {
   return (
-    <footer className="px-12 md:px-24 lg:px-40 xl:px-52">
-      {/* Top Divider */}
+    <footer>
+      {/* Top Divider — full width */}
       <div className="h-[3px] bg-primary" />
       {/* Content */}
-      <div className="flex items-center justify-between py-8">
+      <div className="flex items-center justify-between py-8 px-12 md:px-24 lg:px-40 xl:px-52">
         {/* Left Links */}
         <nav className="flex items-center gap-1 text-base font-medium text-primary">
           <a href="mailto:1samanthacheng@gmail.com" className="hover:underline">
@@ -43,7 +43,7 @@ export function Footer() {
           </Link>
           <span className="text-primary">•</span>
           <a
-            href="https://linkedin.com/in/samanthacheng"
+            href="https://linkedin.com/in/s-cheng"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:underline"
@@ -54,7 +54,6 @@ export function Footer() {
         {/* Right */}
         <div className="flex items-center gap-6">
           <span className="text-base font-medium text-primary">© Sam Cheng, 2026</span>
-          
         </div>
       </div>
     </footer>

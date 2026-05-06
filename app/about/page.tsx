@@ -60,226 +60,227 @@ export default function About() {
               </p>
             </div>
           </div>
-          {/* Photo */}
-<div className="shrink-0 md:mt-20 flex flex-col gap-3">
-  
-  {/* Headshot */}
-  <div className="group relative w-80 aspect-[4/5] overflow-hidden rounded-[24px] border border-[#2b2b2b]">
-    <Image
-      src="/images/sam-headshot.JPG"
-      alt="Sam Cheng in Chinatown holding green grapes on a skewer"
-      fill
-      className="object-cover"
-      priority
-    />
+          
+          {/* Photo Column */}
+          <div className="shrink-0 md:mt-20 flex flex-col gap-3">
+            {/* Headshot */}
+            <div className="group relative w-80 aspect-[4/5] overflow-hidden rounded-[24px] border border-[#2b2b2b]">
+              <Image
+                src="/images/sam-headshot.JPG"
+                alt="Sam Cheng in Chinatown holding green grapes on a skewer"
+                fill
+                className="object-cover"
+                priority
+              />
 
-    {/* Hover caption */}
-    <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-      <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
-        photo by Joel Lee
-      </span>
-    </div>
-  </div>
+              {/* Hover caption */}
+              <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
+                  photo by Joel Lee
+                </span>
+              </div>
+            </div>
 
-  {/* Spring snapshot */}
-  <div className="group relative w-40 h-40 overflow-hidden rounded-[16px] border border-[#2b2b2b]">
-    <Image
-      src="/images/cherry-blossoms.jpeg"
-      alt="Cherry blossom tree against blue sky with the moon"
-      fill
-      className="object-cover"
-    />
+            {/* Spring snapshot */}
+            <div className="group relative w-40 h-40 overflow-hidden rounded-[16px] border border-[#2b2b2b]">
+              <Image
+                src="/images/cherry-blossoms.jpeg"
+                alt="Cherry blossom tree against blue sky with the moon"
+                fill
+                className="object-cover"
+              />
 
-    {/* Hover caption */}
-    <div className="absolute bottom-2 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-      <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
-        spring snapshot
-      </span>
-    </div>
-  </div>
-
-</div>
+              {/* Hover caption */}
+              <div className="absolute bottom-2 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
+                  spring snapshot
+                </span>
+              </div>
+            </div>
+          </div> {/* Closes Photo Column */}
+        </div> {/* Closes Heading + Photo row */}
         
         {/* Experience Section */}
-<div className="mt-16">
-  <div className="mb-10">
-    <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
-      Experience
-    </span>
-  </div>
-  <div className="space-y-0">
-    {[
-      {
-        title: "Marketing Associate",
-        company: "Material",
-        years: "2023–2025",
-        description: "Designing digital (web, email + social) experiences for a kitchenware startup",
-      },
-      {
-        title: "Marketing Coordinator",
-        company: "Material",
-        years: "2022–2023",
-        description: "Building brand voice and content systems across digital channels",
-      },
-      {
-        title: "Community Coordinator",
-        company: "Row 7 Seed Company",
-        years: "2021–2022",
-        description: "Growing a new kind of food system alongside chefs and farmers",
-      },
-      {
-        title: "Barista",
-        company: "ACRE",
-        years: "2021–2022; 2025",
-        description: "Crafting connection through specialty coffee and Japanese hospitality",
-      },
-      {
-        title: "Apprentice",
-        company: "Eagle Street Rooftop Farm",
-        years: "2021",
-        description: "Farming the city, tending to the earth",
-      },
-    ].map((job) => (
-      <div key={job.title + job.company}>
-        <div className="flex items-start justify-between py-6">
-          <div>
-            <p className="text-base font-semibold text-foreground">
-              {job.title} • {job.company}
-            </p>
-            <p className="mt-1 text-base text-muted-foreground">{job.description}</p>
-          </div>
-          <span className="ml-8 shrink-0 text-base text-foreground">{job.years}</span>
-        </div>
-        <div className="h-px bg-border" />
-      </div>
-    ))}
-  </div>
-</div>
-
-{/* Skills + Tools Section */}
-<div className="mt-16">
-  <div className="mb-10">
-    <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
-      Skills + tools
-    </span>
-  </div>
-  {/* Skills pills */}
-  <div className="flex flex-wrap gap-3 mb-10">
-    {[
-      "Design thinking",
-      "User research",
-      "Journey mapping",
-      "User flows",
-      "Information architecture",
-      "Wireframing",
-      "Prototyping",
-      "UI + visual design",
-      "Usability testing",
-      "Content strategy",
-      "Performance tracking",
-    ].map((skill) => (
-      <span
-        key={skill}
-        className="inline-block rounded-full border-[2px] border-foreground px-5 py-2 text-base font-medium text-foreground"
-      >
-        {skill}
-      </span>
-    ))}
-  </div>
-  {/* Tools */}
-  <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
-    {[
-      "Figma",
-      "Claude",
-      "Bolt",
-      "Maze",
-      "Pen + Paper",
-    ].map((tool) => (
-      <div
-        key={tool}
-        className="flex flex-col items-center justify-center gap-3 rounded-xl border border-border py-6 px-4"
-      >
-        {/* Placeholder icon — swap with real logo later */}
-        <div className="h-10 w-10 rounded-lg bg-muted flex items-center justify-center text-xs text-muted-foreground font-medium">
-          {tool.slice(0, 2)}
-        </div>
-        <span className="text-base font-medium text-foreground">{tool}</span>
-      </div>
-    ))}
-  </div>
-</div>
-        {/* Currently Section */}
-<div className="mt-16">
-  <div className="flex flex-col md:flex-row md:items-start gap-10">
-    {/* Left: label + photo */}
-    <div className="flex flex-col gap-6 md:w-64 shrink-0">
-      <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary w-fit">
-        Currently
-      </span>
-      {/* Placeholder image — swap with real photo of Boots later */}
-      <div className="rounded-2xl border-2 border-primary overflow-hidden w-64 h-72 bg-muted flex items-center justify-center text-sm text-muted-foreground">
-        photo of Boots
-      </div>
-    </div>
-    {/* Right: table */}
-    <div className="flex-1">
-      {[
-        {
-          label: "Reading:",
-          value: "The City and Its Uncertain Walls by Haruki Murakami",
-          link: null,
-        },
-        {
-          label: "Listening to:",
-          value: "Madwoman by Laufey",
-          link: null,
-        },
-        {
-          label: "Training for:",
-          value: "Grand Teton Half Marathon",
-          link: null,
-        },
-        {
-          label: "Inspired by:",
-          value: "Are.na boards (like ",
-          suffix: "this one",
-          link: "https://www.are.na/j-split/wild-wild-web",
-          after: ")",
-        },
-        {
-          label: "Dreaming of:",
-          value: "San Tung chicken wings",
-          link: null,
-        },
-      ].map((item) => (
-        <div key={item.label}>
-          <div className="flex items-baseline gap-12 py-6">
-            <span className="w-36 shrink-0 text-base text-foreground">{item.label}</span>
-            <span className="text-base text-foreground">
-              {item.link ? (
-                <>
-                  {item.value}
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline underline-offset-4 hover:text-primary transition-colors"
-                  >
-                    {item.suffix}
-                  </a>
-                  {item.after}
-                </>
-              ) : (
-                item.value
-              )}
+        <div className="mt-16">
+          <div className="mb-10">
+            <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
+              Experience
             </span>
           </div>
-          <div className="h-px bg-border" />
+          <div className="space-y-0">
+            {[
+              {
+                title: "Marketing Associate",
+                company: "Material",
+                years: "2023–2025",
+                description: "Designing digital (web, email + social) experiences for a kitchenware startup",
+              },
+              {
+                title: "Marketing Coordinator",
+                company: "Material",
+                years: "2022–2023",
+                description: "Building brand voice and content systems across digital channels",
+              },
+              {
+                title: "Community Coordinator",
+                company: "Row 7 Seed Company",
+                years: "2021–2022",
+                description: "Growing a new kind of food system alongside chefs and farmers",
+              },
+              {
+                title: "Barista",
+                company: "ACRE",
+                years: "2021–2022; 2025",
+                description: "Crafting connection through specialty coffee and Japanese hospitality",
+              },
+              {
+                title: "Apprentice",
+                company: "Eagle Street Rooftop Farm",
+                years: "2021",
+                description: "Farming the city, tending to the earth",
+              },
+            ].map((job) => (
+              <div key={job.title + job.company}>
+                <div className="flex items-start justify-between py-6">
+                  <div>
+                    <p className="text-base font-semibold text-foreground">
+                      {job.title} • {job.company}
+                    </p>
+                    <p className="mt-1 text-base text-muted-foreground">{job.description}</p>
+                  </div>
+                  <span className="ml-8 shrink-0 text-base text-foreground">{job.years}</span>
+                </div>
+                <div className="h-px bg-border" />
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
+
+        {/* Skills + Tools Section */}
+        <div className="mt-16">
+          <div className="mb-10">
+            <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
+              Skills + tools
+            </span>
+          </div>
+          {/* Skills pills */}
+          <div className="flex flex-wrap gap-3 mb-10">
+            {[
+              "Design thinking",
+              "User research",
+              "Journey mapping",
+              "User flows",
+              "Information architecture",
+              "Wireframing",
+              "Prototyping",
+              "UI + visual design",
+              "Usability testing",
+              "Content strategy",
+              "Performance tracking",
+            ].map((skill) => (
+              <span
+                key={skill}
+                className="inline-block rounded-full border-[2px] border-foreground px-5 py-2 text-base font-medium text-foreground"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+          {/* Tools */}
+          <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
+            {[
+              "Figma",
+              "Claude",
+              "Bolt",
+              "Maze",
+              "Pen + Paper",
+            ].map((tool) => (
+              <div
+                key={tool}
+                className="flex flex-col items-center justify-center gap-3 rounded-xl border border-border py-6 px-4"
+              >
+                {/* Placeholder icon — swap with real logo later */}
+                <div className="h-10 w-10 rounded-lg bg-muted flex items-center justify-center text-xs text-muted-foreground font-medium">
+                  {tool.slice(0, 2)}
+                </div>
+                <span className="text-base font-medium text-foreground">{tool}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Currently Section */}
+        <div className="mt-16">
+          <div className="flex flex-col md:flex-row md:items-start gap-10">
+            {/* Left: label + photo */}
+            <div className="flex flex-col gap-6 md:w-64 shrink-0">
+              <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary w-fit">
+                Currently
+              </span>
+              {/* Placeholder image — swap with real photo of Boots later */}
+              <div className="rounded-2xl border-2 border-primary overflow-hidden w-64 h-72 bg-muted flex items-center justify-center text-sm text-muted-foreground">
+                photo of Boots
+              </div>
+            </div>
+            {/* Right: table */}
+            <div className="flex-1">
+              {[
+                {
+                  label: "Reading:",
+                  value: "The City and Its Uncertain Walls by Haruki Murakami",
+                  link: null,
+                },
+                {
+                  label: "Listening to:",
+                  value: "Madwoman by Laufey",
+                  link: null,
+                },
+                {
+                  label: "Training for:",
+                  value: "Grand Teton Half Marathon",
+                  link: null,
+                },
+                {
+                  label: "Inspired by:",
+                  value: "Are.na boards (like ",
+                  suffix: "this one",
+                  link: "https://www.are.na/j-split/wild-wild-web",
+                  after: ")",
+                },
+                {
+                  label: "Dreaming of:",
+                  value: "San Tung chicken wings",
+                  link: null,
+                },
+              ].map((item) => (
+                <div key={item.label}>
+                  <div className="flex items-baseline gap-12 py-6">
+                    <span className="w-36 shrink-0 text-base text-foreground">{item.label}</span>
+                    <span className="text-base text-foreground">
+                      {item.link ? (
+                        <>
+                          {item.value}
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline underline-offset-4 hover:text-primary transition-colors"
+                          >
+                            {item.suffix}
+                          </a>
+                          {item.after}
+                        </>
+                      ) : (
+                        item.value
+                      )}
+                    </span>
+                  </div>
+                  <div className="h-px bg-border" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
       <Footer />
     </main>

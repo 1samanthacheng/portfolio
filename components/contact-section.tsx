@@ -6,7 +6,7 @@ export function ContactSection() {
 
       {/* Content */}
       <div className="py-16 md:py-24">
-        <div className="ml-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
           {/* Headline */}
           <h2 className="mb-6 text-4xl leading-tight tracking-tight md:text-5xl lg:text-6xl">
             <span className="font-serif italic">Let&apos;s</span>{" "}

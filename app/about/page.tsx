@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { BackToTop } from "@/components/back-to-top";
 
 export const metadata = {
   title: "About | Sam Cheng",

@@ -4,28 +4,25 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 export const metadata = {
-  title: "About | Sam Cheng",
-  description:
-    "Sam Cheng is a product designer building for social good at the intersection of technology, community, and regenerative systems change.",
+  title: "About | Sam Cheng",
+  description:
+    "Sam Cheng is a product designer building for social good at the intersection of technology, community, and regenerative systems change.",
 };
 
 export default function About() {
-  return (
-    <main className="min-h-screen">
-      <Header activePage="about" />
-      <section className="px-12 md:px-24 lg:px-40 xl:px-52 py-16 md:py-24">
-        {/* Label */}
-        <div className="mb-10">
-          <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
-            About me
-          </span>
-        </div>
-        
-        {/* NEW TWO-COLUMN LAYOUT START */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-x-12 mb-12">
-            
-          {/* Main Text Content (Left Column) */}
-          <div className="col-span-1 md:col-span-3">
+  return (
+    <main className="min-h-screen">
+      <Header activePage="about" />
+      <section className="px-12 md:px-24 lg:px-40 xl:px-52 py-16 md:py-24">
+        {/* Label */}
+        <div className="mb-10">
+          <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
+            About me
+          </span>
+        </div>
+        {/* Heading + Photo row */}
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
+          <div className="md:max-w-2xl">
             <h1 className="mb-8 text-4xl leading-tight tracking-tight md:text-5xl">
               <span className="font-serif italic">Hello, I&apos;m</span>{" "}
               <span className="font-sans font-semibold">Sam!</span>
@@ -63,12 +60,11 @@ export default function About() {
               </p>
             </div>
           </div>
-
-          {/* Photos Container (Right Column) */}
-          <div className="col-span-1 md:col-span-1 md:pt-16 flex flex-col items-center gap-16 md:justify-start">
-            
-            {/* Top Photo (Headshot) container */}
-            <div className="group relative w-full aspect-[4/5] overflow-hidden rounded-[24px] border border-[#2b2b2b]">
+          
+          {/* Photo Column */}
+          <div className="shrink-0 md:mt-20 flex flex-col gap-3">
+            {/* Headshot */}
+            <div className="group relative w-80 aspect-[4/5] overflow-hidden rounded-[24px] border border-[#2b2b2b]">
               <Image
                 src="/images/sam-headshot.JPG"
                 alt="Sam Cheng in Chinatown holding green grapes on a skewer"
@@ -85,8 +81,8 @@ export default function About() {
               </div>
             </div>
 
-            {/* Bottom Photo (Spring snapshot) container */}
-            <div className="group relative w-full h-40 md:h-auto md:aspect-square overflow-hidden rounded-[16px] border border-[#2b2b2b]">
+            {/* Spring snapshot */}
+            <div className="group relative w-40 h-40 overflow-hidden rounded-[16px] border border-[#2b2b2b]">
               <Image
                 src="/images/cherry-blossoms.jpeg"
                 alt="Cherry blossom tree against blue sky with the moon"
@@ -95,17 +91,16 @@ export default function About() {
               />
 
               {/* Hover caption */}
-              <div className="absolute bottom-2 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                 <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
                   spring snapshot
                 </span>
               </div>
             </div>
-
-          </div> {/* Closes Photos Container (Right Column) */}
-        </div> {/* NEW TWO-COLUMN LAYOUT END */}
+          </div> {/* Closes Photo Column */}
+        </div> {/* Closes Heading + Photo row */}
         
-        {/* Experience Section */}
+        {/* Experience Section */}
         <div className="mt-16">
           <div className="mb-10">
             <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
@@ -161,7 +156,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Skills + Tools Section */}
+        {/* Skills + Tools Section */}
         <div className="mt-16">
           <div className="mb-10">
             <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
@@ -214,7 +209,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Currently Section */}
+        {/* Currently Section */}
         <div className="mt-16">
           <div className="flex flex-col md:flex-row md:items-start gap-10">
             {/* Left: label + photo */}
@@ -286,8 +281,8 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
-      <Footer />
-    </main>
-  );
+      </section>
+      <Footer />
+    </main>
+  );
 }

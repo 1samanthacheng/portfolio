@@ -50,7 +50,7 @@ export function Hero() {
         <div className="flex-1 min-w-0">
           {/* Welcome Badge */}
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border-[2px] border-primary px-5 py-2">
-            <span className="text-base text-primary md:text-xl font-medium">Welcome</span>
+            <span className="text-base text-primary md:text-base font-medium">Welcome</span>
             <SmileyIcon className="h-5 w-5 text-[#FF5D1F] md:h-6 md:w-6" />
           </div>
 

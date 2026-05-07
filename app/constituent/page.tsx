@@ -440,7 +440,7 @@ export default function ConstituentPage() {
               <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>harder </span>
               <span className="font-serif italic" style={{ color: '#2B2B2B' }}>than it should be.</span>
             </h2>
-            <div className="text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>
+            <div className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
               <p>
                 For people who want to make their voices heard, it can be difficult to know where to start. Existing civic tools (especially government websites) are often clunky and fragmented, making it hard for people to find clear information, contact their representatives, or keep up with issues that matter to them.
               </p>

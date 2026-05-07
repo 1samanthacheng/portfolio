@@ -46,7 +46,7 @@ function ApproachCard({
           <span className="font-serif italic">{titleItalic}</span>{" "}
           <span className="font-sans font-semibold">{titleBold}</span>
         </h3>
-        <p className="font-sans text-base leading-relaxed text-foreground md:text-lg">
+        <p className="font-sans text-base leading-relaxed font-medium text-foreground md:text-lg">
           {renderDescription()}
         </p>
       </div>

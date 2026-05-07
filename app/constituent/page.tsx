@@ -335,12 +335,12 @@ export default function ConstituentPage() {
               <h1 className="text-5xl md:text-6xl font-semibold leading-tight mb-4" style={{ color: '#0B1D51' }}>
                 Constituent
               </h1>
-              <p className="text-lg md:text-xl" style={{ color: '#2B2B2B' }}>
+              <p className="text-lg md:text-xl font-medium" style={{ color: '#2B2B2B' }}>
                 Know your reps. Make your voice heard.
               </p>
             </div>
             <div className="w-24 h-24">
-              <Image src="/app_icon.png" alt="Constituent App Icon" width={96} height={96} className="rounded-2xl" />
+              <Image src="/app icon.png" alt="Constituent App Icon" width={96} height={96} className="rounded-2xl" />
             </div>
             <div className="space-y-0">
               {[
@@ -355,7 +355,7 @@ export default function ConstituentPage() {
                   className={`py-6 grid grid-cols-2 gap-8 ${i < arr.length - 1 ? 'border-b' : ''}`}
                   style={{ borderColor: '#E0DBDE' }}
                 >
-                  <p className="text-sm" style={{ color: '#A1869E' }}>{item.label}</p>
+                  <p className="text-sm" style={{ color: '#727272' }}>{item.label}</p>
                   <p className="text-base" style={{ color: '#2B2B2B' }}>{item.value}</p>
                 </div>
               ))}

@@ -150,7 +150,7 @@ export default function About() {
                     </p>
                     <p className="mt-1 text-base text-muted-foreground">{job.description}</p>
                   </div>
-                  <span className="ml-8 shrink-0 text-base text-foreground">{job.years}</span>
+                  <span className="ml-8 shrink-0 text-base font-medium text-foreground">{job.years}</span>
                 </div>
                 <div className="h-px bg-border" />
               </div>
@@ -280,7 +280,7 @@ export default function About() {
               ].map((item) => (
                 <div key={item.label}>
                   <div className="flex items-baseline gap-12 py-6">
-                    <span className="w-36 shrink-0 text-base text-foreground">{item.label}</span>
+                    <span className="w-36 shrink-0 text-base font-medium text-foreground">{item.label}</span>
                     <span className="text-base text-foreground">
                       {item.link ? (
                         <>

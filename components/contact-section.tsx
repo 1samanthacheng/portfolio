@@ -12,7 +12,7 @@ export function ContactSection() {
           </h2>
 
           {/* Description */}
-          <p className="mb-8 text-lg leading-relaxed text-foreground md:text-xl">
+          <p className="mb-8 text-lg leading-relaxed font-medium text-foreground md:text-xl">
             I&apos;m open to full-time roles, contract work, and collaborations. I&apos;m especially
             drawn to projects that touch on food systems, climate + environmental justice, and civic
             tech. Say hello!

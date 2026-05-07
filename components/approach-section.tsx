@@ -90,7 +90,7 @@ export function ApproachSection() {
         {/* Left col: pill, pinned to top */}
         <div className="flex-shrink-0 lg:pt-2">
           <div className="inline-flex items-center rounded-full border-[2px] border-primary px-5 py-2">
-            <span className="text-lg text-primary md:text-xl font-medium">Approach</span>
+            <span className="text-base text-primary md:text-base font-medium">Approach</span>
           </div>
         </div>
 

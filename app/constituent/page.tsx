@@ -398,7 +398,7 @@ export default function ConstituentPage() {
               <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>empowers everyone </span>
               <span className="font-serif italic" style={{ color: '#2B2B2B' }}>to participate in democracy.</span>
             </h2>
-            <div className="space-y-4 text-lg leading-relaxed" style={{ color: '#2B2B2B' }}>
+            <div className="space-y-4 text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
               <p>
                 Constituent is a mobile-first civic tech app that allows users to identify and contact their elected representatives at all levels of government and all in one place. Its namesake serves as a reminder that elected officials work for <em>us</em>, and we all play a part in making sure they remain accountable for their actions.
               </p>

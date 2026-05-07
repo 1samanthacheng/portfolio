@@ -189,41 +189,34 @@ export default function About() {
             ))}
           </div>
           {/* Tools */}
-          <div className="flex flex-wrap gap-3">
-            {[
-              { name: "Figma",        logo: "/images/logos/figma.png" },
-              { name: "Claude",       logo: "/images/logos/claude.png" },
-              { name: "Bolt",         logo: "/images/logos/bolt.png" },
-              { name: "Maze",         logo: "/images/logos/maze.png" },
-              { name: "Pen + Paper",  logo: "/images/logos/pen-paper.png" },
-            ].map((tool) => (
-              <div
-                key={tool.name}
-                className="flex flex-col items-center justify-center gap-3 rounded-xl border border-foreground bg-[#FFFDFC] py-6 px-6 w-32 h-32"
-              >
-                <div className="h-10 w-10 flex items-center justify-center">
-                  <Image
-                    src={tool.logo}
-                    alt={tool.name + " logo"}
-                    width={40}
-                    height={40}
-                    className="object-contain"
-                    onError={(e) => {
-                      // fallback to initials if logo not yet uploaded
-                      e.currentTarget.style.display = "none";
-                      e.currentTarget.nextElementSibling?.classList.remove("hidden");
-                    }}
-                  />
-                  <span className="hidden text-xs font-medium text-muted-foreground">
-                    {tool.name.slice(0, 2)}
-                  </span>
-                </div>
-                <span className="text-sm font-semibold text-foreground text-center leading-tight">
-                  {tool.name}
-                </span>
+        <div className="flex flex-wrap gap-3">
+          {[
+            { name: "Figma",        logo: "/images/logos/figma.png" },
+            { name: "Claude",       logo: "/images/logos/claude.png" },
+            { name: "Bolt",         logo: "/images/logos/bolt.png" },
+            { name: "Maze",         logo: "/images/logos/maze.png" },
+            { name: "Pen + Paper",  logo: "/images/logos/pen-paper.png" },
+          ].map((tool) => (
+            <div
+              key={tool.name}
+              className="flex flex-col items-center justify-center gap-3 rounded-xl border border-foreground bg-[#FFFDFC] py-6 px-6 w-32 h-32"
+            >
+              <div className="h-10 w-10 flex items-center justify-center">
+                <Image
+                  src={tool.logo}
+                  alt={tool.name + " logo"}
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                  // Removed the onError handler to allow static HTML rendering
+                />
               </div>
-            ))}
-          </div>
+              <span className="text-sm font-semibold text-foreground text-center leading-tight">
+                {tool.name}
+              </span>
+            </div>
+          ))}
+        </div>
         </div>
 
         {/* Currently Section */}

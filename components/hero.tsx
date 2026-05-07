@@ -63,7 +63,7 @@ export function Hero() {
           </h1>
 
           {/* Description */}
-          <p className="mb-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+          <p className="mb-8 max-w-xl text-lg leading-relaxed font-medium text-muted-foreground md:text-xl">
             Designing research-driven, human-centered experiences for a more equitable and resilient world (with a soft spot for food, climate, and community-building).
           </p>
 

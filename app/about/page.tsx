@@ -182,30 +182,45 @@ export default function About() {
             ].map((skill) => (
               <span
                 key={skill}
-                className="inline-block rounded-full border-[2px] border-foreground px-5 py-2 text-base font-medium text-foreground"
+                className="inline-block rounded-full border border-foreground bg-[#FFFDFC] px-5 py-2 text-base font-medium text-foreground"
               >
                 {skill}
               </span>
             ))}
           </div>
           {/* Tools */}
-          <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
+          <div className="flex flex-wrap gap-3">
             {[
-              "Figma",
-              "Claude",
-              "Bolt",
-              "Maze",
-              "Pen + Paper",
+              { name: "Figma",        logo: "/images/logos/figma.png" },
+              { name: "Claude",       logo: "/images/logos/claude.png" },
+              { name: "Bolt",         logo: "/images/logos/bolt.png" },
+              { name: "Maze",         logo: "/images/logos/maze.png" },
+              { name: "Pen + Paper",  logo: "/images/logos/pen-paper.png" },
             ].map((tool) => (
               <div
-                key={tool}
-                className="flex flex-col items-center justify-center gap-3 rounded-xl border border-border py-6 px-4"
+                key={tool.name}
+                className="flex flex-col items-center justify-center gap-3 rounded-xl border border-foreground bg-[#FFFDFC] py-6 px-6 w-32 h-32"
               >
-                {/* Placeholder icon — swap with real logo later */}
-                <div className="h-10 w-10 rounded-lg bg-muted flex items-center justify-center text-xs text-muted-foreground font-medium">
-                  {tool.slice(0, 2)}
+                <div className="h-10 w-10 flex items-center justify-center">
+                  <Image
+                    src={tool.logo}
+                    alt={tool.name + " logo"}
+                    width={40}
+                    height={40}
+                    className="object-contain"
+                    onError={(e) => {
+                      // fallback to initials if logo not yet uploaded
+                      e.currentTarget.style.display = "none";
+                      e.currentTarget.nextElementSibling?.classList.remove("hidden");
+                    }}
+                  />
+                  <span className="hidden text-xs font-medium text-muted-foreground">
+                    {tool.name.slice(0, 2)}
+                  </span>
                 </div>
-                <span className="text-base font-medium text-foreground">{tool}</span>
+                <span className="text-sm font-semibold text-foreground text-center leading-tight">
+                  {tool.name}
+                </span>
               </div>
             ))}
           </div>

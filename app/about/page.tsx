@@ -29,7 +29,7 @@ export default function About() {
               <span className="font-serif italic">Hello, I&apos;m</span>{" "}
               <span className="font-sans font-semibold">Sam!</span>
             </h1>
-            <div className="space-y-6 text-lg leading-relaxed text-foreground">
+            <div className="space-y-6 text-lg leading-relaxed font-medium text-foreground">
               <p>
                 My path to design runs through urban farms, café counters, and startup teams — each
                 stop along the way deepening my appreciation for thoughtfully crafted experiences

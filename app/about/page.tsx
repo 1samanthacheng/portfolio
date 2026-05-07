@@ -224,7 +224,7 @@ export default function About() {
           <div className="flex flex-col md:flex-row md:items-start gap-10">
             {/* Left Column: label + photo */}
             <div className="flex flex-col gap-6 md:w-64 shrink-0">
-              <span className="inline-block rounded-full border-[1px] border-[#2b2b2b] px-5 py-2 text-base font-medium text-primary w-fit">
+              <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary w-fit">
                 Currently
               </span>
               

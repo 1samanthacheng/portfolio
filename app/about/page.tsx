@@ -192,7 +192,7 @@ export default function About() {
         <div className="flex flex-wrap gap-3">
           {[
             { name: "Figma",        logo: "/images/logos/figma.png" },
-            { name: "Claude",       logo: "/images/logos/claude.png" },
+            { name: "Claude",       logo: "/images/logos/claude.svg" },
             { name: "Bolt",         logo: "/images/logos/bolt.png" },
             { name: "Maze",         logo: "/images/logos/maze.png" },
             { name: "Pen + Paper",  logo: "/images/logos/pen-paper.png" },

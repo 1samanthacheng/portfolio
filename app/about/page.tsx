@@ -148,7 +148,7 @@ export default function About() {
                     <p className="text-base font-semibold text-foreground">
                       {job.title} • {job.company}
                     </p>
-                    <p className="mt-1 text-base text-muted-foreground">{job.description}</p>
+                    <p className="mt-1 text-base font-medium text-muted-foreground">{job.description}</p>
                   </div>
                   <span className="ml-8 shrink-0 text-base font-medium text-foreground">{job.years}</span>
                 </div>
@@ -281,7 +281,7 @@ export default function About() {
                 <div key={item.label}>
                   <div className="flex items-baseline gap-12 py-6">
                     <span className="w-36 shrink-0 text-base font-medium text-foreground">{item.label}</span>
-                    <span className="text-base text-foreground">
+                    <span className="text-base font-medium text-foreground">
                       {item.link ? (
                         <>
                           {item.value}

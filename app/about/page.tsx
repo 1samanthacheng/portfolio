@@ -182,7 +182,7 @@ export default function About() {
             ].map((skill) => (
               <span
                 key={skill}
-                className="inline-block rounded-full border border-foreground bg-[#FFFDFC] px-5 py-2 text-base font-medium text-foreground"
+                className="inline-block rounded-full border border-foreground bg-[#FFFDFC] px-5 py-2 text-base font-semibold text-foreground"
               >
                 {skill}
               </span>
@@ -191,11 +191,11 @@ export default function About() {
           {/* Tools */}
         <div className="flex flex-wrap gap-3">
           {[
-            { name: "Figma",        logo: "/images/logos/figma.png" },
-            { name: "Claude",       logo: "/images/logos/claude.svg" },
-            { name: "Bolt",         logo: "/images/logos/bolt.png" },
-            { name: "Maze",         logo: "/images/logos/maze.png" },
-            { name: "Pen + Paper",  logo: "/images/logos/pen-paper.png" },
+            { name: "Figma",        logo: "/images/figma.png" },
+            { name: "Claude",       logo: "/images/claude.svg" },
+            { name: "Bolt",         logo: "/images/bolt.png" },
+            { name: "Maze",         logo: "/images/maze.png" },
+            { name: "Pen + Paper",  logo: "/images/pen-paper.png" },
           ].map((tool) => (
             <div
               key={tool.name}

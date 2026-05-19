@@ -9,6 +9,15 @@ interface ApproachCardProps {
   italicWord?: string;
 }
 
+interface ApproachData {
+  imageSrc: string;
+  imageAlt: string;
+  titleItalic: string;
+  titleBold: string;
+  description: string;
+  italicWord?: string;
+}
+
 function ApproachCard({
   imageSrc,
   imageAlt,
@@ -54,7 +63,7 @@ function ApproachCard({
   );
 }
 
-const approachData = [
+const approachData: ApproachData[] = [
   {
     imageSrc: "/images/approach-curiosity.png",
     imageAlt: "Dot pattern representing curiosity and exploration",

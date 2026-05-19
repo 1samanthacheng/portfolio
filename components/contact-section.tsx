@@ -1,7 +1,15 @@
-export function ContactSection() {
-  return (
-    <section className="px-12 md:px-24 lg:px-40 xl:px-52">
+"use client";
 
+import { useIsVisible } from "@/hooks/use-is-invisible";
+
+export function ContactSection() {
+  const { ref, isVisible } = useIsVisible();
+
+  return (
+    <section
+      ref={ref}
+      className={`px-12 md:px-24 lg:px-40 xl:px-52 transition-opacity ease-in duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
+    >
       {/* Content — changed py to pt (top) and pb (bottom) */}
       <div className="pt-16 pb-32 md:pt-24 md:pb-48">
         <div className="mx-auto max-w-3xl text-center">
@@ -13,9 +21,9 @@ export function ContactSection() {
 
           {/* Description */}
           <p className="mb-8 text-lg leading-relaxed font-medium text-foreground md:text-xl">
-            I&apos;m open to full-time roles, contract work, and collaborations. I&apos;m especially
-            drawn to projects that touch on food systems, climate + environmental justice, and civic
-            tech. Say hello!
+            I&apos;m open to full-time roles, contract work, and collaborations.
+            I&apos;m especially drawn to projects that touch on food systems,
+            climate + environmental justice, and civic tech. Say hello!
           </p>
 
           {/* Email Button */}

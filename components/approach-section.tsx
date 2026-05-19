@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useIsVisible } from "@/hooks/use-is-invisible";
 
 interface ApproachCardProps {
   imageSrc: string;
@@ -41,7 +44,7 @@ function ApproachCard({
 
   return (
     <div className="flex flex-col items-center gap-6 rounded-3xl border border-foreground bg-[#FFFDFC] p-6 sm:flex-row sm:items-start sm:gap-8 sm:p-8">
-      <div className="flex-shrink-0">
+      <div className="shrink-0">
         <Image
           src={imageSrc}
           alt={imageAlt}
@@ -91,14 +94,20 @@ const approachData: ApproachData[] = [
 ];
 
 export function ApproachSection() {
-  return (
-    <section className="px-12 py-16 md:px-24 md:py-20 lg:px-40 lg:py-24 xl:px-52">
-      <div className="flex flex-col gap-12 lg:flex-row lg:gap-32">
+  const { ref, isVisible } = useIsVisible();
 
+  return (
+    <section
+      ref={ref}
+      className={`px-12 py-16 md:px-24 md:py-20 lg:px-40 lg:py-24 xl:px-52 transition-opacity ease-in duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
+    >
+      <div className="flex flex-col gap-12 lg:flex-row lg:gap-32">
         {/* Left col: pill, pinned to top */}
-        <div className="flex-shrink-0 lg:pt-2">
-          <div className="inline-flex items-center rounded-full border-[2px] border-primary px-5 py-2">
-            <span className="text-base text-primary md:text-base font-medium">Approach</span>
+        <div className="shrink-0 lg:pt-2">
+          <div className="inline-flex items-center rounded-full border-2 border-primary px-5 py-2">
+            <span className="text-base text-primary md:text-base font-medium">
+              Approach
+            </span>
           </div>
         </div>
 
@@ -116,7 +125,6 @@ export function ApproachSection() {
             />
           ))}
         </div>
-
       </div>
     </section>
   );

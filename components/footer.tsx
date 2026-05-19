@@ -53,7 +53,9 @@ export function Footer() {
         </nav>
         {/* Right */}
         <div className="flex items-center gap-6">
-          <span className="text-base font-medium text-primary">© Sam Cheng, 2026</span>
+          <span className="text-base font-medium text-primary">
+            © Sam Cheng, 2026
+          </span>
         </div>
       </div>
     </footer>

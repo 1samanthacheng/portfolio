@@ -2,8 +2,8 @@ export function ContactSection() {
   return (
     <section className="px-12 md:px-24 lg:px-40 xl:px-52">
 
-      {/* Content */}
-      <div className="py-16 md:py-24">
+      {/* Content — changed py to pt (top) and pb (bottom) */}
+      <div className="pt-16 pb-32 md:pt-24 md:pb-48">
         <div className="mx-auto max-w-3xl text-center">
           {/* Headline */}
           <h2 className="mb-6 text-4xl leading-tight tracking-tight md:text-5xl lg:text-6xl">
@@ -21,10 +21,10 @@ export function ContactSection() {
           {/* Email Button */}
           <a
             href="mailto:1samanthacheng@gmail.com"
-  className="inline-flex items-center rounded-full border border-foreground bg-[#FFFDFC] px-6 py-3 text-lg font-medium text-primary md:text-xl transition-colors duration-200 hover:bg-[#306032] hover:text-[#FFFDFC] hover:border-transparent"
->
-  1samanthacheng@gmail.com
-</a>
+            className="inline-flex items-center rounded-full border border-foreground bg-[#FFFDFC] px-6 py-3 text-lg font-medium text-primary md:text-xl transition-colors duration-200 hover:bg-[#306032] hover:text-[#FFFDFC] hover:border-transparent"
+          >
+            1samanthacheng@gmail.com
+          </a>
         </div>
       </div>
     </section>

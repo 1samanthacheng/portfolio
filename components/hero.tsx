@@ -44,7 +44,7 @@ function ArrowRightIcon({ className }: { className?: string }) {
 export function Hero() {
   return (
     <section className="relative flex h-[calc(100vh-91px)] flex-col justify-center px-12 md:px-24 lg:px-40 xl:px-52 overflow-hidden">
-      <div className="w-full max-w-5xl flex items-center justify-between gap-8">
+      <div className="w-full flex items-center justify-between gap-8">
 
         {/* Left: copy */}
         <div className="flex-1 min-w-0">
@@ -63,7 +63,7 @@ export function Hero() {
           </h1>
 
           {/* Description */}
-          <p className="mb-8 max-w-xl text-lg leading-relaxed font-medium text-muted-foreground md:text-xl">
+          <p className="mb-8 text-lg leading-relaxed font-medium text-muted-foreground md:text-xl">
             Designing research-driven, human-centered experiences for a more equitable and resilient world (with a soft spot for food, climate, and community-building).
           </p>
 
@@ -78,42 +78,40 @@ export function Hero() {
         </div>
 
         {/* Right: photos — visible md+ */}
-        <div className="relative hidden md:block flex-shrink-0 w-[320px] lg:w-[380px] h-[520px] -mr-12 lg:-mr-20 xl:-mr-32">
+<div className="relative hidden md:block flex-shrink-0 w-[320px] lg:w-[400px] xl:w-[520px] h-[520px] xl:h-[580px]">
+    {/* Landscape — top right, flush to right edge */}
+  <div className="group absolute top-0 right-0 w-[200px] h-[250px] lg:w-[220px] lg:h-[275px] xl:w-[260px] xl:h-[325px] rounded-[24px] overflow-hidden border border-[#2b2b2b]">
+    <Image
+      src="/images/landscape.jpg"
+      alt="Mountain landscape"
+      fill
+      className="object-cover"
+      sizes="(max-width: 1024px) 200px, (max-width: 1280px) 220px, 260px"
+    />
+    <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
+      <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
+        another world is possible
+      </span>
+    </div>
+  </div>
 
-          {/* Landscape — top right, 4:5 (220×275), flush to right edge */}
-          <div className="group absolute top-0 right-0 w-[200px] h-[250px] lg:w-[220px] lg:h-[275px] rounded-[24px] overflow-hidden border border-[#2b2b2b]">
-            <Image
-              src="/images/landscape.jpg"
-              alt="Mountain landscape"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 200px, 220px"
-            />
-            <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
-              <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
-                another world is possible
-              </span>
-            </div>
-          </div>
+  {/* Oranges — lower left */}
+  <div className="group absolute bottom-0 left-4 w-[170px] h-[170px] lg:w-[185px] lg:h-[185px] xl:w-[210px] xl:h-[210px] rounded-[24px] overflow-hidden border border-[#2b2b2b]">
+    <Image
+      src="/images/oranges.jpeg"
+      alt="Oranges on a tree"
+      fill
+      className="object-cover"
+      sizes="(max-width: 1024px) 170px, (max-width: 1280px) 185px, 210px"
+    />
+    <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
+      <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
+        good systems bear fruit
+      </span>
+    </div>
+  </div>
 
-          {/* Oranges — lower, offset left, plenty of gap from landscape */}
-          <div className="group absolute bottom-0 left-4 w-[170px] h-[170px] lg:w-[185px] lg:h-[185px] rounded-[24px] overflow-hidden border border-[#2b2b2b]">
-            <Image
-              src="/images/oranges.jpeg"
-              alt="Oranges on a tree"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 170px, 185px"
-            />
-            {/* Caption centered at bottom */}
-            <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-in-out">
-              <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
-                good systems bear fruit
-              </span>
-            </div>
-          </div>
-
-        </div>
+</div>
       </div>
     </section>
   );

@@ -92,7 +92,7 @@ function CaseStudyNav() {
 
 const quotes = [
   {
-    quote: "It's demotivating that the information is not easily findable and that it's not all in one place.",
+    quote: "It's demotivating that the information is not easily findable and that it's not all in one place. It takes a lot of time and effort to get an understanding of your reps.",
     attribution: '— Survey response',
   },
   {
@@ -104,48 +104,103 @@ const quotes = [
     attribution: '— User interview participant',
   },
   {
-    quote: "I want to feel like my engagement is actually doing something, not just shouting into the void.",
+    quote: "Does reaching out to elected officials even matter? I want to feel like my engagement is actually doing something, not just shouting into the void.",
     attribution: '— User interview participant',
   },
 ];
 
 function QuoteCarousel() {
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
+  const [animating, setAnimating] = useState(false);
 
-  const prev = () => setCurrent((c) => (c === 0 ? quotes.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c === quotes.length - 1 ? 0 : c + 1));
+  const goTo = (index: number, dir: 'left' | 'right') => {
+    if (animating) return;
+    setDirection(dir);
+    setAnimating(true);
+    setTimeout(() => {
+      setCurrent(index);
+      setAnimating(false);
+    }, 300);
+  };
+
+  const prev = () => goTo(current === 0 ? quotes.length - 1 : current - 1, 'left');
+  const next = () => goTo(current === quotes.length - 1 ? 0 : current + 1, 'right');
 
   return (
     <div className="space-y-4">
       <div
-        className="p-8"
-        style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '32px' }}
+        className="relative overflow-hidden"
+        style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '32px', minHeight: '200px' }}
       >
-        <p className="text-2xl font-serif mb-4" style={{ color: '#0B1D51' }}>"</p>
-        <p className="text-base font-semibold leading-relaxed mb-4" style={{ color: '#2B2B2B' }}>
-          {quotes[current].quote}
-        </p>
-        <p className="text-sm" style={{ color: '#727272' }}>{quotes[current].attribution}</p>
+        <div
+          key={current}
+          className="p-8"
+          style={{
+            animation: `${animating ? '' : direction === 'right' ? 'slideInFromRight' : 'slideInFromLeft'} 0.3s ease forwards`,
+          }}
+        >
+          <Image
+            src="images/quotation-mark.svg"
+            alt=""
+            width={22}
+            height={17}
+            className="mb-6"
+          />
+          <p className="text-base font-semibold leading-relaxed mb-4" style={{ color: '#2B2B2B' }}>
+            {quotes[current].quote}
+          </p>
+          <p className="text-sm" style={{ color: '#727272' }}>{quotes[current].attribution}</p>
+        </div>
       </div>
+
+      <style>{`
+        @keyframes slideInFromRight {
+          from { opacity: 0; transform: translateX(40px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInFromLeft {
+          from { opacity: 0; transform: translateX(-40px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+      `}</style>
+
       {/* Controls */}
       <div className="flex items-center justify-between">
-        <button onClick={prev} className="p-2 hover:opacity-60 transition-opacity" aria-label="Previous" style={{ color: '#2B2B2B' }}>
+        <button
+          onClick={prev}
+          aria-label="Previous"
+          className="p-2 transition-colors"
+          style={{ color: '#0B1D51', cursor: 'pointer' }}
+          onMouseEnter={e => (e.currentTarget.style.color = '#726E8C')}
+          onMouseLeave={e => (e.currentTarget.style.color = '#0B1D51')}
+        >
           ←
         </button>
         <div className="flex items-center gap-2">
           {quotes.map((_, i) => (
-            <div
+            <button
               key={i}
+              onClick={() => goTo(i, i > current ? 'right' : 'left')}
+              aria-label={`Go to quote ${i + 1}`}
               className="rounded-full transition-all"
               style={{
                 width: i === current ? '10px' : '8px',
                 height: i === current ? '10px' : '8px',
                 backgroundColor: i === current ? '#0B1D51' : '#D4D1CC',
+                cursor: 'pointer',
+                border: 'none',
+                padding: 0,
               }}
             />
           ))}
         </div>
-        <button onClick={next} className="p-2 hover:opacity-60 transition-opacity" aria-label="Next" style={{ color: '#2B2B2B' }}>
+        <button
+          onClick={next}
+          aria-label="Next"
+          className="p-2 hover:opacity-60 transition-opacity"
+          style={{ color: '#2B2B2B', cursor: 'pointer' }}
+        >
           →
         </button>
       </div>
@@ -159,11 +214,14 @@ const visualDesignSections = [
     heading: <>Visual design <span className="font-serif italic font-normal">approach</span></>,
     body: "I wanted to balance civic professionalism with approachability, creating an interface that feels trustworthy without being intimidating. The visual language needed to communicate nonpartisan reliability while remaining modern and accessible to digital-native users.",
     visual: (
-      <div
-        className="w-full h-[520px] flex items-center justify-center text-sm"
-        style={{ border: '1px solid #2B2B2B', borderRadius: '40px', backgroundColor: '#E0DBDE', color: '#A1869E' }}
-      >
-        use home screen.png
+        <div className="w-full max-w-[280px] mx-auto md:max-w-[320px]">
+        <Image
+          src="/images/home-screen.png"
+          alt="Constituent app home screen"
+          width={400}
+          height={800}
+          className="w-full h-auto"
+        />
       </div>
     ),
   },
@@ -241,7 +299,7 @@ const visualDesignSections = [
     body: "I established rules for color application, typography, hierarchy, spacing (based on a soft 8px grid), and component behavior. This systematic approach creates a unified experience while ensuring the design remains scalable and maintainable.",
     visual: (
       <Image
-    src="/images/components.png"
+    src="/images/design-system.svg"
     alt="Constituent design system components including list items, badges, chips, and navigation bar states"
     width={600}
     height={800}
@@ -259,7 +317,7 @@ function VisualDesignScroll() {
     const observers = sectionRefs.map((ref, i) => {
       const observer = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActiveIndex(i); },
-        { threshold: 0.7, rootMargin: '0px 0px -20% 0px' }
+        { threshold: 0.7, rootMargin: '-10% 0px -20% 0px' }
       );
       if (ref.current) observer.observe(ref.current);
       return observer;
@@ -268,25 +326,47 @@ function VisualDesignScroll() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative">
-      {/* Left: sticky text */}
-      <div className="md:sticky md:top-0 md:self-start md:h-screen md:flex md:flex-col md:justify-center space-y-4 transition-all duration-500">
-        <h2 className="text-2xl md:text-3xl font-semibold leading-tight" style={{ color: '#2B2B2B' }}>
-          {visualDesignSections[activeIndex].heading}
-        </h2>
-        <p className="text-base leading-relaxed transition-opacity duration-300" style={{ color: '#2B2B2B' }}>
-          {visualDesignSections[activeIndex].body}
-        </p>
-      </div>
-      {/* Right: scrolling visuals */}
-      <div className="space-y-32">
-        {visualDesignSections.map((section, i) => (
-          <div key={section.id} ref={sectionRefs[i]}>
-            {section.visual}
+    <>
+      {/* Mobile: stacked layout */}
+      <div className="md:hidden space-y-16">
+        {visualDesignSections.map((section) => (
+          <div key={section.id} className="space-y-6">
+            <div className="space-y-4">
+              <h2 className="text-2xl leading-tight font-semibold" style={{ color: '#2B2B2B' }}>
+                {section.heading}
+              </h2>
+              <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+                {section.body}
+              </p>
+            </div>
+            <div className="flex justify-center">
+              {section.visual}
+            </div>
           </div>
         ))}
       </div>
-    </div>
+
+      {/* Desktop: sticky scroll layout */}
+      <div className="hidden md:grid grid-cols-2 gap-16 relative">
+        {/* Left: sticky text */}
+        <div className="sticky top-0 self-start h-screen flex flex-col justify-center space-y-4">
+          <h2 className="text-2xl md:text-3xl font-semibold leading-tight transition-all duration-300" style={{ color: '#2B2B2B' }}>
+            {visualDesignSections[activeIndex].heading}
+          </h2>
+          <p className="text-base font-medium leading-relaxed transition-all duration-300" style={{ color: '#2B2B2B' }}>
+            {visualDesignSections[activeIndex].body}
+          </p>
+        </div>
+        {/* Right: scrolling visuals */}
+        <div className="space-y-32 pt-32">
+          {visualDesignSections.map((section, i) => (
+            <div key={section.id} ref={sectionRefs[i]} className="flex justify-center">
+              {section.visual}
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -327,171 +407,182 @@ export default function ConstituentPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-        {/* Left */}
-        <div className="px-12 md:px-24 lg:px-40 xl:px-52 py-12 flex flex-col justify-center" style={{ backgroundColor: '#F8F6F2' }}>
-          <div className="space-y-12">
-            <div>
-              <h1 className="text-5xl md:text-6xl font-semibold leading-tight mb-4" style={{ color: '#0B1D51' }}>
-                Constituent
-              </h1>
-              <p className="text-lg md:text-xl font-medium" style={{ color: '#2B2B2B' }}>
-                Know your reps. Make your voice heard.
-              </p>
-            </div>
-            <div className="w-24 h-24">
-              <Image src="/app icon.png" alt="Constituent App Icon" width={96} height={96} className="rounded-2xl" />
-            </div>
-            <div className="space-y-0">
-              {[
-                { label: 'Type', value: 'Passion Project' },
-                { label: 'Timeline', value: '2025–Present' },
-                { label: 'Role', value: 'Product Designer + UX Researcher' },
-                { label: 'Platform', value: 'iOS' },
-                { label: 'Tools', value: 'Figma, Claude, Pen + Paper' },
-              ].map((item, i, arr) => (
-                <div
-                  key={item.label}
-                  className={`py-6 grid grid-cols-2 gap-8 ${i < arr.length - 1 ? 'border-b' : ''}`}
-                  style={{ borderColor: '#E0DBDE' }}
-                >
-                  <p className="text-sm" style={{ color: '#727272' }}>{item.label}</p>
-                  <p className="text-base" style={{ color: '#2B2B2B' }}>{item.value}</p>
-                </div>
-              ))}
-            </div>
-            <div>
-              <button
-                className="px-8 py-3 rounded-full font-medium flex items-center gap-2 transition-opacity hover:opacity-90"
-                style={{ backgroundColor: '#0B1D51', color: 'white' }}
-              >
-                View prototype <span>→</span>
-              </button>
-            </div>
+<section className="grid grid-cols-1 lg:grid-cols-2 min-h-screen lg:h-screen lg:min-h-0 overflow-hidden">
+  {/* Left Column */}
+  <div 
+  className="px-12 md:px-24 lg:px-40 xl:px-52 py-12 flex flex-col justify-center overflow-y-auto" 
+  style={{ backgroundColor: '#F8F6F2' }}
+>
+  <div className="space-y-8 w-full lg:-mt-8">
+      <div>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-3" style={{ color: '#0B1D51' }}>
+          Constituent
+        </h1>
+        <p className="text-base md:text-lg font-medium" style={{ color: '#2B2B2B' }}>
+          Know your reps. Make your voice heard.
+        </p>
+      </div>
+      
+      <div className="w-16 h-16">
+        <Image src="/app icon.png" alt="Constituent App Icon" width={64} height={64} className="rounded-2xl" />
+      </div>
+      
+      <div className="space-y-0">
+        {[
+          { label: 'Type', value: 'Passion Project' },
+          { label: 'Timeline', value: '2025–Present' },
+          { label: 'Role', value: 'Product Designer + UX Researcher' },
+          { label: 'Platform', value: 'iOS' },
+          { label: 'Tools', value: 'Figma, Claude, Pen + Paper' },
+        ].map((item, i, arr) => (
+          <div
+            key={item.label}
+            className={`py-4 grid grid-cols-2 ${i < arr.length - 1 ? 'border-b' : ''}`}
+            style={{ borderColor: '#E0DBDE' }}
+          >
+            <p className="text-base" style={{ color: '#727272' }}>{item.label}</p>
+            <p className="text-base font-medium" style={{ color: '#2B2B2B' }}>{item.value}</p>
           </div>
-        </div>
-        {/* Right */}
-        <div className="px-12 md:px-24 lg:px-40 xl:px-52 py-12 flex items-center justify-center" style={{ backgroundColor: '#E0DBDE' }}>
-          <div className="w-full max-w-sm">
-            <Image src="/app icon.png" alt="Constituent App on iPhone" width={400} height={800} className="w-full h-auto" />
-          </div>
-        </div>
-      </section>
+        ))}
+      </div>
+      
+      <div>
+        <a
+          href="https://www.figma.com/proto/4S5A1vuaOJpVHWwKcuAklj/-external--Constituent?node-id=1-1769&t=WdJA5izv6TmLpGG2-1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-fit px-8 py-3 rounded-full font-medium inline-flex items-center gap-2 transition-opacity hover:opacity-90"              
+          style={{ backgroundColor: '#0B1D51', color: 'white' }}
+        >
+          View prototype <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  {/* Right Column */}
+  <div 
+    className="px-12 md:px-24 lg:px-20 xl:px-32 py-12 flex items-center justify-center h-full" 
+    style={{ backgroundColor: '#E0DBDE' }}
+  >
+    <div className="w-full max-w-xs lg:max-w-sm max-h-[75vh] flex items-center justify-center">
+      <video
+        src="/images/hero-onboarding.mov"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-auto h-full max-h-[75vh] object-contain rounded-[40px]"
+      />
+    </div>
+  </div>
+</section>
 
-      {/* 3px Divider */}
-      <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
+{/* 3px Divider */}
+<div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
 
       {/* Overview Section */}
-      <section id="overview" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
-
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
-          <div>
-            <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
-              Overview
-            </span>
-          </div>
-          <div className="space-y-6">
-            <h2 className="text-2xl md:text-3xl leading-tight">
-              <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Building a </span>
-              <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>civic tool </span>
-              <span className="font-serif italic" style={{ color: '#2B2B2B' }}>that </span>
-              <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>empowers everyone </span>
-              <span className="font-serif italic" style={{ color: '#2B2B2B' }}>to participate in democracy.</span>
-            </h2>
-            <div className="space-y-4 text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-              <p>
-                Constituent is a mobile-first civic tech app that allows users to identify and contact their elected representatives at all levels of government and all in one place. Its namesake serves as a reminder that elected officials work for <em>us</em>, and we all play a part in making sure they remain accountable for their actions.
-              </p>
-              <p>
-                As a self-initiated project, I led every phase of the design process, from research and problem definition through prototyping and developer handoff.
-              </p>
-            </div>
-          </div>
+<section id="overview" className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+    <div>
+      <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
+        Overview
+      </span>
+    </div>
+    <div className="space-y-10">
+      <div className="space-y-4">
+        <h2 className="text-2xl md:text-3xl leading-tight">
+          <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Building a </span>
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>civic tool </span>
+          <span className="font-serif italic" style={{ color: '#2B2B2B' }}>that </span>
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>empowers everyone </span>
+          <span className="font-serif italic" style={{ color: '#2B2B2B' }}>to </span>
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>participate in democracy.</span>
+        </h2>
+        <div className="space-y-4 text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+          <p>
+            Constituent is a mobile-first civic tech app that allows users to identify and contact their elected representatives at all levels of government and all in one place. Its namesake serves as a reminder that elected officials work for <em>us</em>, and we all play a part in making sure they remain accountable for their actions.
+          </p>
+          <p>
+            As a self-initiated project, I led every phase of the design process, from research and problem definition through prototyping and developer handoff.
+          </p>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      {/* 3px Divider */}
-      <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
+{/* App Screens */}
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 pb-16 pt-2" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="flex items-center justify-center">
+    <Image
+      src="images/constituent-thumbnail.png"
+      alt="Constituent app screens"
+      width={1200}
+      height={800}
+      className="w-full h-auto rounded-[32px] border"
+      style={{ borderColor: '#2B2B2B' }}
+    />
+  </div>
+</section>
 
-      {/* App Screens Placeholder */}
-      <section style={{ backgroundColor: '#E0DBDE' }}>
-        <div className="px-12 md:px-24 lg:px-40 xl:px-52 py-12 flex items-center justify-center">
-          <div className="w-full h-96 rounded-2xl flex items-center justify-center text-base" style={{ backgroundColor: '#D4CFCD', color: '#A1869E' }}>
-            App screens image — replace with constituent-thumbnail.png
-          </div>
-        </div>
-      </section>
+{/* Problem Section */}
+<section id="problem" className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+    <div>
+      <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
+        Problem
+      </span>
+    </div>
+    <div className="space-y-10">
+      <div className="space-y-4">
+        <h2 className="text-2xl md:text-3xl leading-tight">
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>Civic engagement </span>
+          <span className="font-serif italic" style={{ color: '#2B2B2B' }}>is </span>
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>harder </span>
+          <span className="font-serif italic" style={{ color: '#2B2B2B' }}>than it should be.</span>
+        </h2>
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+          For people who want to make their voices heard, it can be difficult to know where to start. Existing civic tools (especially government websites) are often clunky and fragmented, making it hard for people to find clear information, contact their representatives, or keep up with issues that matter to them.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      {/* 3px Divider */}
-      <div style={{ height: '3px', backgroundColor: '#0B1D51' }} />
-
-      {/* Problem Section */}
-      <section id="problem" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
-          <div>
-            <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
-              Problem
-            </span>
-          </div>
-          <div className="space-y-6">
-            <h2 className="text-2xl md:text-3xl leading-tight">
-              <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>Civic engagement </span>
-              <span className="font-serif italic" style={{ color: '#2B2B2B' }}>is </span>
-              <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>harder </span>
-              <span className="font-serif italic" style={{ color: '#2B2B2B' }}>than it should be.</span>
-            </h2>
-            <div className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-              <p>
-                For people who want to make their voices heard, it can be difficult to know where to start. Existing civic tools (especially government websites) are often clunky and fragmented, making it hard for people to find clear information, contact their representatives, or keep up with issues that matter to them.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 {/* Competitive Landscape Carousel */}
-<section className="py-16" style={{ backgroundColor: '#F8F6F2' }}>
-  {/* Scrollable row */}
+<section className="pt-0 pb-16" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="relative">
-    {/* Right fade signifier */}
     <div
       className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
-      style={{
-        background: 'linear-gradient(to right, transparent, #F8F6F2)',
-      }}
+      style={{ background: 'linear-gradient(to right, transparent, #F8F6F2)' }}
     />
     <div
       className="flex gap-6 overflow-x-auto pb-6 px-12 md:px-24 lg:px-40 xl:px-52"
       style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
     >
-      {[1, 2, 3, 4, 5].map((i) => (
-        <div
-          key={i}
-          className="shrink-0 w-80 h-56 flex items-center justify-center text-sm"
-          style={{
-            border: '1px solid #2B2B2B',
-            borderRadius: '32px',
-            backgroundColor: '#E0DBDE',
-            color: '#A1869E',
-          }}
-        >
-          Competitor screenshot {i}
+      {['one', 'two', 'three', 'four', 'five', 'six', 'seven'].map((name) => (
+        <div key={name} className="shrink-0 w-[420px] h-[280px] rounded-[32px] overflow-hidden" style={{ border: '1px solid #2B2B2B' }}>
+          <Image
+            src={`images/competitor-${name}.png`}
+            alt={`Competitor ${name} screenshot`}
+            width={420}
+            height={280}
+            className="w-full h-full object-cover"
+          />
         </div>
       ))}
     </div>
   </div>
-  {/* Caption */}
-  <div className="px-12 md:px-24 lg:px-40 xl:px-52 mt-6">
-    <p
-      className="text-center text-base leading-relaxed"
-      style={{ color: '#727272', fontFamily: 'DM Sans, sans-serif', fontWeight: 500 }}
-    >
+  <div className="px-12 md:px-24 lg:px-40 xl:px-52 mt-3">
+    <p className="text-center text-sm leading-relaxed" style={{ color: '#727272' }}>
       The current landscape for finding info on elected officials is fragmented by design-level, device, and use case, leaving everyday people to stitch together their own process across multiple sites and platforms.
     </p>
   </div>
 </section>
 
-      {/* Research Section */}
-<section id="research" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+{/* Research Section */}
+<section id="research" className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -499,74 +590,63 @@ export default function ConstituentPage() {
       </span>
     </div>
     <div className="space-y-10">
-      {/* Heading */}
-      <h2 className="text-2xl md:text-3xl leading-tight">
-        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>What are some of the </span>
-        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>main barriers </span>
-        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>to </span>
-        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>civic participation?</span>
-      </h2>
 
-      {/* Body */}
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-        Through a survey (50+ respondents), 5 user interviews, and competitive analysis of 7 tools, I explored how people across different levels of civic engagement currently find information about their elected officials—and why the process often stops them from taking action.
-      </p>
+      {/* Heading + intro — grouped tightly */}
+  <div className="space-y-4">
+    <h2 className="text-2xl md:text-3xl leading-tight">
+      <span className="font-serif italic" style={{ color: '#2B2B2B' }}>What are some of the </span>
+      <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>main barriers </span>
+      <span className="font-serif italic" style={{ color: '#2B2B2B' }}>to </span>
+      <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>civic participation?</span>
+    </h2>
+    <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+      Through a survey (50+ respondents), 5 user interviews, and competitive analysis of 7 tools, I explored how people across different levels of civic engagement currently find information about their elected officials—and why the process often stops them from taking action.
+    </p>
+  </div>
+  <QuoteCarousel />
 
-      {/* Quote Carousel */}
-      <QuoteCarousel />
-
-      {/* Insights intro */}
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-        From the research, four key insights emerged:
-      </p>
-
-      {/* Insights Card */}
-      <div
-        className="p-8 space-y-6"
-        style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '32px' }}
-      >
-        {[
-          {
-            title: 'Scattered Information:',
-            body: ' Users have to visit multiple websites to find basic information about their representatives, making a simple task unnecessarily time-consuming.',
-          },
-          {
-            title: 'Unreliable Sources',
-            body: ': People struggle to determine which websites provide trustworthy, nonpartisan, and up-to-date information about elected officials.',
-          },
-          {
-            title: 'Outdated Government Sites',
-            body: ': Official government websites are cluttered, slow, and difficult to navigate (especially on mobile devices where most people search).',
-          },
-          {
-            title: 'Lack of Feedback',
-            body: ': People question whether their outreach actually matters, with no confirmation or sense of collective impact which makes it easy to give up after the first try.',
-          },
-        ].map((item) => (
-          <div key={item.title} className="flex items-start gap-4">
-            {/* Star placeholder */}
-            <div className="shrink-0 mt-1 w-6 h-6 flex items-center justify-center">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="#A1869E">
-                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
-              </svg>
+      {/* Insights intro + card */}
+      <div className="space-y-4">
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+          From the research, four key insights emerged:
+        </p>
+        <div
+          className="p-8 space-y-6"
+          style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '32px' }}
+        >
+          {[
+            { title: 'Scattered Information:', body: ' Users have to visit multiple websites to find basic information about their representatives, making a simple task unnecessarily time-consuming.' },
+            { title: 'Unreliable Sources', body: ': People struggle to determine which websites provide trustworthy, nonpartisan, and up-to-date information about elected officials.' },
+            { title: 'Outdated Government Sites', body: ': Official government websites are cluttered, slow, and difficult to navigate (especially on mobile devices where most people search).' },
+            { title: 'Lack of Feedback', body: ': People question whether their outreach actually matters, with no confirmation or sense of collective impact which makes it easy to give up after the first try.' },
+          ].map((item) => (
+            <div key={item.title} className="flex items-start gap-4">
+              <div className="shrink-0 mt-1 w-6 h-6 flex items-center justify-center">
+                <Image src="images/star.svg" alt="" width={20} height={20} />
+              </div>
+              <p className="text-base font-medium leading-relaxed">
+                <span className="font-semibold" style={{ color: '#0B1D51' }}>{item.title}</span>
+                <span style={{ color: '#2B2B2B' }}>{item.body}</span>
+              </p>
             </div>
-            <p className="text-base leading-relaxed">
-              <span className="font-semibold" style={{ color: '#0B1D51' }}>{item.title}</span>
-              <span style={{ color: '#2B2B2B' }}>{item.body}</span>
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      {/* Centering user needs */}
-      <div className="space-y-4 pt-4">
-        <h3 className="text-2xl leading-tight">
+      {/* Centering user needs subsection */}
+      <div className="space-y-4 pt-6">
+        <h3 className="text-2xl md:text-3xl leading-tight">
           <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Centering </span>
           <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>user needs</span>
         </h3>
-        <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
           With a clearer picture of the problem space, I created personas and{' '}
-          <a href="#" className="underline underline-offset-4 hover:opacity-70" style={{ color: '#0B1D51' }}>
+          <a href="https://www.figma.com/board/NaqFdbLpNTNUmjm1H8K8zW/-external--Constituent?node-id=1-380&t=HWDhqa1QM3lYtEyI-4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 hover:opacity-70"
+            style={{ color: '#0B1D51' }}
+          >
             journey maps
           </a>{' '}
           to translate these research findings into a human story, revealing distinct user needs and pain points. Amal Greene became my primary anchor: someone who wants to be more civically engaged but doesn't know where to start or whether her voice will land.
@@ -576,28 +656,17 @@ export default function ConstituentPage() {
     </div>
   </div>
 </section>
+
 {/* Persona Section */}
-<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
-  <div
-    className="overflow-hidden"
-    style={{ border: '1px solid #2B2B2B', borderRadius: '32px' }}
-  >
-    {/* Top: photo + details + bio */}
-    <div
-      className="grid grid-cols-1 md:grid-cols-[auto_1fr_1fr] gap-8 p-8"
-      style={{ borderBottom: '1px solid #2B2B2B', backgroundColor: '#EDE9ED' }}
-    >
-      {/* Photo placeholder */}
-      <div
-        className="w-48 h-48 shrink-0 rounded-xl overflow-hidden flex items-center justify-center text-sm"
-        style={{ backgroundColor: '#E0DBDE', color: '#A1869E' }}
-      >
-        Amal photo
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 pt-0 pb-16" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="overflow-hidden" style={{ border: '1px solid #2B2B2B', borderRadius: '32px' }}>
+    <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_1fr] gap-8 p-8" style={{ borderBottom: '1px solid #2B2B2B', backgroundColor: '#EDE9ED' }}>
+      <div className="w-48 h-48 shrink-0 rounded-xl overflow-hidden">
+        <Image src="/images/amal.png" alt="Amal Greene headshot" width={192} height={192} className="w-full h-full object-cover" />
       </div>
-      {/* Name + quote + details */}
       <div className="space-y-4">
         <h3 className="text-xl font-semibold" style={{ color: '#2B2B2B' }}>Amal Greene</h3>
-        <p className="text-base font-serif italic leading-relaxed" style={{ color: '#2B2B2B' }}>
+        <p className="text-base font-semibold italic leading-relaxed" style={{ color: '#2B2B2B' }}>
           "I care about what's happening — I just wish it were easier to turn that care into action. I don't always know where to start."
         </p>
         <ul className="space-y-1 text-base" style={{ color: '#2B2B2B' }}>
@@ -615,7 +684,6 @@ export default function ConstituentPage() {
           ))}
         </ul>
       </div>
-      {/* Bio */}
       <div className="space-y-3">
         <p className="text-base font-semibold" style={{ color: '#2B2B2B' }}>Bio</p>
         <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
@@ -623,7 +691,6 @@ export default function ConstituentPage() {
         </p>
       </div>
     </div>
-    {/* Bottom: goals + pain points + motivations */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8" style={{ backgroundColor: '#EDE9ED' }}>
       {[
         {
@@ -650,7 +717,7 @@ export default function ConstituentPage() {
             'Wants to be an informed resident and engage beyond just voting.',
             'Feels urgency around issues that directly impact her life.',
             'Values efficiency and will engage more if the process is simplified and streamlined.',
-            "Wants to feel that her voice and action will make a difference.",
+            'Wants to feel that her voice and action will make a difference.',
           ],
         },
       ].map((col) => (
@@ -671,191 +738,196 @@ export default function ConstituentPage() {
 </section>
 
 {/* Define Section */}
-<section id="define" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="define" className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
         Define
       </span>
     </div>
-    <div className="space-y-6">
-      <h2 className="text-2xl md:text-3xl leading-tight">
-        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Narrowing the </span>
-        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>focus</span>
-      </h2>
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-        Next, I needed to distill everything I learned into a single, honest articulation of the problem — one I could keep returning to as a gut-check throughout the design work. Grounding this in Amal's story kept the process honest:
-      </p>
-      {/* Block quote 1 */}
-      <blockquote
-        className="pl-5 py-1 text-base font-semibold leading-relaxed"
-        style={{ borderLeft: '4px solid #726E8C', color: '#2B2B2B' }}
-      >
-        Amal is an eager community member who needs to find relevant information on government policies and representatives, because she wants to stay informed and act on issues that affect her daily life.
-      </blockquote>
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-        With the problem defined, I could articulate what a successful solution would actually need to deliver. The goal statement:
-      </p>
-      {/* Block quote 2 */}
-      <blockquote
-        className="pl-5 py-1 text-base font-semibold leading-relaxed"
-        style={{ borderLeft: '4px solid #726E8C', color: '#2B2B2B' }}
-      >
-        The platform will allow users to stay engaged with issues they care about by consolidating the process of looking up and contacting elected officials into one organized, approachable experience. I will measure effectiveness through task completion rates and user satisfaction in usability testing.
-      </blockquote>
-    </div>
+    <div className="space-y-10">
+
+  {/* Heading + intro + first blockquote — all one thought */}
+  <div className="space-y-4">
+    <h2 className="text-2xl md:text-3xl leading-tight">
+      <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Narrowing the </span>
+      <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>focus</span>
+    </h2>
+    <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+      Next, I needed to distill everything I learned into a single, honest articulation of the problem — one I could keep returning to as a gut-check throughout the design work. Grounding this in Amal's story kept the process honest:
+    </p>
+    <blockquote
+      className="pl-5 py-1 text-base font-semibold leading-relaxed"
+      style={{ borderLeft: '4px solid #726E8C', color: '#2B2B2B' }}
+    >
+      Amal is an eager community member who needs to find relevant information on government policies and representatives, because she wants to stay informed and act on issues that affect her daily life.
+    </blockquote>
   </div>
+
+  {/* Transition paragraph + second blockquote — one thought */}
+  <div className="space-y-4">
+    <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+      With the problem defined, I could articulate what a successful solution would actually need to deliver. The goal statement:
+    </p>
+    <blockquote
+      className="pl-5 py-1 text-base font-semibold leading-relaxed"
+      style={{ borderLeft: '4px solid #726E8C', color: '#2B2B2B' }}
+    >
+      The platform will allow users to stay engaged with issues they care about by consolidating the process of looking up and contacting elected officials into one organized, approachable experience. I will measure effectiveness through task completion rates and user satisfaction in usability testing.
+    </blockquote>
+  </div>
+</div>
+</div>
 </section>
+
       {/* Ideation Section */}
-<section id="ideation" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="ideation" className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
+
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
         Ideation
       </span>
     </div>
-    <div className="space-y-6">
-      {/* Heading */}
-      <h2 className="text-2xl md:text-3xl leading-tight">
-        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Project </span>
-        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>scoping</span>
-      </h2>
 
-      {/* Intro */}
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-        To inform my early ideation process, I started with a HMW statement:
-      </p>
+    <div className="space-y-10">
 
-      {/* Block quote */}
-      <blockquote
-        className="pl-5 py-1 text-base font-semibold leading-relaxed"
-        style={{ borderLeft: '4px solid #726E8C', color: '#2B2B2B' }}
-      >
-        How might we simplify how people discover information about their elected officials?
-      </blockquote>
+      {/* Heading + intro + HMW blockquote — all one thought */}
+      <div className="space-y-4">
+        <h2 className="text-2xl md:text-3xl leading-tight">
+          <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Project </span>
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>scoping</span>
+        </h2>
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+          To inform my early ideation process, I started with a HMW statement:
+        </p>
+        <blockquote
+          className="pl-5 py-1 text-base font-semibold leading-relaxed"
+          style={{ borderLeft: '4px solid #726E8C', color: '#2B2B2B' }}
+        >
+          How might we simplify how people discover information about their elected officials?
+        </blockquote>
+      </div>
 
-      {/* Body */}
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+      {/* Target audience paragraph */}
+      <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
         Keeping Amal in mind, I then began zeroing in on the product's core features and target audience. I chose to design for the users who showed up most in my research: people who are somewhat to moderately civically engaged and also eager to do more.
       </p>
 
-      {/* Donut chart placeholder */}
-      <div
-        className="p-8 space-y-4"
-        style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '16px' }}
-      >
-        <p className="text-base" style={{ color: '#2B2B2B' }}>How would you describe your level of civic engagement?</p>
+      {/* Donut chart + caption */}
+      <div className="space-y-3">
         <div
-          className="w-full h-64 rounded-xl flex items-center justify-center text-sm"
-          style={{ backgroundColor: '#E0DBDE', color: '#A1869E' }}
+          className="p-8 space-y-6"
+          style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '16px' }}
         >
-          Donut chart — replace with actual asset
+          <p className="text-base font-medium" style={{ color: '#2B2B2B' }}>How would you describe your level of civic engagement?</p>
+          <Image
+            src="images/survey-chart.svg"
+            alt="Donut chart: responses to 'How would you describe your level of civic engagement?' Very engaged 26.9%, Moderately engaged 36.5%, Somewhat engaged 26.9%, Not very engaged 9.6%"
+            width={800}
+            height={400}
+            className="w-full h-auto"
+          />
+        </div>
+        <p className="text-sm text-center leading-relaxed" style={{ color: '#727272' }}>
+          Over 63% of people surveyed consider themselves somewhat to moderately engaged in civic activities, revealing a clear majority to design for.
+        </p>
+      </div>
+
+      {/* MVP intro + card */}
+      <div className="space-y-4">
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+          Three MVP features emerged from their needs:
+        </p>
+        <div
+          className="p-8 space-y-6"
+          style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '32px' }}
+        >
+          {[
+            { title: 'Representative lookup:', body: ' Enter your address once and see all your elected officials across federal, state, and local levels in one place.' },
+            { title: 'Rep profile overviews:', body: ' Browse basic information about each representative (biography, committee assignments, recent activity, etc.)' },
+            { title: 'Multi-rep contact flow:', body: ' Reach out to one or multiple representatives at once, with the option to write your own message or start from a template.' },
+          ].map((item) => (
+            <div key={item.title} className="flex items-start gap-4">
+              <div className="shrink-0 mt-1 w-6 h-6 flex items-center justify-center">
+                <Image src="images/star.svg" alt="" width={20} height={20} />
+              </div>
+              <p className="text-base font-medium leading-relaxed">
+                <span className="font-semibold" style={{ color: '#0B1D51' }}>{item.title}</span>
+                <span style={{ color: '#2B2B2B' }}>{item.body}</span>
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Caption */}
-      <p className="text-base text-center leading-relaxed" style={{ color: '#727272' }}>
-        Over 63% of people surveyed consider themselves somewhat to moderately engaged in civic activities, revealing a clear majority to design for.
-      </p>
-
-      {/* MVP intro */}
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-        Three MVP features emerged from their needs:
-      </p>
-
-      {/* MVP features card */}
-      <div
-        className="p-8 space-y-6"
-        style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '32px' }}
-      >
-        {[
-          {
-            title: 'Representative lookup:',
-            body: ' Enter your address once and see all your elected officials across federal, state, and local levels in one place.',
-          },
-          {
-            title: 'Rep profile overviews:',
-            body: ' Browse basic information about each representative (biography, committee assignments, recent activity, etc.)',
-          },
-          {
-            title: 'Multi-rep contact flow:',
-            body: ' Reach out to one or multiple representatives at once, with the option to write your own message or start from a template.',
-          },
-        ].map((item) => (
-          <div key={item.title} className="flex items-start gap-4">
-            <div className="shrink-0 mt-1 w-6 h-6 flex items-center justify-center">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="#A1869E">
-                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
-              </svg>
-            </div>
-            <p className="text-base leading-relaxed">
-              <span className="font-semibold" style={{ color: '#0B1D51' }}>{item.title}</span>
-              <span style={{ color: '#2B2B2B' }}>{item.body}</span>
-            </p>
-          </div>
-        ))}
-      </div>
-
       {/* Scoping note */}
-      <div
-        className="p-6 text-base leading-relaxed"
-        style={{ color: '#2B2B2B' }}
-      >
+      <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
         I kept the MVP focused on these three features deliberately. Features like bill tracking, notifications, issue-based filtering, and impact stats are all on the roadmap, but scoping them out of v1 meant the core experience could be built, tested, and validated first.
+      </p>
+
+      {/* IA subsection — pt-6 signals new chapter, same as "Centering user needs" in Research */}
+      <div className="space-y-4 pt-6">
+        <h3 className="text-2xl md:text-3xl leading-tight">
+          <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Information </span>
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>architecture</span>
+        </h3>
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+          Before diving into any design work, I created a{' '}
+          <a href="https://www.figma.com/board/NaqFdbLpNTNUmjm1H8K8zW/-external--Constituent?node-id=1-443&t=Jfc3mqSCy6ExKAPJ-4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 hover:opacity-70"
+            style={{ color: '#0B1D51' }}
+          >
+            sitemap
+          </a>{' '}
+          to establish the app's underlying structure. Navigation is focused around the two actions that matter most in v1: finding your representatives and contacting them. From there, I mapped out the key user journey, accounting for the choices a user might face and defining a clear happy path.
+        </p>
       </div>
-      
-{/* IA subsection */}
-<div className="space-y-4 pt-4">
-  <h3 className="text-2xl leading-tight">
-    <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Information </span>
-    <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>architecture</span>
-  </h3>
-  <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-    Before diving into any design work, I created a{' '}
-    <a href="#" className="underline underline-offset-4 hover:opacity-70" style={{ color: '#0B1D51' }}>
-      sitemap
-    </a>{' '}
-    to establish the app's underlying structure. Navigation is focused around the two actions that matter most in v1: finding your representatives and contacting them. From there, I mapped out the key user journey, accounting for the choices a user might face and defining a clear happy path.
-  </p>
-  {/* User flow image */}
-  <div
-    className="p-6 overflow-hidden"
-    style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '16px' }}
-  >
-    <div
-      className="w-full h-96 rounded-xl flex items-center justify-center text-sm"
-      style={{ backgroundColor: '#E0DBDE', color: '#A1869E' }}
-    >
-      User flow diagram — use user-flow.png
-    </div>
-  </div>
-</div>
+
+      {/* User flow image + caption */}
+      <div className="space-y-3">
+        <div
+          className="p-16 overflow-hidden"
+          style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '16px' }}
+        >
+          <Image
+            src="/images/user-flow.png"
+            alt="Constituent user flow diagram"
+            width={800}
+            height={600}
+            className="w-full h-auto"
+          />
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
       {/* Design Section */}
-<section id="design" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="design" className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
         Design
       </span>
     </div>
-    <div className="space-y-6">
+    <div className="space-y-4">
       <h2 className="text-2xl md:text-3xl leading-tight">
         <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Drafting </span>
         <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>wireframes</span>
       </h2>
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+      <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
         I started with paper sketches to explore potential layouts before combining the best elements from each into digital lo-fi wireframes. These wireframes helped identify potential usability issues early and establish a strong foundation for the visual design.
       </p>
     </div>
   </div>
 </section>
 
-{/* Sketches Carousel */}
-<section className="py-6" style={{ backgroundColor: '#F8F6F2' }}>
+{/* Sketches Carousel + caption */}
+<section className="pt-0 pb-16" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="relative">
     <div
       className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
@@ -865,29 +937,30 @@ export default function ConstituentPage() {
       className="flex gap-6 overflow-x-auto pb-6 px-12 md:px-24 lg:px-40 xl:px-52"
       style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
     >
-      {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
         <div
           key={i}
-          className="shrink-0 w-56 h-72 flex items-center justify-center text-sm"
-          style={{
-            border: '1px solid #2B2B2B',
-            borderRadius: '32px',
-            backgroundColor: '#E0DBDE',
-            color: '#A1869E',
-          }}
+          className="shrink-0 w-56 h-72 rounded-[32px] overflow-hidden"
+          style={{ border: '1px solid #2B2B2B' }}
         >
-          Sketch {i}
+          <Image
+            src={`/images/paper-wireframe-${i}.jpeg`}
+            alt={`Paper wireframe sketch ${i}`}
+            width={224}
+            height={288}
+            className="w-full h-full object-cover"
+          />
         </div>
       ))}
     </div>
   </div>
-  <p className="text-center text-base mt-4 px-12 md:px-24 lg:px-40 xl:px-52" style={{ color: '#727272', fontWeight: 500 }}>
+  <p className="text-center text-sm mt-3 px-12 md:px-24 lg:px-40 xl:px-52" style={{ color: '#727272' }}>
     Early sketches exploring layout options for the core screens.
   </p>
 </section>
 
-{/* Wireframes Carousel */}
-<section className="py-6" style={{ backgroundColor: '#F8F6F2' }}>
+{/* Wireframes Carousel + caption */}
+<section className="pt-0 pb-16" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="relative">
     <div
       className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
@@ -897,174 +970,198 @@ export default function ConstituentPage() {
       className="flex gap-6 overflow-x-auto pb-6 px-12 md:px-24 lg:px-40 xl:px-52"
       style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
     >
-      {[1, 2, 3, 4, 5, 6].map((i) => (
-        <div
-          key={i}
-          className="shrink-0 w-48 h-96 flex items-center justify-center text-sm"
-          style={{
-            border: '1px solid #2B2B2B',
-            borderRadius: '32px',
-            backgroundColor: '#E0DBDE',
-            color: '#A1869E',
-          }}
-        >
-          Wireframe {i}
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
+        <div key={i} className="shrink-0">
+          <Image
+            src={`/images/digital-wireframe-${i}.png`}
+            alt={`Digital wireframe ${i}`}
+            width={192}
+            height={384}
+            className="rounded-[32px] h-auto"
+            style={{ border: '1px solid #2B2B2B' }}
+          />
         </div>
       ))}
     </div>
   </div>
-  <p className="text-center text-base mt-4 px-12 md:px-24 lg:px-40 xl:px-52" style={{ color: '#727272', fontWeight: 500 }}>
+  <p className="text-center text-sm mt-3 px-12 md:px-24 lg:px-40 xl:px-52" style={{ color: '#727272' }}>
     Lo-fi wireframes translating the best sketch ideas into a testable structure.
   </p>
 </section>
 
 {/* Final Designs */}
-<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div />
-    <div className="space-y-6">
-      <h2 className="text-2xl md:text-3xl leading-tight">
-        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Final </span>
-        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>designs</span>
-      </h2>
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-        After validating the structure through wireframes, I moved into high-fidelity design, studying successful UI patterns in directory and contact flows (Dribbble and Mobbin were especially useful resources) and developing a basic design system to apply to the screens.
-      </p>
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-        Here's a breakdown of Constituent's key features and visual design system:
-      </p>
-    </div>
-  </div>
-</section>
-
-      {/* Rep Directory + Profiles */}
-<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    {/* Left: text */}
-    <div className="space-y-6">
-      <h3 className="text-2xl leading-tight">
-        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Rep directory + </span>
-        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>profiles</span>
-      </h3>
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-        Users can view all of their elected officials in one place. Each rep profile surfaces the information people actually look for, like biography and recent legislative activity. From the profile, users can contact their representative directly through the in-app form, or find alternative contact methods like phone numbers and mailing addresses.
-      </p>
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-        The goal was to prioritize the most sought-after information without overwhelming users who are just getting started.
-      </p>
-      <a href="#" className="inline-flex items-center gap-2 text-base underline underline-offset-4 hover:opacity-70 transition-opacity" style={{ color: '#0B1D51' }}>
-        View prototype →
-      </a>
-    </div>
-    {/* Right: phone mockup placeholder */}
-    <div className="flex justify-center">
-      <div
-        className="w-64 h-[520px] flex items-center justify-center text-sm"
-        style={{ border: '1px solid #2B2B2B', borderRadius: '40px', backgroundColor: '#E0DBDE', color: '#A1869E' }}
-      >
-        Rep directory gif
+    <div className="space-y-10">
+      <div className="space-y-4">
+        <h2 className="text-2xl md:text-3xl leading-tight">
+          <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Final </span>
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>designs</span>
+        </h2>
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+          After validating the structure through wireframes, I moved into high-fidelity design, studying successful UI patterns in directory and contact flows (Dribbble and Mobbin were especially useful resources) and developing a basic design system to apply to the screens.
+        </p>
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+          Here's a breakdown of Constituent's key features and visual design system:
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-{/* Multi-rep contact flow */}
-<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
-  <div className="space-y-10">
-    <h3 className="text-2xl leading-tight text-center">
-      <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Multi-rep </span>
-      <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>contact flow</span>
-    </h3>
-    {/* Screens with arrows */}
-    <div className="flex items-center justify-between gap-2 overflow-x-auto pb-4" style={{ scrollbarWidth: 'none' }}>
-      {[
-        'Select which representative(s) to contact',
-        'Choose a template',
-        'Customize your message',
-        'Send message',
-      ].map((caption, i, arr) => (
-        <div key={caption} className="flex items-center gap-2 shrink-0">
-          <div className="flex flex-col items-center gap-3">
-            <div
-              className="w-48 h-96 flex items-center justify-center text-sm text-center px-3"
-              style={{ border: '1px solid #2B2B2B', borderRadius: '32px', backgroundColor: '#E0DBDE', color: '#A1869E' }}
-            >
-              Screen {i + 1}
-            </div>
-            <p className="text-sm text-center max-w-[160px]" style={{ color: '#727272', fontWeight: 500 }}>
-              {caption}
-            </p>
-          </div>
-          {i < arr.length - 1 && (
-            <div className="shrink-0 pb-12" style={{ color: '#0B1D51' }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke="#0B1D51" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-          )}
-        </div>
-      ))}
+      {/* Rep Directory + Profiles */}
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    {/* Left: text */}
+    <div className="space-y-4">
+      <h3 className="text-2xl md:text-3xl leading-tight">
+        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Rep directory + </span>
+        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>profiles</span>
+      </h3>
+      <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+        Users can view all of their elected officials in one place. Each rep profile surfaces the information people actually look for, like biography and recent legislative activity. From the profile, users can contact their representative directly through the in-app form, or find alternative contact methods like phone numbers and mailing addresses.
+      </p>
+      <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+        The goal was to prioritize the most sought-after information without overwhelming users who are just getting started.
+      </p>
+      <a href="https://www.figma.com/proto/4S5A1vuaOJpVHWwKcuAklj/-external--Constituent?node-id=1-1769&t=WdJA5izv6TmLpGG2-1" className="inline-flex items-center gap-2 font-medium underline underline-offset-4 hover:opacity-70 transition-opacity" style={{ color: '#0B1D51' }}>
+        View prototype →
+      </a>
     </div>
-    {/* Caption */}
-    <p className="text-base text-center leading-relaxed max-w-3xl mx-auto" style={{ color: '#2B2B2B' }}>
-      The primary flow is where Constituent's core value plays out. Users can contact multiple representatives at once and choose from message templates if they need help framing their outreach. The multi-rep capability was a deliberate design choice: one of the biggest friction points in the current landscape is having to repeat this process from scratch for each official.
-    </p>
+    {/* Right: video */}
+      <div className="flex justify-center">
+        <video
+          src="/images/reps.mov"
+          autoPlay
+          loop
+          muted
+          playsInline
+          width={256}
+          className="rounded-[40px]"
+        />
+      </div>
   </div>
 </section>
 
-      {/* Visual Design Sticky Scroll */}
-<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+{/* Multi-rep contact flow */}
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
+  <div className="space-y-10">
+
+    {/* Heading */}
+    <h3 className="text-2xl md:text-3xl leading-tight text-center">
+      <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Multi-rep </span>
+      <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>contact flow</span>
+    </h3>
+
+    {/* Screens + captions */}
+    <div className="space-y-3">
+      {/* Image row + arrows */}
+      <div className="flex items-center justify-between gap-2">
+        {[
+          { src: '/images/contact-screen-1.png', caption: 'Select which representative(s) to contact' },
+          { src: '/images/contact-screen-2.png', caption: 'Choose a template' },
+          { src: '/images/contact-screen-3.png', caption: 'Customize your message' },
+          { src: '/images/contact-screen-4.png', caption: 'Send message' },
+        ].map((screen, i, arr) => (
+          <>
+            <div key={screen.src} className="flex-1">
+              <Image
+                src={screen.src}
+                alt={screen.caption}
+                width={240}
+                height={480}
+                className="rounded-[32px] w-full h-auto"
+              />
+            </div>
+            {i < arr.length - 1 && (
+              <div key={`arrow-${i}`} className="shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="#0B1D51" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+            )}
+          </>
+        ))}
+      </div>
+
+      {/* Caption row */}
+      <div className="flex justify-between gap-2">
+        {[
+          'Select which representative(s) to contact',
+          'Choose a template',
+          'Customize your message',
+          'Send message',
+        ].map((caption) => (
+          <p key={caption} className="flex-1 text-sm text-center max-w-[240px] mx-auto" style={{ color: '#727272' }}>
+            {caption}
+          </p>
+        ))}
+      </div>
+    </div>
+
+    {/* Description */}
+    <p className="text-base font-medium text-center leading-relaxed" style={{ color: '#2B2B2B' }}>
+      The primary flow is where Constituent's core value plays out. Users can contact multiple representatives at once and choose from message templates if they need help framing their outreach. The multi-rep capability was a deliberate design choice: one of the biggest friction points in the current landscape is having to repeat this process from scratch for each official.
+    </p>
+
+  </div>
+</section>
+
+   {/* Visual Design Sticky Scroll */}
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
   <VisualDesignScroll />
 </section>
-      {/* Accessibility */}
-<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+
+   {/* Accessibility */}
+<section className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div />
-    <div className="space-y-6">
-      <h2 className="text-2xl md:text-3xl leading-tight">
-        <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>Accessibility </span>
-        <span className="font-serif italic" style={{ color: '#2B2B2B' }}>considerations</span>
-      </h2>
-      <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
-        Equity and inclusion is central to my design philosophy, so I made sure that accessibility featured into my design decisions early on, not just after the fact:
-      </p>
-      <div
-        className="p-8 space-y-6"
-        style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '32px' }}
-      >
-        {[
-          {
-            title: 'High Contrast:',
-            body: 'Text color combinations meet or exceed WCAG AA accessibility standards, ensuring legibility for users with visual impairments.',
-          },
-          {
-            title: 'Accessible Touch Targets:',
-            body: 'Interactive elements are 44x44px minimum with adequate spacing, supporting users with motor impairments or limited dexterity.',
-          },
-          {
-            title: 'Clear Structure:',
-            body: 'Consistent layouts and descriptive labels create predictable patterns that reduce cognitive load and support screen reader users.',
-          },
-        ].map((item) => (
-          <div key={item.title} className="flex items-start gap-4">
-            <div className="shrink-0 mt-1">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="#A1869E">
-                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
-              </svg>
+    <div className="space-y-10">
+      <div className="space-y-4">
+        <h2 className="text-2xl md:text-3xl leading-tight">
+          <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>Accessibility </span>
+          <span className="font-serif italic" style={{ color: '#2B2B2B' }}>considerations</span>
+        </h2>
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
+          Equity and inclusion is central to my design philosophy, so I made sure that accessibility featured into my design decisions early on, not just after the fact:
+        </p>
+        <div
+          className="p-8 space-y-6"
+          style={{ backgroundColor: '#FFFDFC', border: '1px solid #2B2B2B', borderRadius: '32px' }}
+        >
+          {[
+            {
+              title: 'High Contrast:',
+              body: 'Text color combinations meet or exceed WCAG AA accessibility standards, ensuring legibility for users with visual impairments.',
+            },
+            {
+              title: 'Accessible Touch Targets:',
+              body: 'Interactive elements are 44x44px minimum with adequate spacing, supporting users with motor impairments or limited dexterity.',
+            },
+            {
+              title: 'Clear Structure:',
+              body: 'Consistent layouts and descriptive labels create predictable patterns that reduce cognitive load and support screen reader users.',
+            },
+          ].map((item) => (
+            <div key={item.title} className="flex items-start gap-4">
+              <div className="shrink-0 mt-1 w-6 h-6 flex items-center justify-center">
+                <Image src="images/star.svg" alt="" width={20} height={20} />
+              </div>
+              <p className="text-base font-medium leading-relaxed">
+                <span className="font-semibold" style={{ color: '#0B1D51' }}>{item.title}</span>{' '}
+                <span style={{ color: '#2B2B2B' }}>{item.body}</span>
+              </p>
             </div>
-            <p className="text-base leading-relaxed">
-              <span className="font-semibold" style={{ color: '#0B1D51' }}>{item.title}</span>{' '}
-              <span style={{ color: '#2B2B2B' }}>{item.body}</span>
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 {/* Reflections */}
-<section id="reflections" className="px-12 md:px-24 lg:px-40 xl:px-52 py-12" style={{ backgroundColor: '#F8F6F2' }}>
+<section id="reflections" className="px-12 md:px-24 lg:px-40 xl:px-52 py-16" style={{ backgroundColor: '#F8F6F2' }}>
   <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
     <div>
       <span className="inline-block rounded-full px-5 py-2 text-base font-medium" style={{ border: '2px solid #A1869E', color: '#0B1D51' }}>
@@ -1072,49 +1169,54 @@ export default function ConstituentPage() {
       </span>
     </div>
     <div className="space-y-10">
+
       {/* Next steps */}
       <div className="space-y-4">
         <h2 className="text-2xl md:text-3xl leading-tight">
           <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Next </span>
           <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>steps</span>
         </h2>
-        <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
           Constituent is currently in development with an engineering partner. At the same time, I'm running a usability study on the primary contact flow, with plans to iterate on the designs as findings come in.
         </p>
-        <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
           Immediate next steps include incorporating study results, designing additional flows and screens (bill summaries, outreach impact stats, etc.), and continuing to seek feedback from other designers along the way.
         </p>
       </div>
+
       {/* Key takeaways */}
       <div className="space-y-4">
         <h2 className="text-2xl md:text-3xl leading-tight">
           <span className="font-serif italic" style={{ color: '#2B2B2B' }}>Key </span>
           <span className="font-sans font-semibold" style={{ color: '#2B2B2B' }}>takeaways</span>
         </h2>
-        <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
           Working on this project truly helped me grow my skills as a designer and researcher. I learned the importance of defining a clear MVP, seeking feedback often, and investing early in a design system — all of which helped in keeping the work focused, efficient, and user-centered.
         </p>
-        <p className="text-base leading-relaxed" style={{ color: '#2B2B2B' }}>
+        <p className="text-base font-medium leading-relaxed" style={{ color: '#2B2B2B' }}>
           More than anything, Constituent deepened my interest in the world of civic tech. My biggest takeaway from this project is the reminder that (good) design is one of the most powerful tools we can leverage to make democracy more inclusive and strengthen civic (people) power.
         </p>
       </div>
+
     </div>
   </div>
 </section>
-      {/* Footer */}
-      <footer style={{ borderTop: '3px solid #0B1D51', backgroundColor: '#F8F6F2' }}>
-        <div className="px-12 md:px-24 lg:px-40 xl:px-52 py-8 flex items-center justify-between">
-          <nav className="flex items-center gap-1 text-base font-medium" style={{ color: '#0B1D51' }}>
-            <a href="mailto:1samanthacheng@gmail.com" className="hover:underline">email</a>
-            <span>•</span>
-            <Link href="https://drive.google.com/file/d/1LHSMNdxSdx8YOiZg-sMNXgTVcZH7OG57/view?usp=drive_link" className="hover:underline">resume</Link>
-            <span>•</span>
-            <a href="https://www.linkedin.com/in/s-cheng/" target="_blank" rel="noopener noreferrer" className="hover:underline">linkedin</a>
-          </nav>
-          <div className="flex items-center gap-6">
-            <span className="text-base font-medium" style={{ color: '#2B2B2B' }}>© Sam Cheng, 2026</span>
-          </div>
-        </div>
+
+{/* Footer */}
+<footer style={{ borderTop: '3px solid #0B1D51', backgroundColor: '#F8F6F2' }}>
+  <div className="px-12 md:px-24 lg:px-40 xl:px-52 py-8 flex items-center justify-between">
+    <nav className="flex items-center gap-1 text-base font-medium" style={{ color: '#0B1D51' }}>
+      <a href="mailto:1samanthacheng@gmail.com" className="hover:underline">email</a>
+      <span>•</span>
+      <Link href="https://drive.google.com/file/d/1LHSMNdxSdx8YOiZg-sMNXgTVcZH7OG57/view?usp=drive_link" className="hover:underline">resume</Link>
+      <span>•</span>
+      <a href="https://www.linkedin.com/in/s-cheng/" target="_blank" rel="noopener noreferrer" className="hover:underline">linkedin</a>
+    </nav>
+    <div className="flex items-center gap-6">
+      <span className="text-base font-medium" style={{ color: '#2B2B2B' }}>© Sam Cheng, 2026</span>
+    </div>
+  </div>
+
       </footer>
       <BackToTop
         borderColor="border-[#0B1D51]"

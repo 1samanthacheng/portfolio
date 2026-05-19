@@ -23,7 +23,7 @@ export default function About() {
         </div>
         
         {/* Heading + Photo row */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 md:gap-24 mb-12">
           <div className="md:max-w-2xl">
             <h1 className="mb-8 text-4xl leading-tight tracking-tight md:text-5xl">
               <span className="font-serif italic">Hello, I&apos;m</span>{" "}
@@ -39,7 +39,7 @@ export default function About() {
                 human-centered design, systems thinking, and equity work.
               </p>
               <p>
-                Outside of work, you can find me making (and eating) ice cream, exploring someplace
+                Outside of the office, you can find me making (and eating) ice cream, exploring someplace
                 outdoors, and playing with my cat Boots.
               </p>
               <p>
@@ -64,9 +64,9 @@ export default function About() {
           </div>
           
           {/* Photo Column */}
-          <div className="shrink-0 md:mt-20 flex flex-col gap-3">
+          <div className="shrink-0 flex flex-col items-end gap-0 md:min-w-[280px] lg:min-w-[320px]">
             {/* Headshot */}
-            <div className="group relative w-80 aspect-[4/5] overflow-hidden rounded-[24px] border border-[#2b2b2b]">
+            <div className="group relative w-64 md:w-72 lg:w-80 aspect-[4/5] overflow-hidden rounded-[24px] border border-[#2b2b2b] lg:-mt-12">
               <Image
                 src="/images/sam-headshot.JPG"
                 alt="Sam Cheng in Chinatown holding green grapes on a skewer"
@@ -74,8 +74,6 @@ export default function About() {
                 className="object-cover"
                 priority
               />
-
-              {/* Hover caption */}
               <div className="absolute top-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                 <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
                   photo by Joel Lee
@@ -84,27 +82,26 @@ export default function About() {
             </div>
 
             {/* Spring snapshot */}
-            <div className="group relative w-40 h-40 overflow-hidden rounded-[16px] border border-[#2b2b2b]">
+            <div className="group relative z-10 w-36 h-36 lg:w-40 lg:h-40 overflow-hidden rounded-[16px] border border-[#2b2b2b] mt-3 lg:-mt-20 lg:-ml-12 mr-auto">
               <Image
                 src="/images/cherry-blossoms.jpeg"
                 alt="Cherry blossom tree against blue sky with the moon"
                 fill
                 className="object-cover"
               />
-
-              {/* Hover caption */}
               <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                 <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
                   spring snapshot
                 </span>
               </div>
             </div>
-          </div> {/* Closes Photo Column */}
-        </div> {/* Closes Heading + Photo row */}
-        
-        {/* Experience Section */}
-        <div className="mt-16">
-          <div className="mb-10">
+          </div>
+        </div>
+
+        {/* Experience Section - Increased mt to 32 */}
+        <div className="mt-40">
+          {/* Reduced mb to 6 to match Skills section */}
+          <div className="mb-6">
             <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
               Experience
             </span>
@@ -141,31 +138,31 @@ export default function About() {
                 years: "2021",
                 description: "Farming the city, tending to the earth",
               },
-            ].map((job) => (
+            ].map((job, index, array) => (
               <div key={job.title + job.company}>
                 <div className="flex items-start justify-between py-6">
                   <div>
-                    <p className="text-base font-semibold text-foreground">
+                    <p className="text-lg font-semibold text-foreground">
                       {job.title} • {job.company}
                     </p>
-                    <p className="mt-1 text-base font-medium text-muted-foreground">{job.description}</p>
+                    <p className="mt-1 text-lg font-medium text-muted-foreground">{job.description}</p>
                   </div>
-                  <span className="ml-8 shrink-0 text-base font-medium text-foreground">{job.years}</span>
+                  <span className="ml-8 shrink-0 text-lg font-medium text-foreground">{job.years}</span>
                 </div>
-                <div className="h-px bg-border" />
+                {/* Logic to hide last line */}
+                {index !== array.length - 1 && <div className="h-px bg-border" />}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Skills + Tools Section */}
-        <div className="mt-16">
-          <div className="mb-10">
+        {/* Skills + Tools Section - Increased mt to 40 */}
+        <div className="mt-32">
+          <div className="mb-6">
             <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
               Skills + tools
             </span>
           </div>
-          {/* Skills pills */}
           <div className="flex flex-wrap gap-3 mb-10">
             {[
               "Design thinking",
@@ -182,130 +179,109 @@ export default function About() {
             ].map((skill) => (
               <span
                 key={skill}
-                className="inline-block rounded-full border border-foreground bg-[#FFFDFC] px-5 py-2 text-base font-semibold text-foreground"
+                className="inline-block rounded-full px-5 py-2 text-lg font-semibold text-foreground bg-muted"
               >
                 {skill}
               </span>
             ))}
           </div>
-          {/* Tools */}
-        <div className="flex flex-wrap gap-3">
-          {[
-            { name: "Figma",        logo: "/images/figma.png" },
-            { name: "Claude",       logo: "/images/claude.svg" },
-            { name: "Bolt",         logo: "/images/bolt.png" },
-            { name: "Maze",         logo: "/images/maze.png" },
-            { name: "Pen + Paper",  logo: "/images/pen-paper.png" },
-          ].map((tool) => (
-            <div
-              key={tool.name}
-              className="flex flex-col items-center justify-center gap-3 rounded-xl border border-foreground bg-[#FFFDFC] py-6 px-6 w-32 h-32"
-            >
-              <div className="h-10 w-10 flex items-center justify-center">
-                <Image
-                  src={tool.logo}
-                  alt={tool.name + " logo"}
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                  // Removed the onError handler to allow static HTML rendering
-                />
-              </div>
-              <span className="text-sm font-semibold text-foreground text-center leading-tight">
-                {tool.name}
-              </span>
-            </div>
-          ))}
+          {/* Tools — logo + label row */}
+  <div className="flex flex-wrap gap-8">
+    {[
+      { name: "Figma",       logo: "/images/figma.png",     size: 24 },
+      { name: "Claude",      logo: "/images/claude.png",    size: 32 },
+      { name: "Bolt",        logo: "/images/bolt.png",      size: 42 },
+      { name: "Maze",        logo: "/images/maze.svg",      size: 32 },
+      { name: "Pen + Paper", logo: "/images/pen-paper.svg", size: 32 },
+    ].map((tool) => (
+      <div key={tool.name} className="flex items-center gap-3">
+        <div className="h-16 w-16 flex items-center justify-center rounded-lg bg-muted shrink-0">
+          <Image
+            src={tool.logo}
+            alt={tool.name + " logo"}
+            width={tool.size}
+            height={tool.size}
+            className="object-contain"
+          />
         </div>
-        </div>
+        <span className="text-lg font-semibold text-foreground">{tool.name}</span>
+      </div>
+    ))}
+  </div>
+</div>
 
-        {/* Currently Section */}
-        <div className="mt-16">
-          <div className="flex flex-col md:flex-row md:items-start gap-10">
-            {/* Left Column: label + photo */}
-            <div className="flex flex-col gap-6 md:w-64 shrink-0">
+        {/* Currently Section - Increased mt to 40 */}
+        <div className="mt-40">
+          <div className="flex flex-col md:flex-row md:items-start gap-12 lg:gap-24">
+            <div className="flex flex-col justify-between md:w-64 shrink-0 self-stretch">
               <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary w-fit">
                 Currently
               </span>
               
-              {/* Boots Container */}
-              <div className="group relative w-64 h-72 overflow-hidden rounded-[24px] border border-[#2b2b2b]">
+              <div className="group relative w-64 h-72 overflow-hidden rounded-[24px] border border-[#2b2b2b] mt-12 md:mt-0">
                 <Image
-                  src="/images/boots.jpeg" // Checked & matching your public folder convention
+                  src="/images/boots.jpeg"
                   alt="Boots, tuxedo cat on buffet table"
                   fill
                   className="object-cover"
                   priority
                 />
-
-                {/* Hover caption */}
                 <div className="absolute top-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <span className="inline-block bg-white/90 backdrop-blur-sm text-[#2b2b2b] text-xs font-medium px-3 py-1.5 rounded-full whitespace-nowrap">
                     baby Boots
                   </span>
                 </div>
-              </div> {/* Closes Boots Container */}
-            </div> {/* Closes Left Column */}
+              </div>
+            </div>
 
-            {/* Right Column: table */}
-            <div className="flex-1">
-              {[
-                {
-                  label: "Reading:",
-                  value: "The City and Its Uncertain Walls by Haruki Murakami",
-                  link: null,
-                },
-                {
-                  label: "Listening to:",
-                  value: "Madwoman by Laufey",
-                  link: null,
-                },
-                {
-                  label: "Training for:",
-                  value: "Grand Teton Half Marathon",
-                  link: null,
-                },
-                {
-                  label: "Inspired by:",
-                  value: "Are.na boards (like ",
-                  suffix: "this one",
-                  link: "https://www.are.na/j-split/wild-wild-web",
-                  after: ")",
-                },
-                {
-                  label: "Dreaming of:",
-                  value: "San Tung chicken wings",
-                  link: null,
-                },
-              ].map((item) => (
-                <div key={item.label}>
-                  <div className="flex items-baseline gap-12 py-6">
-                    <span className="w-36 shrink-0 text-base font-medium text-foreground">{item.label}</span>
-                    <span className="text-base font-medium text-foreground">
-                      {item.link ? (
-                        <>
-                          {item.value}
-                          <a
-                            href={item.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="underline underline-offset-4 text-primary hover:text-[#FF5D1F] transition-colors"
-                          >
-                            {item.suffix}
-                          </a>
-                          {item.after}
-                        </>
-                      ) : (
-                        item.value
-                      )}
-                    </span>
-                  </div>
-                  <div className="h-px bg-border" />
-                </div>
-              ))}
-            </div> {/* Closes Right Column */}
-          </div> {/* Closes flex container */}
-        </div> {/* Closes Currently Section */}
+            {/* Right Column: table - removed pt-2 and added logic for first-item padding */}
+<div className="flex-1">
+  {[
+    { label: "Reading:", value: "The City and Its Uncertain Walls by Haruki Murakami", link: null },
+    { label: "Listening to:", value: "Madwoman by Laufey", link: null },
+    { label: "Training for:", value: "Grand Teton Half Marathon", link: null },
+    {
+      label: "Inspired by:",
+      value: "Are.na boards (like ",
+      suffix: "this one",
+      link: "https://www.are.na/j-split/wild-wild-web",
+      after: ")",
+    },
+    { label: "Dreaming of:", value: "San Tung chicken wings", link: null },
+  ].map((item, index, array) => (
+    <div key={item.label}>
+      {/* Conditional Padding: 
+          - First item (index 0) gets pb-9 (bottom only) to align with badge top.
+          - Other items get py-9 (top and bottom).
+      */}
+      <div className={`flex items-start gap-12 ${index === 0 ? "pb-9" : "py-9"}`}>
+        <span className="w-36 shrink-0 text-lg font-medium text-foreground">{item.label}</span>
+        <span className="text-lg font-medium text-foreground">
+          {item.link ? (
+            <>
+              {item.value}
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4 text-primary hover:text-[#FF5D1F] transition-colors"
+              >
+                {item.suffix}
+              </a>
+              {item.after}
+            </>
+          ) : (
+            item.value
+          )}
+        </span>
+      </div>
+
+      {index !== array.length - 1 && <div className="h-px bg-border" />}
+    </div>
+  ))}
+</div>
+          </div>
+        </div>
       </section>
       <Footer />
       <BackToTop />

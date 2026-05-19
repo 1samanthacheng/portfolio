@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -11,12 +11,13 @@ export function Hero() {
   return (
     <section className="relative flex h-[calc(100vh-91px)] flex-col justify-center px-12 md:px-24 lg:px-40 xl:px-52 overflow-hidden">
       <div className="w-full flex items-center justify-between gap-8">
-
         {/* Left: copy */}
         <div className="flex-1 min-w-0">
           {/* Welcome Badge */}
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border-2 border-primary px-5 py-2">
-            <span className="text-base text-primary md:text-base font-medium">Welcome</span>
+            <span className="text-base text-primary md:text-base font-medium">
+              Welcome
+            </span>
             <Happy className="text-[#FF5D1F]" />
           </div>
 
@@ -30,7 +31,9 @@ export function Hero() {
 
           {/* Description */}
           <p className="mb-8 text-lg leading-relaxed font-medium text-muted-foreground md:text-xl">
-            Designing research-driven, human-centered experiences for a more equitable and resilient world (with a soft spot for food, climate, and community-building).
+            Designing research-driven, human-centered experiences for a more
+            equitable and resilient world (with a soft spot for food, climate,
+            and community-building).
           </p>
 
           {/* CTA Link */}
@@ -76,7 +79,6 @@ export function Hero() {
               </span>
             </div>
           </div>
-
         </div>
       </div>
     </section>

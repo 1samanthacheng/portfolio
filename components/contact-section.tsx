@@ -1,14 +1,9 @@
 "use client";
 
-import { useIsVisible } from "@/hooks/use-is-invisible";
-
 export function ContactSection() {
-  const { ref, isVisible } = useIsVisible();
-
   return (
     <section
-      ref={ref}
-      className={`px-12 md:px-24 lg:px-40 xl:px-52 transition-opacity ease-in duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
+      className={`px-12 md:px-24 lg:px-40 xl:px-52 transition-opacity ease-in duration-700 opacity-100`}
     >
       {/* Content — changed py to pt (top) and pb (bottom) */}
       <div className="pt-16 pb-32 md:pt-24 md:pb-48">

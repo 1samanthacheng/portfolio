@@ -9,6 +9,15 @@ interface ApproachCardProps {
   italicWord?: string;
 }
 
+interface ApproachData {
+  imageSrc: string;
+  imageAlt: string;
+  titleItalic: string;
+  titleBold: string;
+  description: string;
+  italicWord?: string;
+}
+
 function ApproachCard({
   imageSrc,
   imageAlt,
@@ -54,14 +63,14 @@ function ApproachCard({
   );
 }
 
-const approachData = [
+const approachData: ApproachData[] = [
   {
     imageSrc: "/images/approach-curiosity.png",
     imageAlt: "Dot pattern representing curiosity and exploration",
     titleItalic: "Start with",
     titleBold: "curiosity",
     description:
-      "I try to approach every problem with an open mind, ready to listen and learn before I conclude. These human stories and insights shape what I build and keep my work grounded in what users actually need.",
+      "I try to approach every problem with an open mind, ready to listen and learn before I conclude. Human stories and insights shape what I build — and sometimes completely reframe the problem itself. The goal is always to let the people you're designing for guide the way.",
   },
   {
     imageSrc: "/images/approach-improve.png",
@@ -69,7 +78,7 @@ const approachData = [
     titleItalic: "Make, test,",
     titleBold: "improve",
     description:
-      "My process involves experimenting often, seeking feedback early, and working imperfectly to get closer to the best solutions — while understanding that there's never one right answer, only better ones.",
+      "My process involves experimenting often, seeking feedback early, and working imperfectly across many possible directions. There's never one right answer, only the one that best fits the people, the problem, and the moment.",
   },
   {
     imageSrc: "/images/approach-care.png",
@@ -78,7 +87,6 @@ const approachData = [
     titleBold: "form of care",
     description:
       "I believe in designing with communities, not just for them. The people closest to a problem understand it best, and the most impactful and equitable design creates space for that knowledge to lead.",
-    italicWord: "with",
   },
 ];
 

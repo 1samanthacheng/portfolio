@@ -13,13 +13,14 @@ const dmSans = DM_Sans({
 const lora = Lora({
   subsets: ["latin"],
   variable: "--font-lora",
+  weight: ["400"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Sam Cheng | Product Designer",
   description:
-    "Product designer building for social good. Designing research-driven, human-centered experiences at the intersection of technology + public life, community, and regenerative systems change.",
+    "Designing research-driven, human-centered experiences for a more equitable and resilient world (with a soft spot for food, climate, and community-building).",
   icons: {
     icon: [
       {
@@ -45,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${lora.variable} bg-background`}>
+    <html lang="en" className={`${dmSans.variable} ${lora.variable} bg-background scroll-smooth`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

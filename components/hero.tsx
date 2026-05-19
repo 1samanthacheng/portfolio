@@ -3,11 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Happy } from "@/components/icons";
-import { useIsVisible } from "@/hooks/use-is-invisible";
 
 export function Hero() {
-  const { ref, isVisible } = useIsVisible();
-
   return (
     <section className="relative flex h-[calc(100vh-91px)] flex-col justify-center px-12 md:px-24 lg:px-40 xl:px-52 overflow-hidden">
       <div className="w-full flex items-center justify-between gap-8">

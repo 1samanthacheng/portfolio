@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useIsVisible } from "@/hooks/use-is-invisible";
 
 function ArrowRightIcon({ className }: { className?: string }) {
   return (
@@ -24,13 +23,10 @@ function ArrowRightIcon({ className }: { className?: string }) {
 }
 
 export function WorkSection() {
-  const { ref, isVisible } = useIsVisible();
-
   return (
     <section
-      ref={ref}
       id="work"
-      className={`scroll-mt-24 transition-opacity ease-in duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
+      className={`scroll-mt-24 transition-opacity ease-in duration-700 opacity-100`}
     >
       <div className="px-12 py-16 md:px-24 md:py-20 lg:px-40 lg:py-24 xl:px-52">
         {/* Work Badge */}

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useIsVisible } from "@/hooks/use-is-invisible";
 
 interface ApproachCardProps {
   imageSrc: string;
@@ -94,12 +93,9 @@ const approachData: ApproachData[] = [
 ];
 
 export function ApproachSection() {
-  const { ref, isVisible } = useIsVisible();
-
   return (
     <section
-      ref={ref}
-      className={`px-12 py-16 md:px-24 md:py-20 lg:px-40 lg:py-24 xl:px-52 transition-opacity ease-in duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
+      className={`px-12 py-16 md:px-24 md:py-20 lg:px-40 lg:py-24 xl:px-52 transition-opacity ease-in duration-700 opacity-100`}
     >
       <div className="flex flex-col gap-12 lg:flex-row lg:gap-32">
         {/* Left col: pill, pinned to top */}

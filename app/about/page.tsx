@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Hand } from "lucide-react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { BackToTop } from "@/components/back-to-top";
@@ -17,11 +17,12 @@ export default function About() {
       <section className="px-12 md:px-24 lg:px-40 xl:px-52 py-16 md:py-24">
         {/* Label */}
         <div className="mb-10">
-          <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary">
+          <span className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-5 py-2 text-base font-medium text-primary">
             About me
+            <Hand className="text-[#FF5D1F]" />
           </span>
         </div>
-        
+
         {/* Heading + Photo row */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 md:gap-24 mb-12">
           <div className="md:max-w-2xl">
@@ -62,7 +63,7 @@ export default function About() {
               </p>
             </div>
           </div>
-          
+
           {/* Photo Column */}
           <div className="shrink-0 flex flex-col items-end gap-0 md:min-w-[280px] lg:min-w-[320px]">
             {/* Headshot */}
@@ -186,29 +187,29 @@ export default function About() {
             ))}
           </div>
           {/* Tools — logo + label row */}
-  <div className="flex flex-wrap gap-8">
-    {[
-      { name: "Figma",       logo: "/images/figma.png",     size: 24 },
-      { name: "Claude",      logo: "/images/claude.png",    size: 32 },
-      { name: "Bolt",        logo: "/images/bolt.png",      size: 42 },
-      { name: "Maze",        logo: "/images/maze.svg",      size: 32 },
-      { name: "Pen + Paper", logo: "/images/pen-paper.svg", size: 32 },
-    ].map((tool) => (
-      <div key={tool.name} className="flex items-center gap-3">
-        <div className="h-16 w-16 flex items-center justify-center rounded-lg bg-muted shrink-0">
-          <Image
-            src={tool.logo}
-            alt={tool.name + " logo"}
-            width={tool.size}
-            height={tool.size}
-            className="object-contain"
-          />
+          <div className="flex flex-wrap gap-8">
+            {[
+              { name: "Figma", logo: "/images/figma.png", size: 24 },
+              { name: "Claude", logo: "/images/claude.png", size: 32 },
+              { name: "Bolt", logo: "/images/bolt.png", size: 42 },
+              { name: "Maze", logo: "/images/maze.svg", size: 32 },
+              { name: "Pen + Paper", logo: "/images/pen-paper.svg", size: 32 },
+            ].map((tool) => (
+              <div key={tool.name} className="flex items-center gap-3">
+                <div className="h-16 w-16 flex items-center justify-center rounded-lg bg-muted shrink-0">
+                  <Image
+                    src={tool.logo}
+                    alt={tool.name + " logo"}
+                    width={tool.size}
+                    height={tool.size}
+                    className="object-contain"
+                  />
+                </div>
+                <span className="text-lg font-semibold text-foreground">{tool.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <span className="text-lg font-semibold text-foreground">{tool.name}</span>
-      </div>
-    ))}
-  </div>
-</div>
 
         {/* Currently Section - Increased mt to 40 */}
         <div className="mt-40">
@@ -217,7 +218,7 @@ export default function About() {
               <span className="inline-block rounded-full border-[2px] border-primary px-5 py-2 text-base font-medium text-primary w-fit">
                 Currently
               </span>
-              
+
               <div className="group relative w-64 h-72 overflow-hidden rounded-[24px] border border-[#2b2b2b] mt-12 md:mt-0">
                 <Image
                   src="/images/boots.jpeg"
@@ -235,51 +236,51 @@ export default function About() {
             </div>
 
             {/* Right Column: table - removed pt-2 and added logic for first-item padding */}
-<div className="flex-1">
-  {[
-    { label: "Reading:", value: "The City and Its Uncertain Walls by Haruki Murakami", link: null },
-    { label: "Listening to:", value: "Madwoman by Laufey", link: null },
-    { label: "Training for:", value: "Grand Teton Half Marathon", link: null },
-    {
-      label: "Inspired by:",
-      value: "Are.na boards (like ",
-      suffix: "this one",
-      link: "https://www.are.na/j-split/wild-wild-web",
-      after: ")",
-    },
-    { label: "Dreaming of:", value: "San Tung chicken wings", link: null },
-  ].map((item, index, array) => (
-    <div key={item.label}>
-      {/* Conditional Padding: 
+            <div className="flex-1">
+              {[
+                { label: "Reading:", value: "The City and Its Uncertain Walls by Haruki Murakami", link: null },
+                { label: "Listening to:", value: "Madwoman by Laufey", link: null },
+                { label: "Training for:", value: "Grand Teton Half Marathon", link: null },
+                {
+                  label: "Inspired by:",
+                  value: "Are.na boards (like ",
+                  suffix: "this one",
+                  link: "https://www.are.na/j-split/wild-wild-web",
+                  after: ")",
+                },
+                { label: "Dreaming of:", value: "San Tung chicken wings", link: null },
+              ].map((item, index, array) => (
+                <div key={item.label}>
+                  {/* Conditional Padding: 
           - First item (index 0) gets pb-9 (bottom only) to align with badge top.
           - Other items get py-9 (top and bottom).
       */}
-      <div className={`flex items-start gap-12 ${index === 0 ? "pb-9" : "py-9"}`}>
-        <span className="w-36 shrink-0 text-lg font-medium text-foreground">{item.label}</span>
-        <span className="text-lg font-medium text-foreground">
-          {item.link ? (
-            <>
-              {item.value}
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-4 text-primary hover:text-[#FF5D1F] transition-colors"
-              >
-                {item.suffix}
-              </a>
-              {item.after}
-            </>
-          ) : (
-            item.value
-          )}
-        </span>
-      </div>
+                  <div className={`flex items-start gap-12 ${index === 0 ? "pb-9" : "py-9"}`}>
+                    <span className="w-36 shrink-0 text-lg font-medium text-foreground">{item.label}</span>
+                    <span className="text-lg font-medium text-foreground">
+                      {item.link ? (
+                        <>
+                          {item.value}
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline underline-offset-4 text-primary hover:text-[#FF5D1F] transition-colors"
+                          >
+                            {item.suffix}
+                          </a>
+                          {item.after}
+                        </>
+                      ) : (
+                        item.value
+                      )}
+                    </span>
+                  </div>
 
-      {index !== array.length - 1 && <div className="h-px bg-border" />}
-    </div>
-  ))}
-</div>
+                  {index !== array.length - 1 && <div className="h-px bg-border" />}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

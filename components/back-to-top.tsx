@@ -62,13 +62,15 @@ export function BackToTop({
     <button
       onClick={scrollToTop}
       aria-label="Scroll to top"
-      className={`group fixed bottom-6 right-6 z-50 flex h-10 w-10 items-center justify-center rounded border transition-all duration-200 hover:-translate-y-[3px] ${borderColor} ${hoverBorderColor} ${bg}`}      
+      className={`group fixed bottom-6 right-6 z-50 flex h-10 w-10 items-center justify-center rounded border transition-all duration-200 hover:-translate-y-[3px] ${borderColor} ${hoverBorderColor} ${bg}`}
       style={{
         opacity: isVisible ? 1 : 0,
         pointerEvents: isVisible ? "auto" : "none",
       }}
     >
-      <ArrowUpIcon className={`transition-all duration-200 ${arrowColor} ${hoverArrowColor}`} />
+      <ArrowUpIcon
+        className={`transition-all duration-200 ${arrowColor} ${hoverArrowColor}`}
+      />
     </button>
   );
 }
